@@ -22,7 +22,7 @@
 char			*ft_strncpy(char *dest, char *src, size_t n);
 char			*ft_strcpy(char *dest, char *src);
 char			*ft_strchr(char *str, char c);
-char			*ft_strstr(char *str, char *to_find);
+char			*ft_strnstr(char *str, char *to_find);
 char			*ft_strdup(char *src);
 char			*ft_tolower(char *str);
 char			*ft_toupper(char *str);
