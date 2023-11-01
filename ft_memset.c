@@ -1,19 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 18:17:45 by otodd             #+#    #+#             */
-/*   Updated: 2023/10/30 18:17:51 by otodd            ###   ########.fr       */
+/*   Created: 2023/10/31 12:01:43 by otodd             #+#    #+#             */
+/*   Updated: 2023/10/31 12:30:55 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(char *str, int c)
+#include "libft.h"
+// #include <stdio.h>
+// #include <string.h>
+
+void	*ft_memset(void *s, int c, size_t n)
 {
-	while (*str)
-		if (*str++ == c)
-			return (--str);
+	unsigned char *ptr;
+
+	ptr = s;
+	while (n-- > 0)
+		*ptr++ = c;
+	return (s);
+}
+/*
+int	main(void)
+{
+	char	test[] = "this is a test";
+	char	test2[] = "this is a test";
+
+	ft_memset(test, 30, 8);
+	memset(test2, 30, 8);
+	printf("ORIGINAL: %s | FT: %s\n", test, test2);
 	return (0);
 }
+*/

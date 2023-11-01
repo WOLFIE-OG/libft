@@ -2,7 +2,7 @@ EXECUTABLE_NAME = libft.a
 
 COMPILER = cc
 # CFLAGS = -Wall -Wextra -Werror -lbsd
-CFLAGS = -lbsd
+CFLAGS = -lbsd 
 
 OBJ_DIR = binarys
 
