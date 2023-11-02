@@ -46,6 +46,10 @@ int	main(void)
 
 	char t_str_src_16[] = "THIS";
 
+	char t_str_src_17[] = "this is a test";
+
+	char t_str_src_18[] = "THIS IS A TEST";
+
 	char	test = 'b';
 	printf("atoi 	| Original: %d		| FT: %d\n", atoi("1234"), ft_atoi("1234"));
 	printf("isalpha | Original: %d		| FT: %d\n", isalpha(test), ft_isalpha(test));
@@ -62,7 +66,7 @@ int	main(void)
 	printf("strlcpy | Original: %zu		| FT: %zu\n", strlcpy(t_str_src_11, t_str_dest_11, 3), ft_strlcpy(t_str_src_12, t_str_dest_12, 3));
 	printf("strnstr | Original: %s		| FT: %s\n", strnstr(t_str_src_13, t_str_dest_13, ft_strlen(t_str_src_13)), ft_strnstr(t_str_src_14, t_str_dest_14, ft_strlen(t_str_src_14)));
 	printf("strchr 	| Original: %s		| FT: %s\n", strchr(t_str_src_15, 'T'), ft_strchr(t_str_src_16, 'T'));
-	/*printf(" | Original: % | FT: %\n");
-	printf(" | Original: % | FT: %\n");*/
+	printf("tolower | Original: %c		| FT: %c\n", tolower('A'), ft_tolower('A'));
+	printf("toupper | Original: %c		| FT: %c\n", toupper('a'), ft_toupper('a'));
 	return (0);
 }

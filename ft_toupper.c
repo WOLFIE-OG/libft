@@ -10,17 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_toupper(char *str)
-{
-	char		*new_string;
-	char const 	char_offset = ('a' - 'A');
+#include "libft.h"
 
-	new_string = str;
-	while (*str)
-	{
-		if (*str >= 'a' && *str <= 'z')
-			*str -= char_offset;
-		str++;
-	}
-	return (new_string);
+int	ft_toupper(int c)
+{
+	char const	char_offset = ('a' - 'A');
+
+	if (c >= 'a' && c <= 'z')
+		c -= char_offset;
+	return (c);
 }

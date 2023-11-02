@@ -10,17 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_tolower(char *str)
+int	ft_tolower(int c)
 {
-	char		*new_string;
-	char const 	char_offset = ('a' - 'A');
+	char const	char_offset = ('a' - 'A');
 
-	new_string = str;
-	while (*str)
-	{
-		if (*str >= 'A' && *str <= 'Z')
-			*str += char_offset;
-		str++;
-	}
-	return (new_string);
+	if (c >= 'A' && c <= 'Z')
+		c += char_offset;
+	return (c);
 }

@@ -17,7 +17,7 @@
 */
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	char	*proxy_d;
+	char		*proxy_d;
 	const char	*proxy_s = src;
 
 	proxy_d = dest;

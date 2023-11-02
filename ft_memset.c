@@ -11,27 +11,27 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include <stdio.h>
-// #include <string.h>
+#include <stdio.h>
+#include <string.h>
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned char *ptr;
+	unsigned char	*ptr;
 
 	ptr = s;
 	while (n-- > 0)
 		*ptr++ = c;
 	return (s);
 }
-/*
+
 int	main(void)
 {
 	char	test[] = "this is a test";
 	char	test2[] = "this is a test";
 
-	ft_memset(test, 30, 8);
-	memset(test2, 30, 8);
+	ft_memset(test, '-', 10);
+	memset(test2, '-', 10);
 	printf("ORIGINAL: %s | FT: %s\n", test, test2);
+	printf("%d", strcmp(test, test2));
 	return (0);
 }
-*/
