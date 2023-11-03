@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
-#include <stdio.h>
 
 int	ft_strncmp(char *s1, char *s2, size_t n)
 {
@@ -25,12 +23,4 @@ int	ft_strncmp(char *s1, char *s2, size_t n)
 		n--;
 	}
 	return (*s1 - *s2);
-}
-
-int	main(void)
-{
-	char	test[] = "tes";
-	char	test2[] = "test";
-
-	printf("Original: %d | FT: %d", strncmp(test, test2, 4), ft_strncmp(test, test2, 4));
 }

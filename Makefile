@@ -1,24 +1,26 @@
 EXECUTABLE_NAME = libft.a
 
 COMPILER = cc
-# CFLAGS = -Wall -Wextra -Werror -lbsd
-CFLAGS = -lbsd 
+CFLAGS = -Wall -Wextra -Werror -std=c99 -g
 
-OBJ_DIR = binarys
+OBJ_DIR = bin
 
-SOURCES = $(wildcard *.c)
-OBJS = $(patsubst %.c, $(OBJ_DIR)/%.o, $(SOURCES))
+SRCS = $(wildcard ft_*.c)
+OBJS = $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRCS))
 
 all: $(EXECUTABLE_NAME)
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -I libft.h -c $< -o $@
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
 $(EXECUTABLE_NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $@
+	ar rcs $(EXECUTABLE_NAME) $(OBJ_DIR)/*
+
+test:
+	cc 
 
 clean:
 	rm -rf $(OBJ_DIR)

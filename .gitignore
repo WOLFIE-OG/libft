@@ -1,4 +1,5 @@
-binarys/*
 .vscode
 **.a
 **.out
+**.o
+**.gch

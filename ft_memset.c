@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
 void	*ft_memset(void *s, int c, size_t n)
 {
@@ -22,16 +20,4 @@ void	*ft_memset(void *s, int c, size_t n)
 	while (n-- > 0)
 		*ptr++ = c;
 	return (s);
-}
-
-int	main(void)
-{
-	char	test[] = "this is a test";
-	char	test2[] = "this is a test";
-
-	ft_memset(test, '-', 10);
-	memset(test2, '-', 10);
-	printf("ORIGINAL: %s | FT: %s\n", test, test2);
-	printf("%d", strcmp(test, test2));
-	return (0);
 }
