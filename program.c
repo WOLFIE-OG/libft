@@ -223,9 +223,17 @@ void	test_tolower()
 void	test_strchr()
 {
 	char	test_string[] = "This is a test string, find the !.";
-	char	test_char = 'g';
+	char	test_char = 't';
 
 	assert_str(strchr(test_string, test_char), ft_strchr(test_string, test_char), (char *)__func__);
+}
+
+void	test_strrchr()
+{
+	char	test_string[] = "This is a test string, find the !.";
+	char	test_char = 't';
+
+	assert_str(strrchr(test_string, test_char), ft_strrchr(test_string, test_char), (char *)__func__);
 }
 
 int	main(void)
@@ -245,5 +253,6 @@ int	main(void)
 	test_toupper(); //Passing
 	test_tolower(); //Passing
 	test_strchr(); //Passing
+	test_strrchr(); //Passing
 	return (0);
 }

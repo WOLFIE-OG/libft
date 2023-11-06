@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,13 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *str, int c)
+#include "libft.h"
+
+char	*ft_strrchr(const char *str, int c)
 {
 	char	*proxy_str;
+	int		index;
 
 	proxy_str = (char *)str;
-	while (*proxy_str)
-		if (*proxy_str++ == c)
-			return (--proxy_str);
+	index = ft_strlen(proxy_str);
+	while (index-- > 0)
+		if (proxy_str[index] == c)
+			return (&proxy_str[index]);
 	return (0);
 }
