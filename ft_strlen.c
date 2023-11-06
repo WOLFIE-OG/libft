@@ -6,13 +6,13 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 17:35:59 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/06 17:31:08 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/06 17:48:01 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_strlen(char *str)
 {
-	int	length;
+	unsigned int	length;
 
 	length = 0;
 	while (*str++)

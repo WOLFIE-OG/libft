@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 11:07:32 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/06 17:31:04 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/06 17:47:23 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strcpy(char *dest, char *src)
 {
-	int	index;
+	unsigned int	index;
 
 	index = 0;
 	while (ft_strlen(dest) != ft_strlen(src))

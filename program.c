@@ -238,8 +238,10 @@ void	test_strrchr()
 
 void	test_strncmp()
 {
-	char	test_string[] = "This is a test string.";
+	char	test_string[] = "AThis is a test string.";
 	char	test_string_2[] = "This is a test string.";
+
+	assert_int(strncmp(test_string, test_string_2, 3), ft_strncmp(test_string, test_string_2, 3), (char *)__func__);
 
 }
 
@@ -261,5 +263,6 @@ int	main(void)
 	test_tolower(); //Passing
 	test_strchr(); //Passing
 	test_strrchr(); //Passing
+	test_strncmp();
 	return (0);
 }

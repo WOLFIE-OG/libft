@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 13:32:49 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/06 17:31:32 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/06 17:50:25 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_toupper(int c)
 {
-	char const	char_offset = ('a' - 'A');
+	const unsigned char	char_offset = ('a' - 'A');
 
 	if (c >= 'a' && c <= 'z')
 		c -= char_offset;

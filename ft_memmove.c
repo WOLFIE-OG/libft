@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 16:01:06 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/06 17:31:42 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/06 18:37:18 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char		*proxy_d;
-	const char	*proxy_s = src;
-	char		*end_d;
-	char		*end_s;
+	unsigned char		*proxy_d;
+	unsigned const char	*proxy_s = src;
+	unsigned char		*end_d;
+	unsigned char		*end_s;
 
 	proxy_d = dest;
 	if (proxy_d < proxy_s)

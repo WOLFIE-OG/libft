@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 17:20:33 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/06 17:31:06 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/06 17:47:47 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,3 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	dest[d_len] = '\0';
 	return (result);
 }
-

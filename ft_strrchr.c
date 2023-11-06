@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:17:45 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/06 17:31:30 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/06 17:48:17 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strrchr(const char *str, int c)
 {
-	char	*proxy_str;
-	int		index;
+	unsigned char	*proxy_str;
+	unsigned int	index;
 
 	proxy_str = (char *)str;
 	index = ft_strlen(proxy_str);
