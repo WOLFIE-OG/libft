@@ -236,6 +236,13 @@ void	test_strrchr()
 	assert_str(strrchr(test_string, test_char), ft_strrchr(test_string, test_char), (char *)__func__);
 }
 
+void	test_strncmp()
+{
+	char	test_string[] = "This is a test string.";
+	char	test_string_2[] = "This is a test string.";
+
+}
+
 int	main(void)
 {
 	test_isalpha(); //Passing
