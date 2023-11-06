@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <ctype.h>
 
-char EDGES[] = "===============================================================================";
+char EDGES[] = "====================================================================";
 
 void	assert_char(char original, char ft, char *func)
 {
