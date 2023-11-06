@@ -20,7 +20,9 @@ $(EXECUTABLE_NAME): $(OBJS)
 	ar rcs $(EXECUTABLE_NAME) $(OBJ_DIR)/*
 
 test:
-	cc 
+	clear
+	cc program.c libft.a ANSI-color-codes.h -lbsd -g
+	./a.out
 
 clean:
 	rm -rf $(OBJ_DIR)

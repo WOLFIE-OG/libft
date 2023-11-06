@@ -6,12 +6,13 @@
 #include <stdio.h>
 #include <ctype.h>
 
+char EDGES[] = "===============================================================================";
 
 void	assert_char(char original, char ft, char *func)
 {
 	int	result;
 
-	printf("\n=========================================================\n");
+	printf("\n%s\n", EDGES);
 	printf("\nFunction: "BLU"%s\n"reset, func);
 	result = (original == ft);
 	if (result)
@@ -26,14 +27,14 @@ void	assert_char(char original, char ft, char *func)
 		printf("\nComparison result: %d\n", result);
 		printf("\nExpected: "GRN"%c"reset" | Got: "RED"%c\n"reset, original, ft);
 	}
-	printf("\n=========================================================\n");
+	printf("\n%s\n", EDGES);
 }
 
 void	assert_str(char *original, char *ft, char *func)
 {
 	int	result;
 
-	printf("\n=========================================================\n");
+	printf("\n%s\n", EDGES);
 	printf("\nFunction: "BLU"%s\n"reset, func);
 	result = strcmp(original, ft);
 	if (!result)
@@ -48,16 +49,16 @@ void	assert_str(char *original, char *ft, char *func)
 		printf("\nComparison result: %d\n", result);
 		printf("\nExpected: "GRN"%s"reset" | Got: "RED"%s\n"reset, original, ft);
 	}
-	printf("\n=========================================================\n");
+	printf("\n%s\n", EDGES);
 }
 
 void	assert_mem(char *original, char *ft, char *func)
 {
 	int	result;
 
-	printf("\n=========================================================\n");
+	printf("\n%s\n", EDGES);
 	printf("\nFunction: "BLU"%s\n"reset, func);
-	result = memcmp(original, ft, sizeof(original));
+	result = memcmp(original, ft, strlen(original));
 	if (!result)
 	{
 		printf("\n"GRN"			PASSED!\n"reset);
@@ -70,14 +71,14 @@ void	assert_mem(char *original, char *ft, char *func)
 		printf("\nComparison result: %d\n", result);
 		printf("\nExpected: "GRN"%s"reset" | Got: "RED"%s\n"reset, original, ft);
 	}
-	printf("\n=========================================================\n");
+	printf("\n%s\n", EDGES);
 }
 
 void	assert_int(int original, int ft, const char *func)
 {
 	int	result;
 
-	printf("\n=========================================================\n");
+	printf("\n%s\n", EDGES);
 	printf("\nFunction: "BLU"%s\n"reset, func);
 	result = (original == ft);
 	if (result)
@@ -92,7 +93,7 @@ void	assert_int(int original, int ft, const char *func)
 		printf("\nComparison result: %d\n", result);
 		printf("\nExpected: "GRN"%d"reset" | Got: "RED"%d\n"reset, original, ft);
 	}
-	printf("\n=========================================================\n");
+	printf("\n%s\n", EDGES);
 }
 
 void	test_isalpha()
@@ -155,15 +156,94 @@ void	test_bzero()
 	assert_mem(test, test2, (char *)__func__);
 }
 
+void	test_memcpy()
+{
+	char	test_src[] = "This is a test string.";
+	char	test_dest[] = "";
+	char 	test_src_clone[] = "This is a test string.";
+	char 	test_dest_clone[] = "";
+
+	memcpy(test_dest, test_src, 1);
+	ft_memcpy(test_dest_clone, test_src_clone, 1);
+	assert_mem(test_dest, test_dest_clone, (char *)__func__);
+}
+
+void	test_memmove()
+{
+	char	test_src[] = "This is a test string.";
+	char	test_dest[] = "";
+	char 	test_src_clone[] = "This is a test string.";
+	char 	test_dest_clone[] = "";
+
+	memmove(test_dest, test_src, 1);
+	ft_memmove(test_dest_clone, test_src_clone, 1);
+	assert_mem(test_dest, test_dest_clone, (char *)__func__);
+}
+
+void	test_strlcpy()
+{
+	char	test_src[] = "This is a test string.";
+	char	test_dest[] = "";
+	char 	test_src_clone[] = "This is a test string.";
+	char 	test_dest_clone[] = "";
+
+	strlcpy(test_dest, test_src, 5);
+	ft_strlcpy(test_dest_clone, test_src_clone, 5);
+	assert_mem(test_dest, test_dest_clone, (char *)__func__);
+}
+
+void	test_strlcat()
+{
+	char	test_string[] = "This is";
+	char	test_string_2[] = " a test string.";
+	char 	test_string_clone[] = "This is";
+	char 	test_string_2_clone[] = " a test string.";
+	size_t	l_sizer = 3;
+	size_t	test_output = strlcat(test_string, test_string_2, l_sizer);
+	size_t	test_output_2 = ft_strlcat(test_string_clone, test_string_2_clone, l_sizer);
+	
+	assert_str(test_string_2, test_string_2_clone, (char *)__func__);
+	assert_int(test_output, test_output_2, (char *)__func__);
+}
+
+void	test_toupper()
+{
+	char	test_char = 'a';
+	
+	assert_char(toupper(test_char), ft_toupper(test_char), (char *)__func__);
+}
+
+void	test_tolower()
+{
+	char	test_char = 'A';
+	
+	assert_char(tolower(test_char), ft_tolower(test_char), (char *)__func__);
+}
+
+void	test_strchr()
+{
+	char	test_string[] = "This is a test string, find the !.";
+	char	test_char = 'g';
+
+	assert_str(strchr(test_string, test_char), ft_strchr(test_string, test_char), (char *)__func__);
+}
+
 int	main(void)
 {
-	test_isalpha();
-	test_isdigit();
-	test_isalnum();
-	test_isascii();
-	test_isprint();
-	test_strlen();
-	test_memset();
-	test_bzero();
+	test_isalpha(); //Passing
+	test_isdigit();	//Passing
+	test_isalnum(); //Passing
+	test_isascii(); //Passing
+	test_isprint(); //Passing
+	test_strlen(); //Passing
+	test_memset(); //Passing
+	test_bzero(); //Passing
+	test_memcpy(); //Passing
+	test_memmove(); //Passing
+	test_strlcpy(); //Passing
+	test_strlcat(); //Passing
+	test_toupper(); //Passing
+	test_tolower(); //Passing
+	test_strchr(); //Passing
 	return (0);
 }
