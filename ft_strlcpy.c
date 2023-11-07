@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 11:07:32 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/06 17:47:56 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/07 18:06:26 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	unsigned char	*proxy_s;
 
 	index = 0;
-	proxy_s = (char *)src;
-	s_len = ft_strlen(proxy_s);
+	proxy_s = (unsigned char *)src;
+	s_len = ft_strlen((char *)proxy_s);
 	if (!dest)
 		return (0);
 	if (!size)

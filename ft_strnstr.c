@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 09:40:46 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/06 18:37:59 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/07 18:06:39 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	index = 0;
 	index_2 = 0;
 	if (little[index] == '\0')
-		return ((unsigned char *)big);
+		return ((char *)big);
 	while (index_2 < len && big[index_2])
 	{
 		index = 0;

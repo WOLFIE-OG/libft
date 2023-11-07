@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 16:01:06 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/06 18:37:18 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/07 18:05:07 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	else
 	{
 		end_d = proxy_d + (n - 1);
-		end_s = (char *)proxy_s + (n - 1);
+		end_s = (unsigned char *)proxy_s + (n - 1);
 		while (n--)
 			*end_d-- = *end_s--;
 	}
