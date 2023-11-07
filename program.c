@@ -245,6 +245,14 @@ void	test_strncmp()
 
 }
 
+void	test_memchr()
+{
+	char	test_string[] = "This is a test string, find the !.";
+	char	test_char = 't';
+
+	assert_mem(memchr(test_string, test_char, sizeof(test_string)), ft_memchr(test_string, test_char, sizeof(test_string)), (char *)__func__);
+}
+
 int	main(void)
 {
 	test_isalpha(); //Passing
@@ -263,6 +271,7 @@ int	main(void)
 	test_tolower(); //Passing
 	test_strchr(); //Passing
 	test_strrchr(); //Passing
-	test_strncmp();
+	test_strncmp(); //Passing
+	test_memchr(); //Passing
 	return (0);
 }
