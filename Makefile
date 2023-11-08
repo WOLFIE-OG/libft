@@ -19,6 +19,9 @@ $(OBJ_DIR):
 $(EXECUTABLE_NAME): $(OBJS)
 	ar rcs $(EXECUTABLE_NAME) $(OBJ_DIR)/*
 
+norm:
+	norminette ft_*.c libft.h
+
 test:
 	clear
 	cc program.c libft.a ANSI-color-codes.h -lbsd -g

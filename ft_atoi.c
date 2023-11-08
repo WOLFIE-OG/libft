@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 12:43:34 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/08 14:36:08 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/08 17:17:41 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 static int	ft_is_valid_operator(char c)
 {
 	return (c == '+' || c == '-');
-}
-
-static int	ft_is_invalid_char(char c)
-{
-	return (c == ' ' || c == '\n' || c == '\t'
-		|| c == '\v' || c == '\f' || c == '\r');
 }
 
 int	ft_atoi(const char *__nptr)
@@ -32,9 +26,7 @@ int	ft_atoi(const char *__nptr)
 	c = (char *)__nptr;
 	operation = 1;
 	value = 0;
-	while (ft_is_invalid_char(*c))
-		c++;
-	while (ft_is_valid_operator(*c))
+	if (ft_is_valid_operator(*c))
 	{
 		if (*c == '-')
 			operation *= -1;

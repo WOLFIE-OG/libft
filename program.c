@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:25:14 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/08 14:37:16 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/08 17:17:01 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <strings.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <limits.h>
 
 char EDGES[] = "====================================================================";
 
@@ -72,7 +73,7 @@ void	assert_str(char *original, char *ft, char *func)
 	printf("\n%s\n", EDGES);
 }
 
-void	assert_mem(char *original, char *ft, char *func)
+void	assert_mem(char *original, char *ft, size_t length, char *func)
 {
 	int	result;
 
@@ -80,17 +81,17 @@ void	assert_mem(char *original, char *ft, char *func)
 	printf("\nFunction: "BLU"%s\n"reset, func);
 	if (original != NULL && ft != NULL)
 	{
-		result = memcmp(original, ft, strlen(original));
+		result = memcmp(original, ft, length);
 		if (!result)
 		{
 			printf("\n"GRN"			PASSED!\n"reset);
-			printf("\nComparison result: %d\n", result);
+			printf("\nComparison result: %d | (Compared %zu places)\n", result, length);
 			printf("\nExpected: "GRN"%s"reset" | Got: "GRN"%s\n"reset, original, ft);
 		}
 		else
 		{
 			printf("\n"RED"			FAILED!\n"reset);
-			printf("\nComparison result: %d\n", result);
+			printf("\nComparison result: %d | (Compared %zu places)\n", result, length);
 			printf("\nExpected: "GRN"%s"reset" | Got: "RED"%s\n"reset, original, ft);
 		}
 	}
@@ -170,18 +171,21 @@ void	test_memset()
 {
 	char	test[] = "This is a test string.";
 	char	test2[] = "This is a test string.";
+	char	test_char = '-';
+	size_t	place = 5;
 
-	assert_str((char *)memset(test, '-', 5), (char *)ft_memset(test2, '-', 5), (char *)__func__);
+	assert_str((char *)memset(test, test_char, place), (char *)ft_memset(test2, test_char, place), (char *)__func__);
 }
 
 void	test_bzero()
 {
 	char	test[] = "This is a test string.";
 	char	test2[] = "This is a test string.";
+	size_t	place = 5;
 
-	bzero(test, 5);
-	ft_bzero(test2, 5);
-	assert_mem(test, test2, (char *)__func__);
+	bzero(test, place);
+	ft_bzero(test2, place);
+	assert_mem(test, test2, place, (char *)__func__);
 }
 
 void	test_memcpy()
@@ -190,10 +194,11 @@ void	test_memcpy()
 	char	test_dest[] = "";
 	char 	test_src_clone[] = "This is a test string.";
 	char 	test_dest_clone[] = "";
+	size_t	place = 1;
 
-	memcpy(test_dest, test_src, 1);
-	ft_memcpy(test_dest_clone, test_src_clone, 1);
-	assert_mem(test_dest, test_dest_clone, (char *)__func__);
+	memcpy(test_dest, test_src, place);
+	ft_memcpy(test_dest_clone, test_src_clone, place);
+	assert_mem(test_dest, test_dest_clone, strlen(test_src), (char *)__func__);
 }
 
 void	test_memmove()
@@ -202,10 +207,11 @@ void	test_memmove()
 	char	test_dest[] = "";
 	char 	test_src_clone[] = "This is a test string.";
 	char 	test_dest_clone[] = "";
+	size_t	place = 1;
 
-	memmove(test_dest, test_src, 1);
-	ft_memmove(test_dest_clone, test_src_clone, 1);
-	assert_mem(test_dest, test_dest_clone, (char *)__func__);
+	memmove(test_dest, test_src, place);
+	ft_memmove(test_dest_clone, test_src_clone, place);
+	assert_mem(test_dest, test_dest_clone, place, (char *)__func__);
 }
 
 void	test_strlcpy()
@@ -214,10 +220,11 @@ void	test_strlcpy()
 	char	test_dest[] = "";
 	char 	test_src_clone[] = "This is a test string.";
 	char 	test_dest_clone[] = "";
+	size_t	place = 5;
 
-	strlcpy(test_dest, test_src, 5);
-	ft_strlcpy(test_dest_clone, test_src_clone, 5);
-	assert_mem(test_dest, test_dest_clone, (char *)__func__);
+	strlcpy(test_dest, test_src, place);
+	ft_strlcpy(test_dest_clone, test_src_clone, place);
+	assert_mem(test_dest, test_dest_clone, strlen(test_src), (char *)__func__);
 }
 
 void	test_strlcat()
@@ -266,11 +273,10 @@ void	test_strrchr()
 
 void	test_strncmp()
 {
-	char	test_string[] = "AThis is a test string.";
+	char	test_string[] = "This is a test string.";
 	char	test_string_2[] = "This is a test string.";
 
 	assert_int(strncmp(test_string, test_string_2, 3), ft_strncmp(test_string, test_string_2, 3), (char *)__func__);
-
 }
 
 void	test_memchr()
@@ -278,7 +284,16 @@ void	test_memchr()
 	char	test_string[] = "This is a test string, find the !.";
 	char	test_char = 't';
 
-	assert_mem(memchr(test_string, test_char, sizeof(test_string)), ft_memchr(test_string, test_char, sizeof(test_string)), (char *)__func__);
+	assert_mem(memchr(test_string, test_char, sizeof(test_string)), ft_memchr(test_string, test_char, sizeof(test_string)), strlen(test_string), (char *)__func__);
+}
+
+void	test_memcmp()
+{
+	char	test_string[] = "This is a test stringasdasd.";
+	char	test_string_2[] = "This is a test string.";
+	size_t	place = 10;
+
+	assert_int(memcmp(test_string, test_string_2, place), ft_memcmp(test_string, test_string_2, place), (char *)__func__);
 }
 
 void	test_strnstr()
@@ -292,9 +307,17 @@ void	test_strnstr()
 
 void	test_atoi()
 {
-	const char	num_string[] = "a12345678";
+	const char	num_string[] = "-2147443648";
 
 	assert_int(atoi(num_string), ft_atoi(num_string), (char *)__func__);
+}
+
+void	test_calloc()
+{
+	size_t	size = sizeof(int);
+	size_t	count = 10;
+
+	assert_mem(calloc(count, size), ft_calloc(count, size), count, (char *)__func__);
 }
 
 int	main(void)
@@ -317,7 +340,9 @@ int	main(void)
 	test_strrchr();
 	test_strncmp();
 	test_memchr();
+	test_memcmp();
 	test_strnstr();
 	test_atoi();
+	test_calloc();
 	return (0);
 }
