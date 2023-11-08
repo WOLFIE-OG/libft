@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 09:40:46 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/07 18:06:39 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/08 14:28:01 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,25 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t	index;
-	size_t	index_2;
+	size_t  i;
+	size_t  j;
 
-	index = 0;
-	index_2 = 0;
-	if (little[index] == '\0')
+	i = 0;
+	j = 0;
+	if (!*little)
 		return ((char *)big);
-	while (index_2 < len && big[index_2])
+	while (big[i] && i < len)
 	{
-		index = 0;
-		while (little[index] && big[index_2] && (little[index] == big[index_2]))
+		if (big[i] == little[0])
 		{
-			index++;
-			index_2++;
+			while (little[j] && big[i + j] == little[j] && i + j < len)
+			{
+				if (!little[j + 1])
+					return ((char *)&big[i]);
+				j++;
+			}
 		}
-		if (little[index] == '\0')
-			return ((char *)&big[index_2 - index]);
-		index_2 = index_2 - index + 1;
+		i++;
 	}
 	return (NULL);
 }

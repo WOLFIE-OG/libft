@@ -1,8 +1,14 @@
-/*
- * This is free and unencumbered software released into the public domain.
- *
- * For more information, please refer to <https://unlicense.org>
- */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ANSI-color-codes.h                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/08 13:22:04 by otodd             #+#    #+#             */
+/*   Updated: 2023/11/08 13:22:06 by otodd            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 //Regular text
 #define BLK "\e[0;30m"

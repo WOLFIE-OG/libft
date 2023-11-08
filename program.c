@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   program.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/08 13:25:14 by otodd             #+#    #+#             */
+/*   Updated: 2023/11/08 14:37:16 by otodd            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include "ANSI-color-codes.h"
 #include <bsd/string.h>
@@ -36,18 +48,26 @@ void	assert_str(char *original, char *ft, char *func)
 
 	printf("\n%s\n", EDGES);
 	printf("\nFunction: "BLU"%s\n"reset, func);
-	result = strcmp(original, ft);
-	if (!result)
+	if (original != NULL && ft != NULL)
 	{
-		printf("\n"GRN"			PASSED!\n"reset);
-		printf("\nComparison result: %d\n", result);
-		printf("\nExpected: "GRN"%s"reset" | Got: "GRN"%s\n"reset, original, ft);
+		result = strcmp(original, ft);
+		if (!result)
+		{
+			printf("\n"GRN"			PASSED!\n"reset);
+			printf("\nComparison result: %d\n", result);
+			printf("\nExpected: "GRN"%s"reset" | Got: "GRN"%s\n"reset, original, ft);
+		}
+		else
+		{
+			printf("\n"RED"			FAILED!\n"reset);
+			printf("\nComparison result: %d\n", result);
+			printf("\nExpected: "GRN"%s"reset" | Got: "RED"%s\n"reset, original, ft);
+		}
 	}
 	else
 	{
-		printf("\n"RED"			FAILED!\n"reset);
-		printf("\nComparison result: %d\n", result);
-		printf("\nExpected: "GRN"%s"reset" | Got: "RED"%s\n"reset, original, ft);
+		printf("\n"MAG"		      Caught NULL!\n"reset);
+		printf("\nOriginal: "YEL"%s"reset" | Ft: "YEL"%s\n"reset, original, ft);
 	}
 	printf("\n%s\n", EDGES);
 }
@@ -58,18 +78,26 @@ void	assert_mem(char *original, char *ft, char *func)
 
 	printf("\n%s\n", EDGES);
 	printf("\nFunction: "BLU"%s\n"reset, func);
-	result = memcmp(original, ft, strlen(original));
-	if (!result)
+	if (original != NULL && ft != NULL)
 	{
-		printf("\n"GRN"			PASSED!\n"reset);
-		printf("\nComparison result: %d\n", result);
-		printf("\nExpected: "GRN"%s"reset" | Got: "GRN"%s\n"reset, original, ft);
+		result = memcmp(original, ft, strlen(original));
+		if (!result)
+		{
+			printf("\n"GRN"			PASSED!\n"reset);
+			printf("\nComparison result: %d\n", result);
+			printf("\nExpected: "GRN"%s"reset" | Got: "GRN"%s\n"reset, original, ft);
+		}
+		else
+		{
+			printf("\n"RED"			FAILED!\n"reset);
+			printf("\nComparison result: %d\n", result);
+			printf("\nExpected: "GRN"%s"reset" | Got: "RED"%s\n"reset, original, ft);
+		}
 	}
 	else
 	{
-		printf("\n"RED"			FAILED!\n"reset);
-		printf("\nComparison result: %d\n", result);
-		printf("\nExpected: "GRN"%s"reset" | Got: "RED"%s\n"reset, original, ft);
+		printf("\n"MAG"		      Caught NULL!\n"reset);
+		printf("\nOriginal: "YEL"%s"reset" | Ft: "YEL"%s\n"reset, original, ft);
 	}
 	printf("\n%s\n", EDGES);
 }
@@ -253,25 +281,43 @@ void	test_memchr()
 	assert_mem(memchr(test_string, test_char, sizeof(test_string)), ft_memchr(test_string, test_char, sizeof(test_string)), (char *)__func__);
 }
 
+void	test_strnstr()
+{
+	const char	haystack[] = "This is a test string";
+	const char	needle[] = "is";
+	size_t		place = 10;
+
+	assert_str(strnstr(haystack, needle, place), ft_strnstr(haystack, needle, place), (char *)__func__);
+}
+
+void	test_atoi()
+{
+	const char	num_string[] = "a12345678";
+
+	assert_int(atoi(num_string), ft_atoi(num_string), (char *)__func__);
+}
+
 int	main(void)
 {
-	test_isalpha(); //Passing
-	test_isdigit();	//Passing
-	test_isalnum(); //Passing
-	test_isascii(); //Passing
-	test_isprint(); //Passing
-	test_strlen(); //Passing
-	test_memset(); //Passing
-	test_bzero(); //Passing
-	test_memcpy(); //Passing
-	test_memmove(); //Passing
-	test_strlcpy(); //Passing
-	test_strlcat(); //Passing
-	test_toupper(); //Passing
-	test_tolower(); //Passing
-	test_strchr(); //Passing
-	test_strrchr(); //Passing
-	test_strncmp(); //Passing
-	test_memchr(); //Passing
+	test_isalpha();
+	test_isdigit();
+	test_isalnum();
+	test_isascii();
+	test_isprint();
+	test_strlen();
+	test_memset();
+	test_bzero();
+	test_memcpy();
+	test_memmove();
+	test_strlcpy();
+	test_strlcat();
+	test_toupper();
+	test_tolower();
+	test_strchr();
+	test_strrchr();
+	test_strncmp();
+	test_memchr();
+	test_strnstr();
+	test_atoi();
 	return (0);
 }
