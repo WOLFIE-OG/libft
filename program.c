@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:25:14 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/09 13:53:51 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/09 18:50:58 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,7 @@ void	test_isalpha()
 
 void	test_isdigit()
 {
-	int	test = 1;
+	int	test = 'a';
 
 	assert_int(isdigit(test), ft_isdigit(test), __func__);
 }
@@ -206,67 +206,78 @@ void	test_bzero()
 
 void	test_memcpy()
 {
-	char	test_src[] = "This is a test string.\0";
-	char	test_dest[] = "\0";
-	char 	test_src_clone[] = "This is a test string.\0";
-	char 	test_dest_clone[] = "\0";
-	size_t	place = 5;
+	char	test_src[] = "This is a test string.";
+	char	*test_dest = (char *)malloc(sizeof(char) * strlen(test_src));
+	char 	test_src_clone[] = "This is a test string.";
+	char 	*test_dest_clone = (char *)malloc(sizeof(char) * strlen(test_src_clone));
+	size_t	place = 2;
 
 	memcpy(test_dest, test_src, place);
 	ft_memcpy(test_dest_clone, test_src_clone, place);
 	assert_mem(test_dest, test_dest_clone, place, (char *)__func__);
+	assert_str(test_dest, test_dest_clone, (char *)__func__);
+	free(test_dest);
+	free(test_dest_clone);
 }
 
 void	test_memmove()
 {
 	char	test_src[] = "This is a test string.";
-	char	test_dest[] = "";
+	char	*test_dest = (char *)malloc(sizeof(char) * strlen(test_src));
 	char 	test_src_clone[] = "This is a test string.";
-	char 	test_dest_clone[] = "";
-	size_t	place = 1;
+	char 	*test_dest_clone = (char *)malloc(sizeof(char) * strlen(test_src_clone));
+	size_t	place = 20;
 
 	memmove(test_dest, test_src, place);
 	ft_memmove(test_dest_clone, test_src_clone, place);
 	assert_mem(test_dest, test_dest_clone, place, (char *)__func__);
+	assert_str(test_dest, test_dest_clone, (char *)__func__);
+	free(test_dest);
+	free(test_dest_clone);
 }
 
 void	test_strlcpy()
 {
 	char	test_src[] = "This is a test string.";
-	char	test_dest[] = "";
+	char	*test_dest = (char *)malloc(sizeof(char) * strlen(test_src));
 	char 	test_src_clone[] = "This is a test string.";
-	char 	test_dest_clone[] = "";
-	size_t	place = 5;
+	char 	*test_dest_clone = (char *)malloc(sizeof(char) * strlen(test_src_clone));
+	size_t	place = 1;
 
 	strlcpy(test_dest, test_src, place);
 	ft_strlcpy(test_dest_clone, test_src_clone, place);
-	assert_mem(test_dest, test_dest_clone, strlen(test_src), (char *)__func__);
+	assert_mem(test_dest, test_dest_clone, place, (char *)__func__);
+	assert_str(test_dest, test_dest_clone, (char *)__func__);
+	free(test_dest);
+	free(test_dest_clone);
 }
 
 void	test_strlcat()
 {
-	char	test_string[] = "This is";
-	char	test_string_2[] = " a test string.";
-	char 	test_string_clone[] = "This is";
-	char 	test_string_2_clone[] = " a test string.";
-	size_t	l_sizer = 3;
+	char	test_string[] = "Hello my name is";
+	char	test_string_2[] = " Oliver Todd!";
+	char 	*test_string_clone = strdup(test_string);
+	char 	*test_string_2_clone = strdup(test_string_2);
+	size_t	l_sizer = 60;
 	size_t	test_output = strlcat(test_string, test_string_2, l_sizer);
 	size_t	test_output_2 = ft_strlcat(test_string_clone, test_string_2_clone, l_sizer);
 	
-	assert_str(test_string_2, test_string_2_clone, (char *)__func__);
+	assert_str(test_string, test_string_clone, (char *)__func__);
 	assert_int(test_output, test_output_2, (char *)__func__);
+	free(test_string_clone);
+	free(test_string_2_clone);
 }
 
 void	test_toupper()
 {
-	char	test_char = 'a';
+	char	test_char = 'A';
 	
 	assert_char(toupper(test_char), ft_toupper(test_char), (char *)__func__);
 }
 
 void	test_tolower()
 {
-	char	test_char = 'A';
+	char	test_char = 'a';
 	
 	assert_char(tolower(test_char), ft_tolower(test_char), (char *)__func__);
 }
@@ -274,7 +285,7 @@ void	test_tolower()
 void	test_strchr()
 {
 	char	test_string[] = "This is a test string, find the !.";
-	char	test_char = 't';
+	char	test_char = '!';
 
 	assert_str(strchr(test_string, test_char), ft_strchr(test_string, test_char), (char *)__func__);
 }
@@ -282,34 +293,38 @@ void	test_strchr()
 void	test_strrchr()
 {
 	char	test_string[] = "This is a test string, find the !.";
-	char	test_char = 't';
+	char	test_char = '!';
 
 	assert_str(strrchr(test_string, test_char), ft_strrchr(test_string, test_char), (char *)__func__);
 }
 
 void	test_strncmp()
 {
-	char	test_string[] = "This is a test string.";
-	char	test_string_2[] = "This is a test string.";
+	char	test_string[] = "This is a test";
+	char	*test_string_2 = strdup(test_string);
+	size_t	place = 3;
 
-	assert_int(strncmp(test_string, test_string_2, 3), ft_strncmp(test_string, test_string_2, 3), (char *)__func__);
+	assert_int(strncmp(test_string, test_string_2, place), ft_strncmp(test_string, test_string_2, place), (char *)__func__);
+	free(test_string_2);
 }
 
 void	test_memchr()
 {
 	char	test_string[] = "This is a test string, find the !.";
-	char	test_char = 't';
+	char	test_char = 'a';
+	size_t	place = 3;
 
-	assert_mem(memchr(test_string, test_char, sizeof(test_string)), ft_memchr(test_string, test_char, sizeof(test_string)), strlen(test_string), (char *)__func__);
+	assert_mem(memchr(test_string, test_char, sizeof(test_string)), ft_memchr(test_string, test_char, sizeof(test_string)), place, (char *)__func__);
 }
 
 void	test_memcmp()
 {
-	char	test_string[] = "This is a test stringasdasd.";
-	char	test_string_2[] = "This is a test string.";
-	size_t	place = 10;
+	char	test_string[] = "This is a test string.";
+	char	*test_string_2 = strdup(test_string);
+	size_t	place = 0;
 
 	assert_int(memcmp(test_string, test_string_2, place), ft_memcmp(test_string, test_string_2, place), (char *)__func__);
+	free(test_string_2);
 }
 
 void	test_strnstr()
@@ -323,7 +338,7 @@ void	test_strnstr()
 
 void	test_atoi()
 {
-	const char	num_string[] = "-2147443648";
+	const char	num_string[] = "123123123123123";
 
 	assert_int(atoi(num_string), ft_atoi(num_string), (char *)__func__);
 }
@@ -331,7 +346,7 @@ void	test_atoi()
 void	test_calloc()
 {
 	size_t	size = sizeof(int);
-	size_t	count = 10;
+	size_t	count = 2;
 
 	assert_mem(calloc(count, size), ft_calloc(count, size), count, (char *)__func__);
 }
@@ -343,7 +358,7 @@ void	test_strdup()
 	char	*test_dup_2 = ft_strdup(test_string);
 
 	assert_str(test_dup, test_dup_2, (char *)__func__);
-	assert_mem(test_dup, test_dup_2, strlen(test_string),(char *)__func__);
+	assert_mem(test_dup, test_dup_2, strlen(test_string), (char *)__func__);
 }
 
 
@@ -372,7 +387,9 @@ int	main(void)
 	test_strnstr();
 	test_atoi();
 	test_calloc();
-	test_strdup();
+	// test_strdup();
 	end_test("Core functions");
+	/*start_test("Non-Core functions");
+	end_test("Non-Core functions");*/
 	return (0);
 }

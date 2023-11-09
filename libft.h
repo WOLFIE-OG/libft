@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:51:04 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/09 13:39:30 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/09 14:22:43 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+// Core Functions
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
 int			ft_isalnum(int c);
@@ -35,9 +36,11 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n);
 void		*ft_memchr(const void *s, int c, size_t n);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
 char		*ft_strnstr(const char *big, const char *little, size_t len);
-int			ft_atoi(const char *__nptr);
+int			ft_atoi(const char *nptr);
 void		*ft_calloc(size_t nmemb, size_t size);
-char		*ft_strdup(char *s);
-char		*ft_strcpy(char *dest, char *src);
+char		*ft_strdup(const char *s);
+
+// Extra Functions
+char		*ft_strcpy(char *dest, const char *src);
 
 #endif
