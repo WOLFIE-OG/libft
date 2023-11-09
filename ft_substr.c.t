@@ -1,26 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 18:17:45 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/09 13:31:51 by otodd            ###   ########.fr       */
+/*   Created: 2023/11/09 11:51:27 by otodd             #+#    #+#             */
+/*   Updated: 2023/11/09 11:52:00 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
-{
-	unsigned char	*proxy_str;
-	unsigned int	index;
-
-	proxy_str = (unsigned char *)s;
-	index = ft_strlen((char *)proxy_str);
-	while (index-- > 0)
-		if (proxy_str[index] == c)
-			return ((char *)&proxy_str[index]);
-	return (0);
-}
+char *ft_substr(char const *s, unsigned int start, size_t len)

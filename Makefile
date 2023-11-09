@@ -11,7 +11,7 @@ OBJS = $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRCS))
 all: $(EXECUTABLE_NAME)
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -I libft.h -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
@@ -25,7 +25,8 @@ norm:
 test:
 	clear
 	cc program.c libft.a ANSI-color-codes.h -lbsd -g
-	./a.out
+	mv a.out libft.bin
+	./libft.bin
 
 clean:
 	rm -rf $(OBJ_DIR)

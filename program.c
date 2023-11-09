@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:25:14 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/08 17:17:01 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/09 13:53:51 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,37 @@
 
 char EDGES[] = "====================================================================";
 
+void	start_test(char *name)
+{
+	printf("\n%s\n", EDGES);
+	printf("\n"BCYN"		  START TEST CASE: "WHT"%s\n"reset, name);
+}
+
+void	end_test(char *name)
+{
+	printf("\n"BYEL"		  END TEST CASE: "WHT"%s\n"reset, name);
+	printf("\n%s\n", EDGES);
+}
+
 void	assert_char(char original, char ft, char *func)
 {
 	int	result;
 
 	printf("\n%s\n", EDGES);
-	printf("\nFunction: "BLU"%s\n"reset, func);
+	printf("\nFunction: "BBLU"%s\n"reset, func);
+	printf("\nCompare Type: "BGRN"%s\n"reset, "Character Compare");
 	result = (original == ft);
 	if (result)
 	{
-		printf("\n"GRN"			PASSED!\n"reset);
+		printf("\n"BGRN"			PASSED!\n"reset);
 		printf("\nComparison result: %d\n", result);
-		printf("\nExpected: "GRN"%c"reset" | Got: "GRN"%c\n"reset, original, ft);
+		printf("\nExpected: "BGRN"%c"reset" | Got: "BGRN"%c\n"reset, original, ft);
 	}
 	else
 	{
-		printf("\n"RED"			FAILED!\n"reset);
+		printf("\n"BRED"			FAILED!\n"reset);
 		printf("\nComparison result: %d\n", result);
-		printf("\nExpected: "GRN"%c"reset" | Got: "RED"%c\n"reset, original, ft);
+		printf("\nExpected: "BGRN"%c"reset" | Got: "BRED"%c\n"reset, original, ft);
 	}
 	printf("\n%s\n", EDGES);
 }
@@ -48,27 +61,28 @@ void	assert_str(char *original, char *ft, char *func)
 	int	result;
 
 	printf("\n%s\n", EDGES);
-	printf("\nFunction: "BLU"%s\n"reset, func);
+	printf("\nFunction: "BBLU"%s\n"reset, func);
+	printf("\nCompare Type: "BGRN"%s\n"reset, "String Compare");
 	if (original != NULL && ft != NULL)
 	{
 		result = strcmp(original, ft);
 		if (!result)
 		{
-			printf("\n"GRN"			PASSED!\n"reset);
+			printf("\n"BGRN"			PASSED!\n"reset);
 			printf("\nComparison result: %d\n", result);
-			printf("\nExpected: "GRN"%s"reset" | Got: "GRN"%s\n"reset, original, ft);
+			printf("\nExpected: "BGRN"%s"reset" | Got: "BGRN"%s\n"reset, original, ft);
 		}
 		else
 		{
-			printf("\n"RED"			FAILED!\n"reset);
+			printf("\n"BRED"			FAILED!\n"reset);
 			printf("\nComparison result: %d\n", result);
-			printf("\nExpected: "GRN"%s"reset" | Got: "RED"%s\n"reset, original, ft);
+			printf("\nExpected: "BGRN"%s"reset" | Got: "BRED"%s\n"reset, original, ft);
 		}
 	}
 	else
 	{
-		printf("\n"MAG"		      Caught NULL!\n"reset);
-		printf("\nOriginal: "YEL"%s"reset" | Ft: "YEL"%s\n"reset, original, ft);
+		printf("\n"BMAG"		      Caught NULL!\n"reset);
+		printf("\nOriginal: "BYEL"%s"reset" | Ft: "BYEL"%s\n"reset, original, ft);
 	}
 	printf("\n%s\n", EDGES);
 }
@@ -78,27 +92,28 @@ void	assert_mem(char *original, char *ft, size_t length, char *func)
 	int	result;
 
 	printf("\n%s\n", EDGES);
-	printf("\nFunction: "BLU"%s\n"reset, func);
+	printf("\nFunction: "BBLU"%s\n"reset, func);
+	printf("\nCompare Type: "BGRN"%s\n"reset, "Memory Compare");
 	if (original != NULL && ft != NULL)
 	{
 		result = memcmp(original, ft, length);
 		if (!result)
 		{
-			printf("\n"GRN"			PASSED!\n"reset);
+			printf("\n"BGRN"			PASSED!\n"reset);
 			printf("\nComparison result: %d | (Compared %zu places)\n", result, length);
-			printf("\nExpected: "GRN"%s"reset" | Got: "GRN"%s\n"reset, original, ft);
+			printf("\nExpected: "BGRN"%s"reset" | Got: "BGRN"%s\n"reset, original, ft);
 		}
 		else
 		{
-			printf("\n"RED"			FAILED!\n"reset);
+			printf("\n"BRED"			FAILED!\n"reset);
 			printf("\nComparison result: %d | (Compared %zu places)\n", result, length);
-			printf("\nExpected: "GRN"%s"reset" | Got: "RED"%s\n"reset, original, ft);
+			printf("\nExpected: "BGRN"%s"reset" | Got: "BRED"%s\n"reset, original, ft);
 		}
 	}
 	else
 	{
-		printf("\n"MAG"		      Caught NULL!\n"reset);
-		printf("\nOriginal: "YEL"%s"reset" | Ft: "YEL"%s\n"reset, original, ft);
+		printf("\n"BMAG"		      Caught NULL!\n"reset);
+		printf("\nOriginal: "BYEL"%s"reset" | Ft: "YEL"%s\n"reset, original, ft);
 	}
 	printf("\n%s\n", EDGES);
 }
@@ -108,19 +123,20 @@ void	assert_int(int original, int ft, const char *func)
 	int	result;
 
 	printf("\n%s\n", EDGES);
-	printf("\nFunction: "BLU"%s\n"reset, func);
+	printf("\nFunction: "BBLU"%s\n"reset, func);
+	printf("\nCompare Type: "BGRN"%s\n"reset, "Integer Compare");
 	result = (original == ft);
 	if (result)
 	{
-		printf("\n"GRN"			PASSED!\n"reset);
+		printf("\n"BGRN"			PASSED!\n"reset);
 		printf("\nComparison result: %d\n", result);
-		printf("\nExpected: "GRN"%d"reset" | Got: "GRN"%d\n"reset, original, ft);
+		printf("\nExpected: "BGRN"%d"reset" | Got: "BGRN"%d\n"reset, original, ft);
 	}
 	else
 	{
-		printf("\n"RED"			FAILED!\n"reset);
+		printf("\n"BRED"			FAILED!\n"reset);
 		printf("\nComparison result: %d\n", result);
-		printf("\nExpected: "GRN"%d"reset" | Got: "RED"%d\n"reset, original, ft);
+		printf("\nExpected: "BGRN"%d"reset" | Got: "BRED"%d\n"reset, original, ft);
 	}
 	printf("\n%s\n", EDGES);
 }
@@ -190,15 +206,15 @@ void	test_bzero()
 
 void	test_memcpy()
 {
-	char	test_src[] = "This is a test string.";
-	char	test_dest[] = "";
-	char 	test_src_clone[] = "This is a test string.";
-	char 	test_dest_clone[] = "";
-	size_t	place = 1;
+	char	test_src[] = "This is a test string.\0";
+	char	test_dest[] = "\0";
+	char 	test_src_clone[] = "This is a test string.\0";
+	char 	test_dest_clone[] = "\0";
+	size_t	place = 5;
 
 	memcpy(test_dest, test_src, place);
 	ft_memcpy(test_dest_clone, test_src_clone, place);
-	assert_mem(test_dest, test_dest_clone, strlen(test_src), (char *)__func__);
+	assert_mem(test_dest, test_dest_clone, place, (char *)__func__);
 }
 
 void	test_memmove()
@@ -320,8 +336,20 @@ void	test_calloc()
 	assert_mem(calloc(count, size), ft_calloc(count, size), count, (char *)__func__);
 }
 
+void	test_strdup()
+{
+	char	test_string[] = "This is a test stringasdasd.";
+	char	*test_dup = strdup(test_string);
+	char	*test_dup_2 = ft_strdup(test_string);
+
+	assert_str(test_dup, test_dup_2, (char *)__func__);
+	assert_mem(test_dup, test_dup_2, strlen(test_string),(char *)__func__);
+}
+
+
 int	main(void)
 {
+	start_test("Core functions");
 	test_isalpha();
 	test_isdigit();
 	test_isalnum();
@@ -344,5 +372,7 @@ int	main(void)
 	test_strnstr();
 	test_atoi();
 	test_calloc();
+	test_strdup();
+	end_test("Core functions");
 	return (0);
 }
