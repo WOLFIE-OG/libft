@@ -6,9 +6,11 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:17:45 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/09 13:32:10 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/10 13:43:09 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -18,5 +20,5 @@ char	*ft_strchr(const char *s, int c)
 	while (*proxy_str)
 		if (*proxy_str++ == c)
 			return (--proxy_str);
-	return (0);
+	return (NULL);
 }

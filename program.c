@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:25:14 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/09 18:50:58 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/10 14:16:17 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -386,8 +386,8 @@ int	main(void)
 	test_memcmp();
 	test_strnstr();
 	test_atoi();
-	test_calloc();
-	// test_strdup();
+	// test_calloc();
+	test_strdup();
 	end_test("Core functions");
 	/*start_test("Non-Core functions");
 	end_test("Non-Core functions");*/

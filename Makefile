@@ -1,7 +1,7 @@
 EXECUTABLE_NAME = libft.a
 
 COMPILER = cc
-CFLAGS = -Wall -Wextra -Werror -std=c99 -g
+CFLAGS = -Wall -Wextra -Werror 
 
 OBJ_DIR = bin
 
@@ -18,6 +18,10 @@ $(OBJ_DIR):
 
 $(EXECUTABLE_NAME): $(OBJS)
 	ar rcs $(EXECUTABLE_NAME) $(OBJ_DIR)/*
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 norm:
 	norminette ft_*.c libft.h

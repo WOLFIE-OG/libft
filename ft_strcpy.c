@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 11:07:32 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/09 16:19:50 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/10 13:23:20 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 char	*ft_strcpy(char *dest, const char *src)
 {
-	unsigned int	index;
+	unsigned int		index;
+	unsigned const int	len = ft_strlen((char *)src);
 
 	index = 0;
-	while (ft_strlen(dest) != ft_strlen((char *)src))
+	while (index < len)
 	{
 		dest[index] = src[index];
 		index++;
