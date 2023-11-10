@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:25:14 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/10 17:54:15 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/10 18:14:49 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -371,7 +371,7 @@ void	test_substr()
 {
 	char	test_string[] = "This is a test string.";
 
-	assert_str(ft_substr(test_string, 0, 4), ft_substr(test_string, 0, 4), (char *)__func__);
+	assert_str(ft_substr(test_string, 0, 0), ft_substr(test_string, 0, 0), (char *)__func__);
 }
 
 
