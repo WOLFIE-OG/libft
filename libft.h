@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:51:04 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/10 14:08:10 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/10 17:34:03 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIBFT_H
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
+
 
 // Core Functions
 int			ft_isalpha(int c);

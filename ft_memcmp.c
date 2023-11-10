@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 15:20:32 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/10 13:58:43 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/10 16:59:40 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 
 	p_s1 = (unsigned char *)s1;
 	p_s2 = (unsigned char *)s2;
-	while ((n - 1) != 0 && *p_s1 && *p_s2 && *p_s1 == *p_s2)
+	while (n != 0 && *p_s1 == *p_s2)
 	{
 		p_s1++;
 		p_s2++;
 		n--;
 	}
+	if (n == 0)
+    	return (0);
 	return (*p_s1 - *p_s2);
 }

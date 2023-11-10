@@ -6,21 +6,24 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:17:45 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/09 13:31:51 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/10 17:28:00 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strrchr(char const *str, int c)
 {
-	unsigned char	*proxy_str;
-	unsigned int	index;
+	char const	*last_found;
 
-	proxy_str = (unsigned char *)s;
-	index = ft_strlen((char *)proxy_str);
-	while (index-- > 0)
-		if (proxy_str[index] == c)
-			return ((char *)&proxy_str[index]);
-	return (0);
+	last_found = NULL;
+	while (*str)
+	{
+		if (*str == (char)c)
+			last_found = str;
+		str++;
+	}
+	if (*str == (char)c)
+		return ((char *)str);
+	return ((char *)last_found);
 }

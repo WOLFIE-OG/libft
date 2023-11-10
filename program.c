@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:25:14 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/10 14:16:17 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/10 16:14:51 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -258,7 +258,7 @@ void	test_strlcat()
 	char	test_string_2[] = " Oliver Todd!";
 	char 	*test_string_clone = strdup(test_string);
 	char 	*test_string_2_clone = strdup(test_string_2);
-	size_t	l_sizer = 60;
+	size_t	l_sizer = 10;
 	size_t	test_output = strlcat(test_string, test_string_2, l_sizer);
 	size_t	test_output_2 = ft_strlcat(test_string_clone, test_string_2_clone, l_sizer);
 	
@@ -346,9 +346,13 @@ void	test_atoi()
 void	test_calloc()
 {
 	size_t	size = sizeof(int);
-	size_t	count = 2;
+	size_t	count = 10;
+	void	*test = calloc(count, size);
+	void	*test_2 = ft_calloc(count, size);
 
-	assert_mem(calloc(count, size), ft_calloc(count, size), count, (char *)__func__);
+	assert_mem(test, test_2, (count * size), (char *)__func__);
+	free(test);
+	free(test_2);
 }
 
 void	test_strdup()
@@ -359,6 +363,15 @@ void	test_strdup()
 
 	assert_str(test_dup, test_dup_2, (char *)__func__);
 	assert_mem(test_dup, test_dup_2, strlen(test_string), (char *)__func__);
+	free(test_dup);
+	free(test_dup_2);
+}
+
+void	test_substr()
+{
+	char	test_string[] = "This is a test string.";
+
+	assert_str(ft_substr(test_string, 0, 3), ft_substr(test_string, 0, 3), (char *)__func__);
 }
 
 
@@ -386,9 +399,12 @@ int	main(void)
 	test_memcmp();
 	test_strnstr();
 	test_atoi();
-	// test_calloc();
+	test_calloc();
 	test_strdup();
 	end_test("Core functions");
+	start_test("Additional functions");
+	test_substr();
+	end_test("Additional functions");
 	/*start_test("Non-Core functions");
 	end_test("Non-Core functions");*/
 	return (0);
