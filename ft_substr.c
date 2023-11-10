@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 11:51:27 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/10 16:20:12 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/10 17:53:58 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*new_string;
-	char	*proxy_s;
+	size_t	index;
 
-	proxy_s = (char *)s;
+	index = 0;
 	new_string = malloc(sizeof(char *) * len);
-	while (ft_strlen(new_string) != len)
+	while (index != len)
 	{
-		printf("%c\n", start);
-		*new_string++ = proxy_s[start++];
+		printf("%c\n", s[start]);
+		new_string[index++] = s[start++];
 	}
-	*new_string = '\0';
+	new_string[index] = '\0';
 	return (new_string);
 }
