@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:57:09 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/14 18:09:36 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/14 18:13:03 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	index = 0;
 	string_list = malloc(sizeof(char *) * (total_string_length(s, c) + 1));
+	if (!string_list)
+		return (NULL);
 	while (*s)
 	{
 		if (*s != c)
