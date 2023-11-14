@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:25:14 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/14 13:49:08 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/14 15:20:57 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -388,6 +388,13 @@ void	test_strjoin()
 	);
 }
 
+void	test_strtrim()
+{
+	char	test_string[] = "   hello world   ";
+	char	test_str[] = " ";
+
+	assert_str("hello world", ft_strtrim(test_string, test_str), (char *)__func__);
+}
 
 int	main(void)
 {
@@ -419,6 +426,7 @@ int	main(void)
 	start_test("Additional functions");
 	test_substr();
 	test_strjoin();
+	test_strtrim();
 	end_test("Additional functions");
 	/*start_test("Non-Core functions");
 	end_test("Non-Core functions");*/
