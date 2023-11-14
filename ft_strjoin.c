@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 11:07:32 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/10 13:23:20 by otodd            ###   ########.fr       */
+/*   Created: 2023/11/14 13:03:18 by otodd             #+#    #+#             */
+/*   Updated: 2023/11/14 13:56:08 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dest, const char *src)
+static char	*ft_strcat_l(char *dest, char *src)
+{
+	char *const	cat_string = dest;
+
+	while (*dest)
+		dest++;
+	while (*src)
+		*dest++ = *src++;
+	*dest = '\0';
+	return (cat_string);
+}
+
+static char	*ft_strcpy_l(char *dest, const char *src)
 {
 	unsigned int		index;
 	unsigned const int	len = ft_strlen((char *)src);
@@ -25,4 +37,12 @@ char	*ft_strcpy(char *dest, const char *src)
 	}
 	dest[index] = '\0';
 	return (dest);
+}
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*new_string;
+
+	new_string = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	return (ft_strcat_l(ft_strcpy_l(new_string, (char *)s1), (char *)s2));
 }

@@ -6,11 +6,26 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 10:37:59 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/09 16:22:42 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/14 14:05:15 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char	*ft_strcpy_l(char *dest, const char *src)
+{
+	unsigned int		index;
+	unsigned const int	len = ft_strlen((char *)src);
+
+	index = 0;
+	while (index < len)
+	{
+		dest[index] = src[index];
+		index++;
+	}
+	dest[index] = '\0';
+	return (dest);
+}
 
 char	*ft_strdup(const char *s)
 {
@@ -19,5 +34,5 @@ char	*ft_strdup(const char *s)
 	mem = malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (!mem)
 		return (NULL);
-	return (ft_strcpy(mem, s));
+	return (ft_strcpy_l(mem, s));
 }

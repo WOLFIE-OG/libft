@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:25:14 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/10 18:14:49 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/14 13:49:08 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -370,8 +370,22 @@ void	test_strdup()
 void	test_substr()
 {
 	char	test_string[] = "This is a test string.";
+	char	*test_res = ft_substr(test_string, 5, 2);
 
-	assert_str(ft_substr(test_string, 0, 0), ft_substr(test_string, 0, 0), (char *)__func__);
+	assert_str("is", test_res, (char *)__func__);
+	free(test_res);
+}
+
+void	test_strjoin()
+{
+	char	test_string[] = "This is a test string.";
+	char	test_string_2[] = " This is also test string.";
+
+	assert_str(
+		"This is a test string. This is also test string.",
+		ft_strjoin(test_string, test_string_2),
+		(char *)__func__
+	);
 }
 
 
@@ -404,6 +418,7 @@ int	main(void)
 	end_test("Core functions");
 	start_test("Additional functions");
 	test_substr();
+	test_strjoin();
 	end_test("Additional functions");
 	/*start_test("Non-Core functions");
 	end_test("Non-Core functions");*/
