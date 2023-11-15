@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:57:09 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/14 18:13:03 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/15 11:57:17 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ static size_t	total_string_length(const char *s, char c)
 	}
 	return (result);
 }
-
 
 char	**ft_split(char const *s, char c)
 {

@@ -396,6 +396,11 @@ void	test_strtrim()
 	assert_str("hello world", ft_strtrim(test_string, test_str), (char *)__func__);
 }
 
+void	test_itoa()
+{
+	assert_str("-2147483648", ft_itoa(INT_MIN), (char *)__func__);
+}
+
 int	main(void)
 {
 	start_test("Core functions");
@@ -427,6 +432,7 @@ int	main(void)
 	test_substr();
 	test_strjoin();
 	test_strtrim();
+	test_itoa();
 	end_test("Additional functions");
 	/*start_test("Non-Core functions");
 	end_test("Non-Core functions");*/
