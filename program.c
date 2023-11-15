@@ -186,22 +186,24 @@ void	test_strlen()
 void	test_memset()
 {
 	char	test[] = "This is a test string.";
-	char	test2[] = "This is a test string.";
+	char	*test2 = strdup(test);
 	char	test_char = '-';
 	size_t	place = 5;
 
 	assert_str((char *)memset(test, test_char, place), (char *)ft_memset(test2, test_char, place), (char *)__func__);
+	free(test2);
 }
 
 void	test_bzero()
 {
 	char	test[] = "This is a test string.";
-	char	test2[] = "This is a test string.";
+	char	*test2 = strdup(test);
 	size_t	place = 5;
 
 	bzero(test, place);
 	ft_bzero(test2, place);
 	assert_mem(test, test2, place, (char *)__func__);
+	free(test2);
 }
 
 void	test_memcpy()
@@ -226,7 +228,7 @@ void	test_memmove()
 	char	*test_dest = (char *)malloc(sizeof(char) * strlen(test_src));
 	char 	test_src_clone[] = "This is a test string.";
 	char 	*test_dest_clone = (char *)malloc(sizeof(char) * strlen(test_src_clone));
-	size_t	place = 20;
+	size_t	place = 23;
 
 	memmove(test_dest, test_src, place);
 	ft_memmove(test_dest_clone, test_src_clone, place);
