@@ -6,7 +6,7 @@
 /*   By: wolfie <wolfie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:25:14 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/16 17:02:57 by wolfie           ###   ########.fr       */
+/*   Updated: 2023/11/16 18:32:28 by wolfie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -477,8 +477,9 @@ int	main(void)
 	test_strmapi();
 	test_striteri();
 	assert_ext("ft_putchar_fd", 1);
+	assert_ext("ft_putstr_fd", 1);
+	assert_ext("ft_putendl_fd", 1);
+	assert_ext("ft_putnbr_fd", 1);
 	end_test("Additional functions");
-	/*start_test("Non-Core functions");
-	end_test("Non-Core functions");*/
 	return (0);
 }
