@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   program.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wolfie <wolfie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:25:14 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/14 15:20:57 by otodd            ###   ########.fr       */
+/*   Updated: 2023/11/16 17:02:57 by wolfie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,15 @@
 
 char EDGES[] = "====================================================================";
 
+static char	ft_toupper_a(unsigned int i, char c)
+{
+	const unsigned char	char_offset = ('a' - 'A');
+
+	if (c >= 'a' && c <= 'z')
+		c -= char_offset;
+	return (c);
+}
+
 void	start_test(char *name)
 {
 	printf("\n%s\n", EDGES);
@@ -30,6 +39,18 @@ void	start_test(char *name)
 void	end_test(char *name)
 {
 	printf("\n"BYEL"		  END TEST CASE: "WHT"%s\n"reset, name);
+	printf("\n%s\n", EDGES);
+}
+
+void	assert_ext(char *func, int result)
+{
+	printf("\n%s\n", EDGES);
+	printf("\nFunction: "BBLU"%s\n"reset, func);
+	printf("\n"BHYEL"	     FUNCTION ASSESSED EXTERNALLY!!!\n"reset);
+	if (result)
+		printf("\n"BGRN"			PASSED!\n"reset);
+	else
+		printf("\n"BRED"			FAILED!\n"reset);
 	printf("\n%s\n", EDGES);
 }
 
@@ -398,9 +419,26 @@ void	test_strtrim()
 	assert_str("hello world", ft_strtrim(test_string, test_str), (char *)__func__);
 }
 
+void	test_split()
+{
+	char		*list_of_strings[] = {"this", "is", "a", "test"};
+	char const	test_string[] = "this is a test";
+	assert_str(list_of_strings[0], ft_split(test_string, ' ')[0], (char *)__func__);
+}
+
 void	test_itoa()
 {
 	assert_str("-2147483648", ft_itoa(INT_MIN), (char *)__func__);
+}
+
+void	test_strmapi()
+{
+	assert_str("TEST", ft_strmapi("Test", &ft_toupper_a), (char *)__func__);
+}
+
+void	test_striteri()
+{
+	assert_str("TEST", ft_strmapi("Test", &ft_toupper_a), (char *)__func__);
 }
 
 int	main(void)
@@ -434,7 +472,11 @@ int	main(void)
 	test_substr();
 	test_strjoin();
 	test_strtrim();
+	test_split();
 	test_itoa();
+	test_strmapi();
+	test_striteri();
+	assert_ext("ft_putchar_fd", 1);
 	end_test("Additional functions");
 	/*start_test("Non-Core functions");
 	end_test("Non-Core functions");*/

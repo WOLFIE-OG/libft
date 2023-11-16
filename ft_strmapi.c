@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wolfie <wolfie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 11:51:27 by otodd             #+#    #+#             */
-/*   Updated: 2023/11/16 15:33:38 by wolfie           ###   ########.fr       */
+/*   Created: 2023/11/16 12:46:56 by wolfie            #+#    #+#             */
+/*   Updated: 2023/11/16 15:29:38 by wolfie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*new_string;
-	size_t	size;
+	char			*new_string;
+	size_t const	len = ft_strlen(s);
+	size_t			index;
 
 	if (!s)
-		return (NULL);
-	if (start >= ft_strlen(s))
 		return (ft_strdup(""));
-	size = ft_strlen(s + start);
-	if (size < len)
-		len = size;
+	index = 0;
 	new_string = (char *)malloc(sizeof(char) * (len + 1));
 	if (!new_string)
 		return (NULL);
-	ft_strlcpy(new_string, s + start, len + 1);
+	while (index < len)
+	{
+		new_string[index] = f(index, s[index]);
+		index++;
+	}
+	new_string[index] = 0;
 	return (new_string);
 }
