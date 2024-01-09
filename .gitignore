@@ -4,3 +4,9 @@
 **.o
 **.gch
 **.bin
+.gitignore
+ANSI-color-codes.h
+test.c
+program.c
+README
+LICENSE
