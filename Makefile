@@ -1,7 +1,18 @@
-EXECUTABLE_NAME = libft.a
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: wolfie <wolfie@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/01/16 17:10:44 by wolfie            #+#    #+#              #
+#    Updated: 2024/01/16 17:10:45 by wolfie           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-COMPILER = gcc
-CFLAGS = -Wall -Wextra -Werror -std=c99 -g
+EXECUTABLE_NAME = libft.a
+COMPILER = cc
+CFLAGS = -Wall -Wextra -Werror
 
 OBJ_DIR = bin
 
@@ -18,15 +29,6 @@ $(OBJ_DIR):
 
 $(EXECUTABLE_NAME): $(OBJS)
 	@ar rcs $(EXECUTABLE_NAME) $(OBJ_DIR)/*
-
-norm:
-	norminette ft_*.c libft.h
-
-test:
-	clear
-	cc program.c libft.a ANSI-color-codes.h -lbsd -g
-	mv a.out libft.bin
-	./libft.bin
 
 clean:
 	rm -rf $(OBJ_DIR)
