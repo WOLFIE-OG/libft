@@ -6,7 +6,7 @@
 #    By: wolfie <wolfie@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/12 08:58:18 by bcorte-r          #+#    #+#              #
-#    Updated: 2024/01/17 15:33:12 by wolfie           ###   ########.fr        #
+#    Updated: 2024/01/17 15:40:13 by wolfie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,18 +62,21 @@ GNL_SRCS =	ft_get_next_line_utils.c \
 BONUS_SRCS = ft_lstnew.c \
 			 ft_lstadd_front.c
 
+MISC_SRCS = ft_isdigit_str.c
+
 OBJS = $(SRCS:.c=.o)
 FT_PRINTF_OBJS = $(FT_PRINTF_SRCS:.c=.o)
 GNL_OBJS = $(GNL_SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+MISC_OBJS = $(MISC_SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(FT_PRINTF_OBJS) $(GNL_OBJS) $(BONUS_OBJS)
-	ar rcs $(NAME) $(OBJS) $(FT_PRINTF_OBJS) $(GNL_OBJS)  $(BONUS_OBJS)
+$(NAME): $(OBJS) $(FT_PRINTF_OBJS) $(GNL_OBJS) $(BONUS_OBJS) $(MISC_OBJS)
+	ar rcs $(NAME) $(OBJS) $(FT_PRINTF_OBJS) $(GNL_OBJS) $(BONUS_OBJS) $(MISC_OBJS)
 
 clean:
-	rm -rf $(OBJS) $(FT_PRINTF_OBJS) $(GNL_OBJS)  $(BONUS_OBJS)
+	rm -rf $(OBJS) $(FT_PRINTF_OBJS) $(GNL_OBJS) $(BONUS_OBJS) $(MISC_OBJS)
 
 fclean: clean
 	rm -rf $(NAME)

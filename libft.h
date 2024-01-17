@@ -6,7 +6,7 @@
 /*   By: wolfie <wolfie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/17 15:03:16 by wolfie           ###   ########.fr       */
+/*   Updated: 2024/01/17 15:39:08 by wolfie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,9 @@ void	ft_putnbr_fd(int n, int fd);
 // Bonus functions
 t_list	*ft_lstnew(void *content);
 
+// Misc functions
+int		ft_isdigit_str(char *str);
+
 // ft_printf
 int		ft_printf(const char *in, ...);
 size_t	ft_printf_char(char c);
@@ -81,7 +84,6 @@ int		ft_printf_get_abs(int n, int base);
 int		ft_printf_is_negative_num(int n, int base);
 
 // get_next_line
-
 char	*ft_get_next_line(int fd);
 char	*ft_g_strjoin(char *store, char *buffer);
 size_t	ft_g_strl(const char *s, int type);
