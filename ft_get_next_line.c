@@ -6,7 +6,7 @@
 /*   By: wolfie <wolfie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 13:19:50 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/17 15:08:05 by wolfie           ###   ########.fr       */
+/*   Updated: 2024/01/17 15:21:06 by wolfie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 char	*ft_get_next_line(int fd)
 {
-	static char	*store;
+	static char	*store[1024];
 	char		*c_line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	store = ft_g_read_from_buffer(fd, store);
-	if (!store)
+	store[fd] = ft_g_read_from_buffer(fd, store[fd]);
+	if (!store[fd])
 		return (NULL);
-	c_line = ft_g_read_line(store);
-	store = ft_g_read_after_newline(store);
+	c_line = ft_g_read_line(store[fd]);
+	store[fd] = ft_g_read_after_newline(store[fd]);
 	return (c_line);
 }
 
