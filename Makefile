@@ -76,11 +76,12 @@ $(NAME): $(OBJS) $(BONUS_OBJS) $(MISC_OBJS)
 
 clean:
 	rm -rf $(OBJS) $(BONUS_OBJS) $(MISC_OBJS)
+	rm -rf bin
 	$(MAKE) -C src/modules/ft_printf clean
 	$(MAKE) -C src/modules/ft_get_next_line clean
 
 fclean: clean
-	rm -r build/$(NAME)
+	rm -rf build/$(NAME)
 	rm -rf build
 
 re: fclean all
