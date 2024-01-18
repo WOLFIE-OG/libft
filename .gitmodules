@@ -4,5 +4,5 @@
 	branch = dev
 [submodule "src/modules/ft_printf"]
 	path = src/modules/ft_printf
-	url = https://github.com/WOLFIE-OG/get_next_line.git
+	url = https://github.com/WOLFIE-OG/ft_printf.git
 	branch = dev
