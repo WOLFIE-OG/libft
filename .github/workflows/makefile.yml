@@ -24,4 +24,4 @@ jobs:
       run: make re
 
     - name: View Contents of Libft
-      run: nm -C libft.a
+      run: nm -C build/libft.a
