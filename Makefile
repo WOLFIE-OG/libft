@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: wolfie <wolfie@student.42.fr>              +#+  +:+       +#+         #
+#    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/12 08:58:18 by bcorte-r          #+#    #+#              #
-#    Updated: 2024/01/17 15:40:13 by wolfie           ###   ########.fr        #
+#    Updated: 2024/01/18 17:10:38 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,35 +48,34 @@ SRCS =	ft_isalpha.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c
 
-FT_PRINTF_SRCS = ft_printf.c \
-				 ft_printf_arth_u.c \
-				 ft_printf_arth.c \
-				 ft_printf_char.c \
-				 ft_printf_ptr.c \
-				 ft_printf_str.c \
-				 ft_printf_utils.c
-
-GNL_SRCS =	ft_get_next_line_utils.c \
-		   	ft_get_next_line.c
-
 BONUS_SRCS = ft_lstnew.c \
 			 ft_lstadd_front.c
 
 MISC_SRCS = ft_isdigit_str.c
 
-OBJS = $(SRCS:.c=.o)
-FT_PRINTF_OBJS = $(FT_PRINTF_SRCS:.c=.o)
-GNL_OBJS = $(GNL_SRCS:.c=.o)
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
-MISC_OBJS = $(MISC_SRCS:.c=.o)
+OBJS = $(SRCS:%.c=bin/%.o)
+BONUS_OBJS = $(BONUS_SRCS:%.c=bin/%.o)
+MISC_OBJS = $(MISC_SRCS:%.c=bin/%.o)
+FT_PRINTF = src/modules/ft_printf/bin/*.o
+GNL = src/modules/ft_get_next_line/bin/*.o
 
-all: $(NAME)
+all: dir $(NAME)
 
-$(NAME): $(OBJS) $(FT_PRINTF_OBJS) $(GNL_OBJS) $(BONUS_OBJS) $(MISC_OBJS)
-	ar rcs $(NAME) $(OBJS) $(FT_PRINTF_OBJS) $(GNL_OBJS) $(BONUS_OBJS) $(MISC_OBJS)
+dir:
+	@mkdir -p bin
+
+bin/%.o: src/%.c
+	$(CC) -o $@ -c $< $(CFLAGS)
+
+$(NAME): $(OBJS) $(BONUS_OBJS) $(MISC_OBJS) 
+	@$(MAKE) -C src/modules/ft_printf 
+	@$(MAKE) -C src/modules/ft_get_next_line
+	ar -rcs $(NAME) $(OBJS) $(BONUS_OBJS) $(MISC_OBJS) $(FT_PRINTF) $(GNL)
 
 clean:
-	rm -rf $(OBJS) $(FT_PRINTF_OBJS) $(GNL_OBJS) $(BONUS_OBJS) $(MISC_OBJS)
+	rm -rf $(OBJS) $(BONUS_OBJS) $(MISC_OBJS)
+	$(MAKE) -C src/modules/ft_printf clean
+	$(MAKE) -C src/modules/ft_get_next_line clean
 
 fclean: clean
 	rm -rf $(NAME)
