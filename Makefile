@@ -63,6 +63,7 @@ all: dir $(NAME)
 
 dir:
 	@mkdir -p bin
+	@mkdir -p build
 
 bin/%.o: src/%.c
 	$(CC) -o $@ -c $< $(CFLAGS)
@@ -71,6 +72,7 @@ $(NAME): $(OBJS) $(BONUS_OBJS) $(MISC_OBJS)
 	@$(MAKE) -C src/modules/ft_printf 
 	@$(MAKE) -C src/modules/ft_get_next_line
 	ar -rcs $(NAME) $(OBJS) $(BONUS_OBJS) $(MISC_OBJS) $(FT_PRINTF) $(GNL)
+	mv $(NAME) build/
 
 clean:
 	rm -rf $(OBJS) $(BONUS_OBJS) $(MISC_OBJS)
@@ -78,6 +80,7 @@ clean:
 	$(MAKE) -C src/modules/ft_get_next_line clean
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -r build/$(NAME)
+	rm -rf build
 
 re: fclean all
