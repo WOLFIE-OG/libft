@@ -6,15 +6,12 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/19 19:23:24 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/22 15:10:31 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1024
-# endif
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
