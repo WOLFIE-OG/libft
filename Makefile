@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/12 08:58:18 by bcorte-r          #+#    #+#              #
-#    Updated: 2024/01/18 17:10:38 by otodd            ###   ########.fr        #
+#    Updated: 2024/01/19 19:10:33 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,19 +53,19 @@ BONUS_SRCS = ft_lstnew.c \
 
 MISC_SRCS = ft_isdigit_str.c
 
-OBJS = $(SRCS:%.c=bin/%.o)
-BONUS_OBJS = $(BONUS_SRCS:%.c=bin/%.o)
-MISC_OBJS = $(MISC_SRCS:%.c=bin/%.o)
-FT_PRINTF = src/modules/ft_printf/bin/*.o
-GNL = src/modules/ft_get_next_line/bin/*.o
+OBJS = $(SRCS:%.c=obj/%.o)
+BONUS_OBJS = $(BONUS_SRCS:%.c=obj/%.o)
+MISC_OBJS = $(MISC_SRCS:%.c=obj/%.o)
+FT_PRINTF = src/modules/ft_printf/obj/*.o
+GNL = src/modules/ft_get_next_line/obj/*.o
 
 all: dir $(NAME)
 
 dir:
-	mkdir -p bin
+	mkdir -p obj
 	mkdir -p build
 
-bin/%.o: src/%.c
+obj/%.o: src/%.c
 	$(CC) -o $@ -c $< $(CFLAGS)
 
 $(NAME): $(OBJS) $(BONUS_OBJS) $(MISC_OBJS) 
@@ -76,7 +76,7 @@ $(NAME): $(OBJS) $(BONUS_OBJS) $(MISC_OBJS)
 
 clean:
 	rm -rf $(OBJS) $(BONUS_OBJS) $(MISC_OBJS)
-	rm -rf bin
+	rm -rf obj
 	$(MAKE) -C src/modules/ft_printf clean
 	$(MAKE) -C src/modules/ft_get_next_line clean
 

@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/18 17:09:57 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/19 19:23:24 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@
 # include "../src/modules/ft_printf/include/ft_printf.h"
 # include "../src/modules/ft_get_next_line/include/ft_get_next_line.h"
 
-//Bonus
+// Bonus
+
 typedef struct s_list
 {
 	void			*content;
@@ -30,6 +31,7 @@ typedef struct s_list
 }	t_list;
 
 // Core Functions
+
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
@@ -55,6 +57,7 @@ void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
 
 // Secondary Functions
+
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
@@ -68,9 +71,12 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
 // Bonus functions
+
 t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 
 // Misc functions
+
 int		ft_isdigit_str(char *str);
 
 #endif

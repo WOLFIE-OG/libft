@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:35:27 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/18 17:06:04 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/19 19:17:57 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putnbr_fd(int n, int fd)
 {
 	if (n < 0)
 	{
-		if (n == -2147483648)
+		if (n == INT_MIN)
 		{
 			ft_putchar_fd('-', fd);
 			ft_putnbr_fd((n / -10), fd);
