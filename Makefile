@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/12 08:58:18 by bcorte-r          #+#    #+#              #
-#    Updated: 2024/01/23 18:07:29 by otodd            ###   ########.fr        #
+#    Updated: 2024/01/23 18:32:42 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,5 +92,13 @@ fclean: clean
 	rm -rf build
 
 re: fclean all
+
+test: fclean all
+	wget https://raw.githubusercontent.com/WOLFIE-OG/Libft/master/ANSI-color-codes.h
+	wget https://gist.githubusercontent.com/WOLFIE-OG/5fe84b7e6f5ba7b7dc0ed503c6504d78/raw/7087248a9c2c2e21fcc2020dea0a9466ed6cd8a8/program.c
+	$(CC) ANSI-color-codes.h program.c -Lbuild -lft -lbsd -o test.bin
+	rm program.c ANSI-color-codes.h
+	./test.bin
+	rm test.bin
 
 .PHONY: all clean fclean re
