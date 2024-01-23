@@ -25,3 +25,6 @@ jobs:
 
     - name: View Contents of Libft
       run: nm -C build/libft.a
+
+    - name: Run tests
+      run: make test
