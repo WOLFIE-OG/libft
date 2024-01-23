@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/23 13:48:29 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/23 18:07:20 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,5 @@ int		ft_lstsize(t_list *lst);
 // Misc functions
 
 int		ft_isdigit_str(char *str);
-
+int		ft_abs(int n);
 #endif
