@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/12 08:58:18 by bcorte-r          #+#    #+#              #
-#    Updated: 2024/01/19 19:10:33 by otodd            ###   ########.fr        #
+#    Updated: 2024/01/23 13:48:39 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,14 @@ SRCS =	ft_isalpha.c \
 		ft_putnbr_fd.c
 
 BONUS_SRCS = ft_lstnew.c \
-			 ft_lstadd_front.c
+			 ft_lstlast.c \
+			 ft_lstadd_back.c \
+			 ft_lstadd_front.c \
+			 ft_lstclear.c \
+			 ft_lstdelone.c \
+			 ft_lstiter.c \
+			 ft_lstmap.c \
+			 ft_lstsize.c
 
 MISC_SRCS = ft_isdigit_str.c
 
