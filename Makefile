@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/12 08:58:18 by bcorte-r          #+#    #+#              #
-#    Updated: 2024/01/23 13:48:39 by otodd            ###   ########.fr        #
+#    Updated: 2024/01/23 14:03:48 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,3 +92,5 @@ fclean: clean
 	rm -rf build
 
 re: fclean all
+
+.PHONY: all clean fclean re
