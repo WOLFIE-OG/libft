@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:25:14 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/24 13:44:23 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/24 14:16:31 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -553,7 +553,26 @@ void	test_range()
 
 void	test_swap()
 {
-	
+	char 	tmp = 'a';
+	char	tmp2 = 'b';
+	char	*a = &tmp;
+	char	*b = &tmp2;
+
+	ft_swap(a, b);
+	assert_char(*b, 'a', (char *)__func__);
+}
+
+void	test_strcheck()
+{
+	char	*str = "This is a test string 1234";
+
+	assert_int(1, ft_ischeck_str(str, ft_isalpha), strcat(strdup((char *)__func__), " (ft_isalpha)"));
+	assert_int(1, ft_ischeck_str(str, ft_isdigit), strcat(strdup((char *)__func__), " (ft_isdigit)"));
+	assert_int(1, ft_ischeck_str(str, ft_isalnum), strcat(strdup((char *)__func__), " (ft_isalnum)"));
+	assert_int(1, ft_ischeck_str(str, ft_isascii), strcat(strdup((char *)__func__), " (ft_isascii)"));
+	assert_int(1, ft_ischeck_str(str, ft_isprint), strcat(strdup((char *)__func__), " (ft_isprint)"));
+	assert_int(1, ft_ischeck_str(str, ft_islower), strcat(strdup((char *)__func__), " (ft_islower)"));
+	assert_int(1, ft_ischeck_str(str, ft_isupper), strcat(strdup((char *)__func__), " (ft_isupper)"));
 }
 
 void	test_ft_printf()
@@ -693,6 +712,9 @@ int	main(void)
 	assert_ext("ft_isprime", 1);
 	test_range();
 	assert_ext("ft_putnbr", 1);
+	test_swap();
+	assert_ext("ft_putendl", 1);
+	test_strcheck();
 	end_test("Additional functions");
 	return (0);
 }

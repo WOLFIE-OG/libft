@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/12 08:58:18 by bcorte-r          #+#    #+#              #
-#    Updated: 2024/01/24 12:55:47 by otodd            ###   ########.fr        #
+#    Updated: 2024/01/24 14:18:11 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,9 @@ MISC_SRCS = 	ft_abs.c \
 				ft_putnbr.c \
 				ft_swap.c \
 				ft_putendl.c \
-				ft_ischeck_str.c
+				ft_ischeck_str.c \
+				ft_islower.c \
+				ft_isupper.c
 
 OBJS = 			$(SRCS:%.c=obj/%.o)
 BONUS_OBJS = 	$(BONUS_SRCS:%.c=obj/%.o)
@@ -112,5 +114,6 @@ re: fclean all
 test: all
 	$(CC) tests/ANSI-color-codes.h tests/program.c -Lbuild -lft -lbsd -o test.bin -g
 	./test.bin
+	rm test.bin
 
 .PHONY: all clean fclean re

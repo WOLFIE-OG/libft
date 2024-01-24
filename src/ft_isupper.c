@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ischeck_str.c                                   :+:      :+:    :+:   */
+/*   ft_isupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/12 17:34:46 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/24 14:17:33 by otodd            ###   ########.fr       */
+/*   Created: 2023/11/08 13:21:53 by otodd             #+#    #+#             */
+/*   Updated: 2024/01/24 14:15:09 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
-
-int	ft_ischeck_str(char *str, int (*f)(int))
+int	ft_isupper(int c)
 {
-	while (*str)
-		if (f(*str++))
-			return (1);
+	if (c >= 'A' && c <= 'Z')
+		return (1);
 	return (0);
 }
