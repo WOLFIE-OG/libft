@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 16:45:08 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/24 12:17:36 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/24 13:24:45 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@ int	ft_sqrt(int nb)
 {
 	long	num;
 
-	num = 0;
-	while (nb > num * num)
+	num = 1;
+	while (num * num <= nb)
+	{
+		if (num * num == nb)
+			return (num);
 		num++;
-
-	if (nb == num * num)
-		return (num);
+	}
 	return (0);
 }
 
