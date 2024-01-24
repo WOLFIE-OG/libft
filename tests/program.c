@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:25:14 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/24 14:16:31 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/24 14:31:15 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -564,7 +564,7 @@ void	test_swap()
 
 void	test_strcheck()
 {
-	char	*str = "This is a test string 1234";
+	char	*str = "This is a test string 12345";
 
 	assert_int(1, ft_ischeck_str(str, ft_isalpha), strcat(strdup((char *)__func__), " (ft_isalpha)"));
 	assert_int(1, ft_ischeck_str(str, ft_isdigit), strcat(strdup((char *)__func__), " (ft_isdigit)"));
