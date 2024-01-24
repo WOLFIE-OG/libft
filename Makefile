@@ -6,13 +6,13 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/12 08:58:18 by bcorte-r          #+#    #+#              #
-#    Updated: 2024/01/23 18:32:42 by otodd            ###   ########.fr        #
+#    Updated: 2024/01/24 12:26:45 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
+CC = 	cc
 CFLAGS = -Wall -Wextra -Werror
-NAME = libft.a
+NAME = 	libft.a
 SRCS =	ft_isalpha.c \
 		ft_isdigit.c \
 		ft_isalnum.c \
@@ -22,7 +22,7 @@ SRCS =	ft_isalpha.c \
 		ft_memset.c \
 		ft_bzero.c \
 		ft_memcpy.c \
-    	ft_memmove.c \
+		ft_memmove.c \
 		ft_strlcpy.c \
 		ft_strlcat.c \
 		ft_toupper.c \
@@ -40,7 +40,7 @@ SRCS =	ft_isalpha.c \
 		ft_strjoin.c \
 		ft_strtrim.c \
 		ft_split.c \
-    	ft_itoa.c \
+		ft_itoa.c \
 		ft_strmapi.c \
 		ft_striteri.c \
 		ft_putchar_fd.c \
@@ -48,23 +48,39 @@ SRCS =	ft_isalpha.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c
 
-BONUS_SRCS = ft_lstnew.c \
-			 ft_lstlast.c \
-			 ft_lstadd_back.c \
-			 ft_lstadd_front.c \
-			 ft_lstclear.c \
-			 ft_lstdelone.c \
-			 ft_lstiter.c \
-			 ft_lstmap.c \
-			 ft_lstsize.c
+BONUS_SRCS =	ft_lstnew.c \
+				ft_lstlast.c \
+				ft_lstadd_back.c \
+				ft_lstadd_front.c \
+				ft_lstclear.c \
+				ft_lstdelone.c \
+				ft_lstiter.c \
+				ft_lstmap.c \
+				ft_lstsize.c
 
-MISC_SRCS = ft_isdigit_str.c ft_abs.c
+MISC_SRCS = 	ft_isdigit_str.c \
+				ft_abs.c \
+				ft_isnegative.c \
+				ft_numlen.c \
+				ft_strcpy.c \
+				ft_strncpy.c \
+				ft_strcat.c \
+				ft_strncat.c \
+				ft_strstr.c \
+				ft_putchar.c \
+				ft_putstr.c \
+				ft_sqrt.c \
+				ft_isprime.c \
+				ft_range.c \
+				ft_putnbr.c \
+				ft_swap.c \
+				ft_putendl.c
 
-OBJS = $(SRCS:%.c=obj/%.o)
-BONUS_OBJS = $(BONUS_SRCS:%.c=obj/%.o)
-MISC_OBJS = $(MISC_SRCS:%.c=obj/%.o)
-FT_PRINTF = src/modules/ft_printf/obj/*.o
-GNL = src/modules/ft_get_next_line/obj/*.o
+OBJS = 			$(SRCS:%.c=obj/%.o)
+BONUS_OBJS = 	$(BONUS_SRCS:%.c=obj/%.o)
+MISC_OBJS = 	$(MISC_SRCS:%.c=obj/%.o)
+FT_PRINTF = 	src/modules/ft_printf/obj/*.o
+GNL = 			src/modules/ft_get_next_line/obj/*.o
 
 all: dir $(NAME)
 

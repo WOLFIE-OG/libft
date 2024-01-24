@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 13:03:18 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/24 11:32:14 by otodd            ###   ########.fr       */
+/*   Created: 2023/10/15 17:20:33 by otodd             #+#    #+#             */
+/*   Updated: 2024/01/24 11:33:21 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	char	*new_string;
+	unsigned int	d_len;
+	unsigned int	index;
 
-	new_string = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	return (ft_strcat(ft_strcpy(new_string, (char *)s1), (char *)s2));
+	index = 0;
+	d_len = ft_strlen(dest);
+	while (index < nb && src[index] != '\0')
+	{
+		dest[d_len + index] = src[index];
+		index++;
+	}
+	dest[d_len + index] = '\0';
+	return (dest);
 }

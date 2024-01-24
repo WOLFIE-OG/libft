@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/23 18:07:20 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/24 12:26:51 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,20 @@ int		ft_lstsize(t_list *lst);
 
 int		ft_isdigit_str(char *str);
 int		ft_abs(int n);
+int		ft_isnegative(int n);
+int		ft_numlen(int n);
+char	*ft_strcpy(char *dest, const char *src);
+char	*ft_strncpy(char *dest, char *src, size_t n);
+char	*ft_strcat(char *dest, char *src);
+char	*ft_strncat(char *dest, char *src, unsigned int nb);
+char	*ft_strstr(char *str, char *to_find);
+void	ft_putchar(char c);
+void	ft_putstr(char *str);
+int		ft_sqrt(int nb);
+int		ft_isprime(int nb);
+int		*ft_range(int min, int max);
+void	ft_putnbr(int n);
+void	ft_swap(int *a, int *b);
+void	ft_putendl(char *s);
+
 #endif

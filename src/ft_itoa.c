@@ -6,38 +6,15 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 11:57:29 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/23 18:13:37 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/23 19:19:04 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-
-static int	placements(int n)
-{
-	int	len;
-
-	len = 0;
-	if (n == 0)
-		return (1);
-	while (n != 0)
-	{
-		n /= 10;
-		len++;
-	}
-	return (len);
-}
-
-static int	is_negative_num(int n)
-{
-	if (n < 0)
-		return (1);
-	return (0);
-}
-
 char	*ft_itoa(int n)
 {
-	const int	is_negative = is_negative_num(n);
+	const int	is_negative = ft_isnegative(n);
 	int			len;
 	char		*string;
 
@@ -46,8 +23,8 @@ char	*ft_itoa(int n)
 	if (n == INT_MAX)
 		return ("2147483647");
 	n = ft_abs(n);
-	len = placements(ft_abs(n)) + is_negative;
-	string = malloc(sizeof(char) * (len + 1));
+	len = ft_numlen(ft_abs(n)) + is_negative;
+	string = (char *)malloc(sizeof(char) * (len + 1));
 	string[len--] = '\0';
 	if (is_negative)
 		string[0] = '-';

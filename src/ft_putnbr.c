@@ -1,21 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd copy.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 13:03:18 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/24 11:32:14 by otodd            ###   ########.fr       */
+/*   Created: 2023/11/16 18:35:27 by otodd             #+#    #+#             */
+/*   Updated: 2024/01/24 12:22:53 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_putnbr(int n)
 {
-	char	*new_string;
-
-	new_string = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	return (ft_strcat(ft_strcpy(new_string, (char *)s1), (char *)s2));
+	if (n < 0)
+	{
+		if (n == INT_MIN)
+		{
+			ft_putchar('-');
+			ft_putnbr((n / -10));
+			ft_putchar('8');
+		}
+		else
+		{
+			ft_putchar('-');
+			ft_putnbr(-n);
+		}
+	}
+	else if (n < 10)
+		ft_putchar((n + '0'));
+	else
+	{
+		ft_putnbr((n / 10));
+		ft_putnbr((n % 10));
+	}
 }

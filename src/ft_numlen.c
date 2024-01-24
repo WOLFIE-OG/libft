@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_numlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 13:03:18 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/24 11:32:14 by otodd            ###   ########.fr       */
+/*   Created: 2024/01/23 19:15:44 by otodd             #+#    #+#             */
+/*   Updated: 2024/01/23 19:19:25 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	ft_numlen(int n)
 {
-	char	*new_string;
+	size_t	len;
 
-	new_string = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	return (ft_strcat(ft_strcpy(new_string, (char *)s1), (char *)s2));
+	len = 0;
+	if (n == 0)
+		return (1);
+	while (n != 0)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
 }

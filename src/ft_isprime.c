@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_isprime.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 13:03:18 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/24 11:32:14 by otodd            ###   ########.fr       */
+/*   Created: 2023/10/22 16:50:06 by otodd             #+#    #+#             */
+/*   Updated: 2024/01/24 12:18:08 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
-
-char	*ft_strjoin(char const *s1, char const *s2)
+int	ft_isprime(int nb)
 {
-	char	*new_string;
+	int	index;
 
-	new_string = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	return (ft_strcat(ft_strcpy(new_string, (char *)s1), (char *)s2));
+	index = 2;
+	if (nb <= 1)
+		return (0);
+	while (index <= (nb / 2))
+	{
+		if (nb % index == 0)
+			return (0);
+		index++;
+	}
+	return (1);
 }
