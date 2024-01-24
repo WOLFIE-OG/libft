@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit_str.c                                   :+:      :+:    :+:   */
+/*   ft_ischeck_str.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:34:46 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/18 17:06:01 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/24 12:41:45 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-int	ft_isdigit_str(char *str)
+int	ft_ischeck_str(char *str, int (*f)(int))
 {
 	while (*str)
-		if (!ft_isdigit(*str++))
+		if (!f(*str++))
 			return (1);
 	return (0);
 }

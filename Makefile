@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/12 08:58:18 by bcorte-r          #+#    #+#              #
-#    Updated: 2024/01/24 12:26:45 by otodd            ###   ########.fr        #
+#    Updated: 2024/01/24 12:41:11 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,8 +58,7 @@ BONUS_SRCS =	ft_lstnew.c \
 				ft_lstmap.c \
 				ft_lstsize.c
 
-MISC_SRCS = 	ft_isdigit_str.c \
-				ft_abs.c \
+MISC_SRCS = 	ft_abs.c \
 				ft_isnegative.c \
 				ft_numlen.c \
 				ft_strcpy.c \
@@ -74,7 +73,8 @@ MISC_SRCS = 	ft_isdigit_str.c \
 				ft_range.c \
 				ft_putnbr.c \
 				ft_swap.c \
-				ft_putendl.c
+				ft_putendl.c \
+				ft_ischeck_str.c
 
 OBJS = 			$(SRCS:%.c=obj/%.o)
 BONUS_OBJS = 	$(BONUS_SRCS:%.c=obj/%.o)

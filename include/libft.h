@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/24 12:26:51 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/24 12:42:04 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ int		ft_lstsize(t_list *lst);
 
 // Misc functions
 
-int		ft_isdigit_str(char *str);
 int		ft_abs(int n);
 int		ft_isnegative(int n);
 int		ft_numlen(int n);
@@ -98,5 +97,6 @@ int		*ft_range(int min, int max);
 void	ft_putnbr(int n);
 void	ft_swap(int *a, int *b);
 void	ft_putendl(char *s);
+int		ft_ischeck_str(char *str, int (*f)(int));
 
 #endif

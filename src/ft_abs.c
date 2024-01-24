@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:05:52 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/23 18:06:58 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/24 12:36:15 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,9 @@
 int	ft_abs(int n)
 {
 	if (n == INT_MIN)
-	{
 		return (INT_MAX);
-	}
 	else if (n < 0)
-	{
 		return (-n);
-	}
 	else
-	{
 		return (n);
-	}
 }

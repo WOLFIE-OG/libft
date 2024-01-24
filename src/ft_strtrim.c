@@ -6,29 +6,11 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:39:09 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/18 17:06:06 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/24 12:31:23 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
-
-static char	*ft_strncpy_l(char *dest, char *src, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < n && src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
-}
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
@@ -49,7 +31,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	new_string = (char *)malloc(sizeof(char) * (len + 1));
 	if (!new_string)
 		return (NULL);
-	ft_strncpy_l(new_string, (char *)s1 + start, len);
+	ft_strncpy(new_string, (char *)s1 + start, len);
 	new_string[len] = '\0';
 	return (new_string);
 }
