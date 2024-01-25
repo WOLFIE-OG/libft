@@ -6,13 +6,14 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/12 08:58:18 by bcorte-r          #+#    #+#              #
-#    Updated: 2024/01/24 14:47:18 by otodd            ###   ########.fr        #
+#    Updated: 2024/01/25 18:28:47 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = 	cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = 	libft.a
+MODULES = src/modules
 SRCS =	ft_isalpha.c \
 		ft_isdigit.c \
 		ft_isalnum.c \
@@ -76,13 +77,14 @@ MISC_SRCS = 	ft_abs.c \
 				ft_putendl.c \
 				ft_ischeck_str.c \
 				ft_islower.c \
-				ft_isupper.c
+				ft_isupper.c \
+				ft_atol.c
 
 OBJS = 			$(SRCS:%.c=obj/%.o)
 BONUS_OBJS = 	$(BONUS_SRCS:%.c=obj/%.o)
 MISC_OBJS = 	$(MISC_SRCS:%.c=obj/%.o)
-FT_PRINTF = 	src/modules/ft_printf/obj/*.o
-GNL = 			src/modules/ft_get_next_line/obj/*.o
+FT_PRINTF = 	$(MODULES)/ft_printf/obj/*.o
+GNL = 			$(MODULES)/ft_get_next_line/obj/*.o
 
 all: dir $(NAME)
 
@@ -94,16 +96,16 @@ obj/%.o: src/%.c
 	$(CC) -o $@ -c $< $(CFLAGS)
 
 $(NAME): $(OBJS) $(BONUS_OBJS) $(MISC_OBJS) 
-	$(MAKE) -C src/modules/ft_printf 
-	$(MAKE) -C src/modules/ft_get_next_line
+	$(MAKE) -C $(MODULES)/ft_printf 
+	$(MAKE) -C $(MODULES)/ft_get_next_line
 	ar -rcs $(NAME) $(OBJS) $(BONUS_OBJS) $(MISC_OBJS) $(FT_PRINTF) $(GNL)
 	mv $(NAME) build/
 
 clean:
 	rm -rf $(OBJS) $(BONUS_OBJS) $(MISC_OBJS)
 	rm -rf obj
-	$(MAKE) -C src/modules/ft_printf clean
-	$(MAKE) -C src/modules/ft_get_next_line clean
+	$(MAKE) -C $(MODULES)/ft_printf clean
+	$(MAKE) -C $(MODULES)/ft_get_next_line clean
 
 fclean: clean
 	rm -rf build/$(NAME)
