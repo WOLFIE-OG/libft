@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/12 08:58:18 by bcorte-r          #+#    #+#              #
-#    Updated: 2024/01/25 18:28:47 by otodd            ###   ########.fr        #
+#    Updated: 2024/01/26 19:22:59 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,7 +78,8 @@ MISC_SRCS = 	ft_abs.c \
 				ft_ischeck_str.c \
 				ft_islower.c \
 				ft_isupper.c \
-				ft_atol.c
+				ft_atol.c \
+				ft_binary.c
 
 OBJS = 			$(SRCS:%.c=obj/%.o)
 BONUS_OBJS = 	$(BONUS_SRCS:%.c=obj/%.o)

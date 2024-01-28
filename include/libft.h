@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/25 18:24:42 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/26 19:22:45 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,6 @@ int		ft_ischeck_str(char *str, int (*f)(int));
 int		ft_islower(int c);
 int		ft_isupper(int c);
 int		ft_atol(const char *nptr);
+char	*ft_binary(unsigned char c);
 
 #endif
