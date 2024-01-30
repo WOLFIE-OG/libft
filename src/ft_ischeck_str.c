@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:34:46 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/24 14:37:59 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/29 19:00:47 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ int	ft_ischeck_str(char *str, int (*f)(int))
 {
 	while (*str)
 		if (!f(*str++))
-			return (1);
-	return (0);
+			return (0);
+	return (1);
 }
