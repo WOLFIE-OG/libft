@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/02 15:07:51 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/02 18:28:25 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,12 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdint.h>
-# include "../src/modules/ft_printf/include/ft_printf.h"
-# include "../src/modules/ft_get_next_line/include/ft_get_next_line.h"
+# if __has_include("../src/modules/ft_printf/include/ft_printf.h")
+#  include "../src/modules/ft_printf/include/ft_printf.h"
+# endif
+# if __has_include("../src/modules/ft_get_next_line/include/ft_get_next_line.h")
+#  include "../src/modules/ft_get_next_line/include/ft_get_next_line.h"
+# endif
 
 // Bonus
 
