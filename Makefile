@@ -87,39 +87,39 @@ AR_COMMAND = ar -rcs $(NAME) $(OBJS) $(BONUS_OBJS) $(MISC_OBJS)
 all: dir $(NAME)
 
 dir:
-	@echo "$(GREEN)[LIBFT]     Creating obj directory...$(NC)"
+	@echo "[$(GREEN)LIBFT$(NC)]     Creating obj directory..."
 	@mkdir -p obj
-	@echo "$(GREEN)[LIBFT]     Creating build directory...$(NC)"
+	@echo "[$(GREEN)LIBFT$(NC)]     Creating build directory..."
 	@mkdir -p build
 
 obj/%.o: src/%.c
-	@echo "$(GREEN)[LIBFT]     Compiling $< --> $@$(NC)"
+	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS)
 
 check_modules:
 	@if [ ! -d "$(FT_PRINTF_DIR)" ]; then \
-		echo "$(YELLOW)[LIBFT]     Warning: ft_printf module directory does not exist. Skipping its inclusion.$(NC)"; \
+		echo "[$(YELLOW)LIBFT$(NC)]     Warning: ft_printf module directory does not exist. Skipping its inclusion."; \
 	elif [ -z "$(wildcard $(FT_PRINTF_DIR)/include/*.h)" ]; then \
-		echo "$(YELLOW)[LIBFT]     Warning: ft_printf module directory exists but is empty. Skipping its inclusion.$(NC)"; \
+		echo "[$(YELLOW)LIBFT$(NC)]     Warning: ft_printf module directory exists but is empty. Skipping its inclusion."; \
 	else \
 		$(MAKE) -s -C $(FT_PRINTF_DIR); \
 	fi
 	@if [ ! -d "$(GNL_DIR)" ]; then \
-		echo "$(YELLOW)[LIBFT]     Warning: ft_get_next_line module directory does not exist. Skipping its inclusion.$(NC)"; \
+		echo "[$(YELLOW)LIBFT$(NC)]     Warning: ft_get_next_line module directory does not exist. Skipping its inclusion."; \
 	elif [ -z "$(wildcard $(GNL_DIR)/include/*.h)" ]; then \
-		echo "$(YELLOW)[LIBFT]     Warning: ft_get_next_line module directory exists but is empty. Skipping its inclusion.$(NC)"; \
+		echo "[$(YELLOW)LIBFT$(NC)]     Warning: ft_get_next_line module directory exists but is empty. Skipping its inclusion."; \
 	else \
 		$(MAKE) -s -C $(GNL_DIR); \
 	fi
 
 $(NAME): $(OBJS) $(BONUS_OBJS) $(MISC_OBJS) check_modules
-	@echo "$(GREEN)[LIBFT]     Creating $(NAME)...$(NC)"
+	@echo "[$(GREEN)LIBFT$(NC)]     Creating $(NAME)..."
 	@if [ -d "$(FT_PRINTF_DIR)" ] && [ ! -z "$(wildcard $(FT_PRINTF_DIR)/obj/*.o)" ]; then \
-		echo "$(GREEN)[LIBFT]     Adding ft_printf module to $(NAME)...$(NC)"; \
+		echo "[$(GREEN)LIBFT$(NC)]     Adding ft_printf module to $(NAME)..."; \
 		$(AR_COMMAND) $(FT_PRINTF_OBJS); \
 	fi
 	@if [ -d "$(GNL_DIR)" ] && [ ! -z "$(wildcard $(GNL_DIR)/obj/*.o)" ]; then \
-		echo "$(GREEN)[LIBFT]     Adding ft_get_next_line module to $(NAME)...$(NC)"; \
+		echo "[$(GREEN)LIBFT$(NC)]     Adding ft_get_next_line module to $(NAME)..."; \
 		$(AR_COMMAND) $(GNL_OBJS); \
 	fi
 	@$(AR_COMMAND)
@@ -128,46 +128,46 @@ $(NAME): $(OBJS) $(BONUS_OBJS) $(MISC_OBJS) check_modules
 check_modules_clean:
 	@if [ -d "$(FT_PRINTF_DIR)" ]; then \
 		if [ ! -z "$(wildcard $(FT_PRINTF_DIR)/include/*.h)" ]; then \
-			echo "$(YELLOW)[LIBFT]     Cleaning ft_printf module.$(NC)"; \
+			echo "[$(YELLOW)LIBFT$(NC)]     Cleaning ft_printf module."; \
 			$(MAKE) -s -C $(FT_PRINTF_DIR) clean; \
 		else \
-			echo "$(RED)[LIBFT]     ft_printf module is not clean, skipping cleaning.$(NC)"; \
+			echo "[$(RED)LIBFT$(NC)]     ft_printf module is not clean, skipping cleaning."; \
 		fi \
 	else \
-		echo "$(YELLOW)[LIBFT]     Warning: ft_printf module directory does not exist. Skipping cleaning.$(NC)"; \
+		echo "[$(YELLOW)LIBFT$(NC)]     Warning: ft_printf module directory does not exist. Skipping cleaning."; \
 	fi
 	@if [ -d "$(GNL_DIR)" ]; then \
 		if [ ! -z "$(wildcard $(GNL_DIR)/include/*.h)" ]; then \
-			echo "$(YELLOW)[LIBFT]     Cleaning ft_get_next_line module.$(NC)"; \
+			echo "[$(YELLOW)LIBFT$(NC)]     Cleaning ft_get_next_line module."; \
 			$(MAKE) -s -C $(GNL_DIR) clean; \
 		else \
-			echo "$(RED)[LIBFT]     ft_get_next_line module is not clean, skipping cleaning.$(NC)"; \
+			echo "[$(RED)LIBFT$(NC)]     ft_get_next_line module is not clean, skipping cleaning."; \
 		fi \
 	else \
-		echo "$(YELLOW)[LIBFT]     Warning: ft_get_next_line module directory does not exist. Skipping cleaning.$(NC)"; \
+		echo "[$(YELLOW)LIBFT$(NC)]     Warning: ft_get_next_line module directory does not exist. Skipping cleaning."; \
 	fi
 
 clean: check_modules_clean
-	@echo "$(YELLOW)[LIBFT]     Cleaning object files...$(NC)"
+	@echo "[$(YELLOW)LIBFT$(NC)]     Cleaning object files..."
 	@rm -rf $(OBJS) $(BONUS_OBJS) $(MISC_OBJS)
 	@rm -rf obj
 
 fclean: clean
-	@echo "$(YELLOW)[LIBFT]     Cleaning build directory...$(NC)"
+	@echo "[$(YELLOW)LIBFT$(NC)]     Cleaning build directory..."
 	@rm -rf build/$(NAME)
 	@rm -rf build
 
 re: fclean all
 
 test: all
-	@echo "$(GREEN)[LIBFT]     Adding test...$(NC)"
+	@echo "[$(GREEN)LIBFT$(NC)]      Adding test...""
 	@mkdir -p tests/
 	@wget https://gist.githubusercontent.com/WOLFIE-OG/5fe84b7e6f5ba7b7dc0ed503c6504d78/raw/27fff2ca0ea82c5e63b32bbfa499081b15330d84/ANSI-color-codes.h -O tests/ANSI-color-codes.h
 	@wget https://gist.githubusercontent.com/WOLFIE-OG/5fe84b7e6f5ba7b7dc0ed503c6504d78/raw/27fff2ca0ea82c5e63b32bbfa499081b15330d84/program.c -O tests/program.c
-	@echo "$(GREEN)[LIBFT]     Running tests...$(NC)"
+	@echo "[$(GREEN)LIBFT$(NC)]      Running tests..."
 	@$(CC) tests/program.c tests/ANSI-color-codes.h -Lbuild -lft -lbsd -o test.bin
 	./test.bin
 	rm test.bin
 	rm -rf tests
-	@echo "$(YELLOW)[LIBFT]     Removing test...$(NC)"
+	@echo "[$(YELLOW)LIBFT$(NC)]     Removing test..."
 	@rm -rf tests/
