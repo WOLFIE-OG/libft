@@ -92,12 +92,13 @@ all: dir $(NAME)
 dir:
 	@if [ ! -d "obj" ]; then \
 		echo "[$(GREEN)LIBFT$(NC)]     Creating obj directory..."; \
-		@mkdir -p $(OBJ_DIR); \
+		mkdir -p $(OBJ_DIR); \
 	fi
 	@if [ ! -d "$(BUILD_DIR)" ]; then \
 		echo "[$(GREEN)LIBFT$(NC)]     Creating build directory..."; \
-		@mkdir -p $(BUILD_DIR); \
+		mkdir -p $(BUILD_DIR); \
 	fi
+
 obj/%.o: src/%.c
 	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS)
