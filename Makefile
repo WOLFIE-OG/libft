@@ -6,7 +6,7 @@ BLUE=\033[0;34m
 NC=\033[0m
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 NAME = libft.a
 MODULES = src/modules
 SRCS = ft_isalpha.c \
@@ -171,5 +171,3 @@ test: all
 	@echo "[$(GREEN)LIBFT$(NC)]      Running tests..."
 	@$(CC) tests/program.c tests/ANSI-color-codes.h -Lbuild -lft -lbsd -o test.bin
 	./test.bin
-	rm test.bin
-	@echo "[$(YELLOW)LIBFT$(NC)]     Removing test..."

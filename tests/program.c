@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:25:14 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/05 20:43:47 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/05 22:07:15 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -640,7 +640,7 @@ void	test_printf(void)
 	array[1] = "This is a test string 2";
 	array[2] = "This is a test string 3";
 	array[3] = "This is a test string 4";
-	array_2 = ft_range(-100, 1000);
+	array_2 = ft_range(10, -10);
 	printf(BLU"\n%s\n"reset, EDGES);
 	ft_printf("This is: %a\n", array);
 	ft_printf("This is: %n\n", array_2);
