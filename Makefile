@@ -85,15 +85,19 @@ GNL_DIR = $(MODULES)/ft_get_next_line
 FT_PRINTF_OBJS = $(wildcard $(FT_PRINTF_DIR)/obj/*.o)
 GNL_OBJS = $(wildcard $(GNL_DIR)/obj/*.o)
 AR_COMMAND = ar -rcs $(NAME) $(OBJS) $(BONUS_OBJS) $(MISC_OBJS)
+BUILD_DIR = build
 
 all: dir $(NAME)
 
 dir:
-	@echo "[$(GREEN)LIBFT$(NC)]     Creating obj directory..."
-	@mkdir -p obj
-	@echo "[$(GREEN)LIBFT$(NC)]     Creating build directory..."
-	@mkdir -p build
-
+	@if [ ! -d "obj" ]; then \
+		echo "[$(GREEN)LIBFT$(NC)]     Creating obj directory..."; \
+		@mkdir -p $(OBJ_DIR); \
+	fi
+	@if [ ! -d "$(BUILD_DIR)" ]; then \
+		echo "[$(GREEN)LIBFT$(NC)]     Creating build directory..."; \
+		@mkdir -p $(BUILD_DIR); \
+	fi
 obj/%.o: src/%.c
 	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS)
@@ -125,7 +129,7 @@ $(NAME): $(OBJS) $(BONUS_OBJS) $(MISC_OBJS) check_modules
 		$(AR_COMMAND) $(GNL_OBJS); \
 	fi
 	@$(AR_COMMAND)
-	@mv $(NAME) build/
+	@mv $(NAME) $(BUILD_DIR)/
 
 check_modules_clean:
 	@if [ -d "$(FT_PRINTF_DIR)" ]; then \
@@ -156,8 +160,8 @@ clean: check_modules_clean
 
 fclean: clean
 	@echo "[$(YELLOW)LIBFT$(NC)]     Cleaning build directory..."
-	@rm -rf build/$(NAME)
-	@rm -rf build
+	@rm -rf $(BUILD_DIR)/$(NAME)
+	@rm -rf $(BUILD_DIR)
 
 re: fclean all
 
