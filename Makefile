@@ -92,7 +92,7 @@ all: dir $(NAME)
 dir:
 	@if [ ! -d "obj" ]; then \
 		echo "[$(GREEN)LIBFT$(NC)]     Creating obj directory..."; \
-		mkdir -p $(OBJ_DIR); \
+		mkdir -p obj; \
 	fi
 	@if [ ! -d "$(BUILD_DIR)" ]; then \
 		echo "[$(GREEN)LIBFT$(NC)]     Creating build directory..."; \
