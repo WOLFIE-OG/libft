@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/02 18:28:25 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/05 16:58:25 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,6 @@ int		ft_isupper(int c);
 int		ft_atol(const char *nptr);
 char	*ft_binary(unsigned char c);
 int		ft_max(int *tab, unsigned int len);
+void	ft_free_char_array(char **array);
 
 #endif
