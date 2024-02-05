@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 11:33:24 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/24 12:20:32 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/05 20:51:19 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ int	*ft_range(int min, int max)
 
 	if (min >= max)
 		return (NULL);
-	range = malloc(sizeof(int) * (max - min));
+	range = malloc(sizeof(int) * (max - min) + 1);
 	if (!range)
 		return (NULL);
 	index = 0;
 	while (min < max)
 		range[index++] = min++;
+	range[index++] = INT_MAX;
 	return (range);
 }
