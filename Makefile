@@ -2,6 +2,7 @@
 YELLOW=\033[1;33m
 RED=\033[1;31m
 GREEN=\033[1;32m
+BLUE=\033[0;34m
 NC=\033[0m
 
 CC = cc
@@ -128,7 +129,7 @@ $(NAME): $(OBJS) $(BONUS_OBJS) $(MISC_OBJS) check_modules
 check_modules_clean:
 	@if [ -d "$(FT_PRINTF_DIR)" ]; then \
 		if [ ! -z "$(wildcard $(FT_PRINTF_DIR)/include/*.h)" ]; then \
-			echo "[$(YELLOW)LIBFT$(NC)]     Cleaning ft_printf module."; \
+			echo "[$(BLUE)LIBFT$(NC)]     Cleaning ft_printf module."; \
 			$(MAKE) -s -C $(FT_PRINTF_DIR) clean; \
 		else \
 			echo "[$(RED)LIBFT$(NC)]     ft_printf module is not clean, skipping cleaning."; \
@@ -138,7 +139,7 @@ check_modules_clean:
 	fi
 	@if [ -d "$(GNL_DIR)" ]; then \
 		if [ ! -z "$(wildcard $(GNL_DIR)/include/*.h)" ]; then \
-			echo "[$(YELLOW)LIBFT$(NC)]     Cleaning ft_get_next_line module."; \
+			echo "[$(BLUE)LIBFT$(NC)]     Cleaning ft_get_next_line module."; \
 			$(MAKE) -s -C $(GNL_DIR) clean; \
 		else \
 			echo "[$(RED)LIBFT$(NC)]     ft_get_next_line module is not clean, skipping cleaning."; \
