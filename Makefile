@@ -161,7 +161,7 @@ fclean: clean
 re: fclean all
 
 test: all
-	@echo "[$(GREEN)LIBFT$(NC)]      Adding test...""
+	@echo "[$(GREEN)LIBFT$(NC)]      Adding test..."
 	@mkdir -p tests/
 	@wget https://gist.githubusercontent.com/WOLFIE-OG/5fe84b7e6f5ba7b7dc0ed503c6504d78/raw/27fff2ca0ea82c5e63b32bbfa499081b15330d84/ANSI-color-codes.h -O tests/ANSI-color-codes.h
 	@wget https://gist.githubusercontent.com/WOLFIE-OG/5fe84b7e6f5ba7b7dc0ed503c6504d78/raw/27fff2ca0ea82c5e63b32bbfa499081b15330d84/program.c -O tests/program.c
