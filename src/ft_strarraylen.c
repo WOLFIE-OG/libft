@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_char_array.c                               :+:      :+:    :+:   */
+/*   ft_strarraylen.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 16:41:44 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/05 17:03:12 by otodd            ###   ########.fr       */
+/*   Created: 2024/02/06 12:59:28 by otodd             #+#    #+#             */
+/*   Updated: 2024/02/06 13:01:46 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-void	ft_free_char_array(char **array)
+size_t	ft_strarraylen(char **array)
 {
-	while (*array)
-	{
-		free(*array);
-		array++;
-	}
+	size_t	i;
+
+	i = 0;
+	while (*array++)
+		i++;
+	return (i);
 }

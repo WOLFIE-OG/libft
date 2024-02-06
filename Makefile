@@ -75,15 +75,29 @@ MISC_SRCS = ft_abs.c \
 	ft_isupper.c \
 	ft_atol.c \
 	ft_binary.c \
-	ft_free_char_array.c
+	ft_free_array.c \
+	ft_strarraylen.c
 
 OBJS = $(SRCS:%.c=obj/%.o)
 BONUS_OBJS = $(BONUS_SRCS:%.c=obj/%.o)
 MISC_OBJS = $(MISC_SRCS:%.c=obj/%.o)
 FT_PRINTF_DIR = $(MODULES)/ft_printf
 GNL_DIR = $(MODULES)/ft_get_next_line
-FT_PRINTF_OBJS = $(wildcard $(FT_PRINTF_DIR)/obj/*.o)
-GNL_OBJS = $(wildcard $(GNL_DIR)/obj/*.o)
+
+FT_PRINTF_OBJS = $(FT_PRINTF_DIR)/obj/ft_printf.o \
+	$(FT_PRINTF_DIR)/obj/ft_printf_arth_u.o \
+	$(FT_PRINTF_DIR)/obj/ft_printf_arth.o \
+	$(FT_PRINTF_DIR)/obj/ft_printf_char.o \
+	$(FT_PRINTF_DIR)/obj/ft_printf_ptr.o \
+	$(FT_PRINTF_DIR)/obj/ft_printf_str.o \
+	$(FT_PRINTF_DIR)/obj/ft_printf_utils.o \
+	$(FT_PRINTF_DIR)/obj/ft_printf_char_array.o \
+	$(FT_PRINTF_DIR)/obj/ft_printf_nbr_array.o \
+	$(FT_PRINTF_DIR)/obj/ft_printf_linked_list.o
+
+GNL_OBJS = $(GNL_DIR)/obj/ft_get_next_line.o \
+	$(GNL_DIR)/obj/ft_get_next_line_utils.o
+
 AR_COMMAND = ar -rcs $(NAME) $(OBJS) $(BONUS_OBJS) $(MISC_OBJS)
 BUILD_DIR = build
 
@@ -109,14 +123,14 @@ check_modules:
 	elif [ -z "$(wildcard $(FT_PRINTF_DIR)/include/*.h)" ]; then \
 		echo "[$(YELLOW)LIBFT$(NC)]     Warning: ft_printf module directory exists but is empty. Skipping its inclusion."; \
 	else \
-		$(MAKE) -s -C $(FT_PRINTF_DIR); \
+		$(MAKE) -s -C $(FT_PRINTF_DIR) module; \
 	fi
 	@if [ ! -d "$(GNL_DIR)" ]; then \
 		echo "[$(YELLOW)LIBFT$(NC)]     Warning: ft_get_next_line module directory does not exist. Skipping its inclusion."; \
 	elif [ -z "$(wildcard $(GNL_DIR)/include/*.h)" ]; then \
 		echo "[$(YELLOW)LIBFT$(NC)]     Warning: ft_get_next_line module directory exists but is empty. Skipping its inclusion."; \
 	else \
-		$(MAKE) -s -C $(GNL_DIR); \
+		$(MAKE) -s -C $(GNL_DIR) module; \
 	fi
 
 $(NAME): $(OBJS) $(BONUS_OBJS) $(MISC_OBJS) check_modules
@@ -160,14 +174,12 @@ clean: check_modules_clean
 	@rm -rf obj
 
 fclean: clean
-	@echo "[$(YELLOW)LIBFT$(NC)]     Cleaning build directory..."
-	@rm -rf $(BUILD_DIR)/$(NAME)
+	@echo "[$(RED)LIBFT$(NC)]     Cleaning build directory..."
 	@rm -rf $(BUILD_DIR)
 
 re: fclean all
 
 test: all
-	@echo "[$(GREEN)LIBFT$(NC)]      Adding test..."
 	@echo "[$(GREEN)LIBFT$(NC)]      Running tests..."
 	@$(CC) tests/program.c -g tests/colour_codes.h -Lbuild -lft -lbsd -o test.bin
 	./test.bin
