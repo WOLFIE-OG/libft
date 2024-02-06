@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:25:14 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/06 12:19:42 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/06 12:24:53 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,24 +35,24 @@ static char	ft_toupper_a(unsigned int i, char c)
 void	start_test(char *name)
 {
 	printf("\n%s\n", EDGES);
-	printf("\n"BCYN"		  START TEST CASE: "WHT"%s\n"reset, name);
+	printf("\n"BCYN"		  START TEST CASE: "WHT"%s\n"RESET, name);
 }
 
 void	end_test(char *name)
 {
-	printf("\n"BYEL"		  END TEST CASE: "WHT"%s\n"reset, name);
+	printf("\n"BYEL"		  END TEST CASE: "WHT"%s\n"RESET, name);
 	printf("\n%s\n", EDGES);
 }
 
 void	assert_ext(char *func, int result)
 {
 	printf("\n%s\n", EDGES);
-	printf("\nFunction: "BBLU"%s\n"reset, func);
-	printf("\n"BHYEL"	     FUNCTION ASSESSED EXTERNALLY!!!\n"reset);
+	printf("\nFunction: "BBLU"%s\n"RESET, func);
+	printf("\n"BHYEL"	     FUNCTION ASSESSED EXTERNALLY!!!\n"RESET);
 	if (result)
-		printf("\n"BGRN"			PASSED!\n"reset);
+		printf("\n"BGRN"			PASSED!\n"RESET);
 	else
-		printf("\n"BRED"			FAILED!\n"reset);
+		printf("\n"BRED"			FAILED!\n"RESET);
 	printf("\n%s\n", EDGES);
 }
 
@@ -61,20 +61,20 @@ void	assert_char(char original, char ft, char *func)
 	int	result;
 
 	printf("\n%s\n", EDGES);
-	printf("\nFunction: "BBLU"%s\n"reset, func);
-	printf("\nCompare Type: "BGRN"%s\n"reset, "Character Compare");
+	printf("\nFunction: "BBLU"%s\n"RESET, func);
+	printf("\nCompare Type: "BGRN"%s\n"RESET, "Character Compare");
 	result = (original == ft);
 	if (result)
 	{
-		printf("\n"BGRN"			PASSED!\n"reset);
+		printf("\n"BGRN"			PASSED!\n"RESET);
 		printf("\nComparison result: %d\n", result);
-		printf("\nExpected: "BGRN"%c"reset" | Got: "BGRN"%c\n"reset, original, ft);
+		printf("\nExpected: "BGRN"%c"RESET" | Got: "BGRN"%c\n"RESET, original, ft);
 	}
 	else
 	{
-		printf("\n"BRED"			FAILED!\n"reset);
+		printf("\n"BRED"			FAILED!\n"RESET);
 		printf("\nComparison result: %d\n", result);
-		printf("\nExpected: "BGRN"%c"reset" | Got: "BRED"%c\n"reset, original, ft);
+		printf("\nExpected: "BGRN"%c"RESET" | Got: "BRED"%c\n"RESET, original, ft);
 	}
 	printf("\n%s\n", EDGES);
 }
@@ -84,28 +84,28 @@ void	assert_str(char *original, char *ft, char *func)
 	int	result;
 
 	printf("\n%s\n", EDGES);
-	printf("\nFunction: "BBLU"%s\n"reset, func);
-	printf("\nCompare Type: "BGRN"%s\n"reset, "String Compare");
+	printf("\nFunction: "BBLU"%s\n"RESET, func);
+	printf("\nCompare Type: "BGRN"%s\n"RESET, "String Compare");
 	if (original != NULL && ft != NULL)
 	{
 		result = strcmp(original, ft);
 		if (!result)
 		{
-			printf("\n"BGRN"			PASSED!\n"reset);
+			printf("\n"BGRN"			PASSED!\n"RESET);
 			printf("\nComparison result: %d\n", result);
-			printf("\nExpected: "BGRN"%s"reset" | Got: "BGRN"%s\n"reset, original, ft);
+			printf("\nExpected: "BGRN"%s"RESET" | Got: "BGRN"%s\n"RESET, original, ft);
 		}
 		else
 		{
-			printf("\n"BRED"			FAILED!\n"reset);
+			printf("\n"BRED"			FAILED!\n"RESET);
 			printf("\nComparison result: %d\n", result);
-			printf("\nExpected: "BGRN"%s"reset" | Got: "BRED"%s\n"reset, original, ft);
+			printf("\nExpected: "BGRN"%s"RESET" | Got: "BRED"%s\n"RESET, original, ft);
 		}
 	}
 	else
 	{
-		printf("\n"BMAG"		      Caught NULL!\n"reset);
-		printf("\nOriginal: "BYEL"%s"reset" | Ft: "BYEL"%s\n"reset, original, ft);
+		printf("\n"BMAG"		      Caught NULL!\n"RESET);
+		printf("\nOriginal: "BYEL"%s"RESET" | Ft: "BYEL"%s\n"RESET, original, ft);
 	}
 	printf("\n%s\n", EDGES);
 }
@@ -115,28 +115,28 @@ void	assert_mem(char *original, char *ft, size_t length, char *func)
 	int	result;
 
 	printf("\n%s\n", EDGES);
-	printf("\nFunction: "BBLU"%s\n"reset, func);
-	printf("\nCompare Type: "BGRN"%s\n"reset, "Memory Compare");
+	printf("\nFunction: "BBLU"%s\n"RESET, func);
+	printf("\nCompare Type: "BGRN"%s\n"RESET, "Memory Compare");
 	if (original != NULL && ft != NULL)
 	{
 		result = memcmp(original, ft, length);
 		if (!result)
 		{
-			printf("\n"BGRN"			PASSED!\n"reset);
+			printf("\n"BGRN"			PASSED!\n"RESET);
 			printf("\nComparison result: %d | (Compared %zu places)\n", result, length);
-			printf("\nExpected: "BGRN"%s"reset" | Got: "BGRN"%s\n"reset, original, ft);
+			printf("\nExpected: "BGRN"%s"RESET" | Got: "BGRN"%s\n"RESET, original, ft);
 		}
 		else
 		{
-			printf("\n"BRED"			FAILED!\n"reset);
+			printf("\n"BRED"			FAILED!\n"RESET);
 			printf("\nComparison result: %d | (Compared %zu places)\n", result, length);
-			printf("\nExpected: "BGRN"%s"reset" | Got: "BRED"%s\n"reset, original, ft);
+			printf("\nExpected: "BGRN"%s"RESET" | Got: "BRED"%s\n"RESET, original, ft);
 		}
 	}
 	else
 	{
-		printf("\n"BMAG"		      Caught NULL!\n"reset);
-		printf("\nOriginal: "BYEL"%s"reset" | Ft: "YEL"%s\n"reset, original, ft);
+		printf("\n"BMAG"		      Caught NULL!\n"RESET);
+		printf("\nOriginal: "BYEL"%s"RESET" | Ft: "YEL"%s\n"RESET, original, ft);
 	}
 	printf("\n%s\n", EDGES);
 }
@@ -146,20 +146,20 @@ void	assert_int(int original, int ft, const char *func)
 	int	result;
 
 	printf("\n%s\n", EDGES);
-	printf("\nFunction: "BBLU"%s\n"reset, func);
-	printf("\nCompare Type: "BGRN"%s\n"reset, "Integer Compare");
+	printf("\nFunction: "BBLU"%s\n"RESET, func);
+	printf("\nCompare Type: "BGRN"%s\n"RESET, "Integer Compare");
 	result = (original == ft);
 	if (result)
 	{
-		printf("\n"BGRN"			PASSED!\n"reset);
+		printf("\n"BGRN"			PASSED!\n"RESET);
 		printf("\nComparison result: %d\n", result);
-		printf("\nExpected: "BGRN"%d"reset" | Got: "BGRN"%d\n"reset, original, ft);
+		printf("\nExpected: "BGRN"%d"RESET" | Got: "BGRN"%d\n"RESET, original, ft);
 	}
 	else
 	{
-		printf("\n"BRED"			FAILED!\n"reset);
+		printf("\n"BRED"			FAILED!\n"RESET);
 		printf("\nComparison result: %d\n", result);
-		printf("\nExpected: "BGRN"%d"reset" | Got: "BRED"%d\n"reset, original, ft);
+		printf("\nExpected: "BGRN"%d"RESET" | Got: "BRED"%d\n"RESET, original, ft);
 	}
 	printf("\n%s\n", EDGES);
 }
@@ -584,50 +584,50 @@ void	test_ft_printf()
 	unsigned int	test_unsigned_int = 123456;
 
 
-	printf(BLU"\n%s\n"reset, EDGES);
-	printf("\n	Own: 			%d chars\n\n", ft_printf(GRN"This is %c test for char."reset, test_char));
-	printf("\n	Original:		%d chars", printf(GRN"This is %c test for char."reset, test_char));
-	printf(BLU"\n%s\n"reset, EDGES);
+	printf(BLU"\n%s\n"RESET, EDGES);
+	printf("\n	Own: 			%d chars\n\n", ft_printf(GRN"This is %c test for char."RESET, test_char));
+	printf("\n	Original:		%d chars", printf(GRN"This is %c test for char."RESET, test_char));
+	printf(BLU"\n%s\n"RESET, EDGES);
 
-	printf(BLU"\n%s\n"reset, EDGES);
-	printf("\n	Own: 			%d chars\n\n", ft_printf(GRN"This is %c test for char and this is a test for %yyy"reset, test_char));
-	printf("\n	Original:		%d chars", printf(GRN"This is %c test for char and this is a test for %yyy"reset, test_char));
-	printf(BLU"\n%s\n"reset, EDGES);
+	printf(BLU"\n%s\n"RESET, EDGES);
+	printf("\n	Own: 			%d chars\n\n", ft_printf(GRN"This is %c test for char and this is a test for %yyy"RESET, test_char));
+	printf("\n	Original:		%d chars", printf(GRN"This is %c test for char and this is a test for %yyy"RESET, test_char));
+	printf(BLU"\n%s\n"RESET, EDGES);
 
-	printf(BLU"\n%s\n"reset, EDGES);
-	printf("\n	Own:			%d chars\n\n", ft_printf(GRN"This is a test for str %s."reset, test_str));
-	printf("\n	Original:		%d chars", printf(GRN"This is a test for str %s."reset, test_str));
-	printf(BLU"\n%s\n"reset, EDGES);
+	printf(BLU"\n%s\n"RESET, EDGES);
+	printf("\n	Own:			%d chars\n\n", ft_printf(GRN"This is a test for str %s."RESET, test_str));
+	printf("\n	Original:		%d chars", printf(GRN"This is a test for str %s."RESET, test_str));
+	printf(BLU"\n%s\n"RESET, EDGES);
 
-	printf(BLU"\n%s\n"reset, EDGES);
-	printf("\n	Own: 			%d chars\n\n", ft_printf(GRN"This is a test for digit and this is %d"reset, test_int_ptr));
-	printf("\n	Original:		%d chars", printf(GRN"This is a test for digit and this is %d"reset, test_int_ptr));
-	printf(BLU"\n%s\n"reset, EDGES);
+	printf(BLU"\n%s\n"RESET, EDGES);
+	printf("\n	Own: 			%d chars\n\n", ft_printf(GRN"This is a test for digit and this is %d"RESET, test_int_ptr));
+	printf("\n	Original:		%d chars", printf(GRN"This is a test for digit and this is %d"RESET, test_int_ptr));
+	printf(BLU"\n%s\n"RESET, EDGES);
 
-	printf(BLU"\n%s\n"reset, EDGES);
-	printf("\n	Own: 			%d chars\n\n", ft_printf(GRN"This is a test for int and this is %i"reset, test_int_ptr));
-	printf("\n	Original:		%d chars", printf(GRN"This is a test for int and this is %i"reset, test_int_ptr));
-	printf(BLU"\n%s\n"reset, EDGES);
+	printf(BLU"\n%s\n"RESET, EDGES);
+	printf("\n	Own: 			%d chars\n\n", ft_printf(GRN"This is a test for int and this is %i"RESET, test_int_ptr));
+	printf("\n	Original:		%d chars", printf(GRN"This is a test for int and this is %i"RESET, test_int_ptr));
+	printf(BLU"\n%s\n"RESET, EDGES);
 
-	printf(BLU"\n%s\n"reset, EDGES);
-	printf("\n	Own:			%d chars\n\n", ft_printf(GRN"This is a test for lower hex and this is %x"reset, test_int_ptr));
-	printf("\n	Original:		%d chars", printf(GRN"This is a test for lower hex and this is %x"reset, test_int_ptr));
-	printf(BLU"\n%s\n"reset, EDGES);
+	printf(BLU"\n%s\n"RESET, EDGES);
+	printf("\n	Own:			%d chars\n\n", ft_printf(GRN"This is a test for lower hex and this is %x"RESET, test_int_ptr));
+	printf("\n	Original:		%d chars", printf(GRN"This is a test for lower hex and this is %x"RESET, test_int_ptr));
+	printf(BLU"\n%s\n"RESET, EDGES);
 
-	printf(BLU"\n%s\n"reset, EDGES);
-	printf("\n	Own:			%d chars\n\n", ft_printf(GRN"This is a test for upper hex and this is %X"reset, test_int_ptr));
-	printf("\n	Original:		%d chars", printf(GRN"This is a test for upper hex and this is %X"reset, test_int_ptr));
-	printf(BLU"\n%s\n"reset, EDGES);
+	printf(BLU"\n%s\n"RESET, EDGES);
+	printf("\n	Own:			%d chars\n\n", ft_printf(GRN"This is a test for upper hex and this is %X"RESET, test_int_ptr));
+	printf("\n	Original:		%d chars", printf(GRN"This is a test for upper hex and this is %X"RESET, test_int_ptr));
+	printf(BLU"\n%s\n"RESET, EDGES);
 
-	printf(BLU"\n%s\n"reset, EDGES);
-	printf("\n	Own: 			%d chars\n\n", ft_printf(GRN"This is a test for ptr and this is %p"reset, test_int_ptr));
-	printf("\n	Original:		%d chars", printf(GRN"This is a test for ptr and this is %p"reset, test_int_ptr));
-	printf(BLU"\n%s\n"reset, EDGES);
+	printf(BLU"\n%s\n"RESET, EDGES);
+	printf("\n	Own: 			%d chars\n\n", ft_printf(GRN"This is a test for ptr and this is %p"RESET, test_int_ptr));
+	printf("\n	Original:		%d chars", printf(GRN"This is a test for ptr and this is %p"RESET, test_int_ptr));
+	printf(BLU"\n%s\n"RESET, EDGES);
 
-	printf(BLU"\n%s\n"reset, EDGES);
-	printf("\n	Own:			%d chars\n\n", ft_printf(GRN"This is a test for unsigned int and this is %u"reset, test_int_ptr));
-	printf("\n	Original:		%d chars", printf(GRN"This is a test for unsigned int and this is %u"reset, test_int_ptr));
-	printf(BLU"\n%s\n"reset, EDGES);
+	printf(BLU"\n%s\n"RESET, EDGES);
+	printf("\n	Own:			%d chars\n\n", ft_printf(GRN"This is a test for unsigned int and this is %u"RESET, test_int_ptr));
+	printf("\n	Original:		%d chars", printf(GRN"This is a test for unsigned int and this is %u"RESET, test_int_ptr));
+	printf(BLU"\n%s\n"RESET, EDGES);
 }
 
 void	test_printf(void)
@@ -668,11 +668,11 @@ void	test_printf(void)
 		ft_lstadd_back(&list, new_node);
 		index++;
 	}
-	printf(BLU"\n%s\n"reset, EDGES);
+	printf(BLU"\n%s\n"RESET, EDGES);
 	ft_printf("This is: %a\n", array);
 	ft_printf("This is: %n\n", array_2);
 	ft_printf("This is: %l\n", list);
-	printf(BLU"\n%s\n"reset, EDGES);
+	printf(BLU"\n%s\n"RESET, EDGES);
 	free(array);
 	free(array_2);
 }
@@ -691,17 +691,17 @@ void	test_gnl_single(char *arg_a)
 		return ;
 	}
 
-	printf(BBLU"\n%s\n"reset, EDGES);
-	printf("|\n| %s ["BBLU"%d"reset"]\n|\n", "Opening fd with buffer size of", BUFFER_SIZE);
+	printf(BBLU"\n%s\n"RESET, EDGES);
+	printf("|\n| %s ["BBLU"%d"RESET"]\n|\n", "Opening fd with buffer size of", BUFFER_SIZE);
 
 	while ((c_line = ft_get_next_line(fd)) != NULL)
 	{
-		printf("| ["BBLU"%d"reset"] - ["BGRN"%zu"reset"] - %s", i++, ft_g_strl(c_line, 0), c_line);
+		printf("| ["BBLU"%d"RESET"] - ["BGRN"%zu"RESET"] - %s", i++, ft_g_strl(c_line, 0), c_line);
 		free(c_line);
 	}
 
 	close(fd);
-	printf("\n|"BBLU"\n%s\n"reset, EDGES);
+	printf("\n|"BBLU"\n%s\n"RESET, EDGES);
 }
 
 int	main(void)
