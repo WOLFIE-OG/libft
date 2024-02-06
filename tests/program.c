@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:25:14 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/05 22:07:15 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/06 02:05:26 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -632,18 +632,46 @@ void	test_ft_printf()
 
 void	test_printf(void)
 {
+	int 	i;
+	int		index;
 	char	**array;
 	int		*array_2;
+	int		*array_3;
+	t_list	**list;
 
 	array = (char **)malloc(sizeof(char *) * 4);
 	array[0] = "This is a test string 1";
 	array[1] = "This is a test string 2";
 	array[2] = "This is a test string 3";
 	array[3] = "This is a test string 4";
-	array_2 = ft_range(10, -10);
+	array_2 = ft_range(0, 100);
+	array_3 = array_2;
+	i = 0;
+	while (*array_3++ != INT_MAX)
+		i++;
+	list = NULL;
+	index = 0;
+	while (index < i)
+	{
+		char *content = malloc(sizeof(char) * 10);
+		if (content == NULL) {
+			exit(EXIT_FAILURE);
+		}
+		sprintf(content, "This is %d", array_2[index]);
+
+		t_list *new_node = ft_lstnew(content);
+		if (new_node == NULL) {
+			free(content);
+			exit(EXIT_FAILURE);
+		}
+		
+		ft_lstadd_back(&list, new_node);
+		index++;
+	}
 	printf(BLU"\n%s\n"reset, EDGES);
 	ft_printf("This is: %a\n", array);
 	ft_printf("This is: %n\n", array_2);
+	ft_printf("This is: %l\n", list);
 	printf(BLU"\n%s\n"reset, EDGES);
 	free(array);
 	free(array_2);
