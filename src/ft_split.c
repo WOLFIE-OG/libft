@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:57:09 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/18 17:06:04 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/06 18:16:59 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ char	**ft_split(char const *s, char c)
 		else
 			s++;
 	}
-	string_list[index] = 0;
+	string_list[index] = NULL;
 	return (string_list);
 }

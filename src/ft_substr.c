@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:30 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/18 17:06:07 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/06 18:30:05 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size = ft_strlen(s + start);
 	if (size < len)
 		len = size;
-	new_string = (char *)malloc(sizeof(char) * (len + 1));
+	new_string = malloc(sizeof(char) * (len + 1));
 	if (!new_string)
 		return (NULL);
 	ft_strlcpy(new_string, s + start, len + 1);
