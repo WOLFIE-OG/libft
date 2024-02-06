@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/06 01:19:22 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/06 12:16:55 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 // Bonus
 
-#include "list.h"
+# include "list.h"
 
 // Core Functions
 

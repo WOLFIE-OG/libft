@@ -6,12 +6,13 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 01:18:45 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/06 01:19:05 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/06 12:13:54 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIST_H
 # define LIST_H
+
 typedef struct s_list
 {
 	void			*content;
