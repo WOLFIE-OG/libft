@@ -1,38 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
+/*   list.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 11:33:24 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/05 22:14:56 by otodd            ###   ########.fr       */
+/*   Created: 2024/02/06 01:18:45 by otodd             #+#    #+#             */
+/*   Updated: 2024/02/06 12:13:54 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#ifndef LIST_H
+# define LIST_H
 
-int	*ft_range(int min, int max)
+typedef struct s_list
 {
-	int	index;
-	int	*range;
-	int	step;
-
-	if (min == max)
-		return (NULL);
-	if (min < max)
-		step = 1;
-	else
-		step = -1;
-	range = malloc(sizeof(int) * (ft_abs(max - min) + 1));
-	if (!range)
-		return (NULL);
-	index = 0;
-	while (min != max)
-	{
-		range[index++] = min;
-		min += step;
-	}
-	range[index] = INT_MAX;
-	return (range);
-}
+	void			*content;
+	struct s_list	*next;
+}	t_list;
+#endif

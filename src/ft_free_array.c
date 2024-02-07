@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_char_array.c                               :+:      :+:    :+:   */
+/*   ft_free_array.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:41:44 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/05 17:03:12 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/07 14:34:15 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-void	ft_free_char_array(char **array)
+void	ft_free_array(char **array, size_t len)
 {
-	while (*array)
-	{
-		free(*array);
-		array++;
-	}
+	while (len)
+		free(array[--len]);
 }
