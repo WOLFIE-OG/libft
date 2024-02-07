@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:25:14 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/06 12:24:53 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/07 15:48:58 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,14 @@ static char	ft_toupper_a(unsigned int i, char c)
 	if (c >= 'a' && c <= 'z')
 		c -= char_offset;
 	return (c);
+}
+
+static void	ft_toupper_a_1(unsigned int i, char *c)
+{
+	const unsigned char	char_offset = ('a' - 'A');
+
+	if (*c >= 'a' && *c <= 'z')
+		*c -= char_offset;
 }
 
 void	start_test(char *name)
@@ -417,15 +425,19 @@ void	test_strtrim()
 {
 	char	test_string[] = "   hello world   ";
 	char	test_str[] = " ";
-
-	assert_str("hello world", ft_strtrim(test_string, test_str), (char *)__func__);
+	char	*result = ft_strtrim(test_string, test_str);
+	assert_str("hello world", result, (char *)__func__);
+	free(result);
 }
 
 void	test_split()
 {
 	char		*list_of_strings[] = {"this", "is", "a", "test"};
 	char const	test_string[] = "this is a test";
-	assert_str(list_of_strings[0], ft_split(test_string, ' ')[0], (char *)__func__);
+	char		*result = ft_split(test_string, ' ')[0];
+	assert_str(list_of_strings[0], result, (char *)__func__);
+	ft_free_array();
+	free(result);
 }
 
 void	test_itoa()
@@ -435,13 +447,19 @@ void	test_itoa()
 
 void	test_strmapi()
 {
-	assert_str("TEST", ft_strmapi("Test", &ft_toupper_a), (char *)__func__);
+	char *result = ft_strmapi("Test", &ft_toupper_a);
+	assert_str("TEST", result, (char *)__func__);
+	free(result);
 }
 
-void	test_striteri()
+void    test_striteri()
 {
-	assert_str("TEST", ft_strmapi("Test", &ft_toupper_a), (char *)__func__);
+    char *result = strdup("Test");
+	ft_striteri(result, &ft_toupper_a_1);
+    assert_str("TEST", result, (char *)__func__);
+    free(result);
 }
+
 
 void	test_abs()
 {
@@ -562,18 +580,40 @@ void	test_swap()
 	assert_char(*b, 'a', (char *)__func__);
 }
 
-void	test_strcheck()
+void    test_strcheck()
 {
-	char	*str = "this";
+    char    *str = "this";
+    char    *func_str = strdup((char *)__func__);
 
-	assert_int(1, ft_ischeck_str(str, ft_isalpha), strcat(strdup((char *)__func__), " (ft_isalpha)"));
-	assert_int(1, ft_ischeck_str(str, ft_isdigit), strcat(strdup((char *)__func__), " (ft_isdigit)"));
-	assert_int(1, ft_ischeck_str(str, ft_isalnum), strcat(strdup((char *)__func__), " (ft_isalnum)"));
-	assert_int(1, ft_ischeck_str(str, ft_isascii), strcat(strdup((char *)__func__), " (ft_isascii)"));
-	assert_int(1, ft_ischeck_str(str, ft_isprint), strcat(strdup((char *)__func__), " (ft_isprint)"));
-	assert_int(1, ft_ischeck_str(str, ft_islower), strcat(strdup((char *)__func__), " (ft_islower)"));
-	assert_int(1, ft_ischeck_str(str, ft_isupper), strcat(strdup((char *)__func__), " (ft_isupper)"));
+    assert_int(1, ft_ischeck_str(str, ft_isalpha), strcat(func_str, " (ft_isalpha)"));
+    free(func_str);
+
+    func_str = strdup((char *)__func__);
+    assert_int(1, ft_ischeck_str(str, ft_isdigit), strcat(func_str, " (ft_isdigit)"));
+    free(func_str);
+
+    func_str = strdup((char *)__func__);
+    assert_int(1, ft_ischeck_str(str, ft_isalnum), strcat(func_str, " (ft_isalnum)"));
+    free(func_str);
+
+    func_str = strdup((char *)__func__);
+    assert_int(1, ft_ischeck_str(str, ft_isascii), strcat(func_str, " (ft_isascii)"));
+    free(func_str);
+
+    func_str = strdup((char *)__func__);
+    assert_int(1, ft_ischeck_str(str, ft_isprint), strcat(func_str, " (ft_isprint)"));
+    free(func_str);
+
+    func_str = strdup((char *)__func__);
+    assert_int(1, ft_ischeck_str(str, ft_islower), strcat(func_str, " (ft_islower)"));
+    free(func_str);
+
+    func_str = strdup((char *)__func__);
+    assert_int(1, ft_ischeck_str(str, ft_isupper), strcat(func_str, " (ft_isupper)"));
+    free(func_str);
 }
+
+
 
 void	test_ft_printf()
 {
@@ -639,12 +679,13 @@ void	test_printf(void)
 	int		*array_3;
 	t_list	**list;
 
-	array = (char **)malloc(sizeof(char *) * 4);
+	array = (char **)malloc(sizeof(char *) * 5);
 	array[0] = "This is a test string 1";
 	array[1] = "This is a test string 2";
 	array[2] = "This is a test string 3";
 	array[3] = "This is a test string 4";
-	array_2 = ft_range(0, 100);
+	array[4] = NULL;
+	array_2 = ft_range(-100, 100);
 	array_3 = array_2;
 	i = 0;
 	while (*array_3++ != INT_MAX)
@@ -653,7 +694,7 @@ void	test_printf(void)
 	index = 0;
 	while (index < i)
 	{
-		char *content = malloc(sizeof(char) * 10);
+		char *content = malloc(sizeof(char) * i);
 		if (content == NULL) {
 			exit(EXIT_FAILURE);
 		}
@@ -668,6 +709,7 @@ void	test_printf(void)
 		ft_lstadd_back(&list, new_node);
 		index++;
 	}
+
 	printf(BLU"\n%s\n"RESET, EDGES);
 	ft_printf("This is: %a\n", array);
 	ft_printf("This is: %n\n", array_2);
