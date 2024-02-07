@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:41:44 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/06 12:58:31 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/07 14:34:15 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	ft_free_array(char **array, size_t len)
 {
 	while (len)
-		free(array[len--]);
+		free(array[--len]);
 }
