@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:25:14 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/07 19:06:25 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/07 19:55:47 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char EDGES[] = "================================================================
 
 static char	ft_toupper_a(unsigned int i, char c)
 {
-	const unsigned char	char_offset = ('a' - 'A');
+	const unsigned char		char_offset = ('a' - 'A');
 
 	if (c >= 'a' && c <= 'z')
 		c -= char_offset;
@@ -717,7 +717,6 @@ void test_custom_format_specifiers()
         free(tmp);
 		free(tmp2);
     }
-    char_array[j] = NULL;
 
     int_array = ft_range(0, len);
 	int_array_head = int_array;
@@ -747,11 +746,11 @@ void test_custom_format_specifiers()
     printf("\n%s\n", EDGES);
 
 	printf("\n%s\n", EDGES);
-    ft_printf("This is an array that contains integers in base 16 in lower case: "BGRN"%na\n"RESET, int_array);
+    ft_printf("This is an array that contains integers in base 16 in lower case: "BGRN"%nx\n"RESET, int_array);
     printf("\n%s\n", EDGES);
 
 	printf("\n%s\n", EDGES);
-    ft_printf("This is an array that contains integers in base 16 in upper case: "BGRN"%nA\n"RESET, int_array);
+    ft_printf("This is an array that contains integers in base 16 in upper case: "BGRN"%nX\n"RESET, int_array);
     printf("\n%s\n", EDGES);
 
 	printf("\n%s\n", EDGES);
@@ -771,11 +770,11 @@ void test_custom_format_specifiers()
     printf("\n%s\n", EDGES);
 
     printf("\n%s\n", EDGES);
-    ft_printf("This is a linked list that contains integers in base 16 in lower case: "BGRN"%La\n"RESET, int_list);
+    ft_printf("This is a linked list that contains integers in base 16 in lower case: "BGRN"%Lx\n"RESET, int_list);
     printf("\n%s\n", EDGES);
 
     printf("\n%s\n", EDGES);
-    ft_printf("This is a linked list that contains integers in base 16 in upper case: "BGRN"%LA\n"RESET, int_list);
+    ft_printf("This is a linked list that contains integers in base 16 in upper case: "BGRN"%LX\n"RESET, int_list);
     printf("\n%s\n", EDGES);
 
     printf("\n%s\n", EDGES);
@@ -822,7 +821,6 @@ void test_all_format_specifiers_in_one()
         char_array[j] = ft_strjoin("This is a test string ", tmp);
         free(tmp);
     }
-    char_array[j] = NULL;
 
     int_array = ft_range(0, len);
 	int_array_head = int_array;
@@ -844,7 +842,7 @@ void test_all_format_specifiers_in_one()
     }
 
     printf("\n%s\n", EDGES);
-    ft_printf("This is a test that contains all the standard and custom format specifiers in one call: \n%c\n%s\n%d\n%i\n%x\n%X\n%p\n%u\n%a\n%n\n%na\n%nA\n%nb\n%no\n%l\n%L\n%La\n%LA\n%Lb\n%Lo\n",
+    ft_printf("This is a test that contains all the standard and custom format specifiers in one call: \n%c\n%s\n%d\n%i\n%x\n%X\n%p\n%u\n%a\n%n\n%nx\n%nX\n%nb\n%no\n%l\n%L\n%Lx\n%LX\n%Lb\n%Lo\n",
 		test_char,
 		test_str,
 		test_int_val,
