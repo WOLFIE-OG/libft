@@ -1,38 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   ft_whitespace.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 12:43:34 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/12 13:22:50 by otodd            ###   ########.fr       */
+/*   Created: 2023/10/11 16:41:47 by otodd             #+#    #+#             */
+/*   Updated: 2024/02/12 13:21:08 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
-
-int	ft_atol(const char *nptr)
+int	ft_iswhitespace(int c)
 {
-	long	value;
-	int		operation;
-	char	*c;
-
-	c = (char *)nptr;
-	operation = 1;
-	value = 0;
-	while (ft_iswhitespace(*c))
-		c++;
-	if (*c == '+' || *c == '-')
-	{
-		if (*c == '-')
-			operation *= -1;
-		c++;
-	}
-	while (ft_isdigit(*c))
-	{
-		value = (value * 10) + (*c - '0');
-		c++;
-	}
-	return (value * operation);
+	if ((c == ' ') || (c == '\t')
+		|| (c == '\v') || (c == '\r') || (c == '\n') || (c == '\f'))
+		return (1);
+	return (0);
 }

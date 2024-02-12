@@ -76,7 +76,8 @@ MISC_SRCS = ft_abs.c \
 	ft_atol.c \
 	ft_binary.c \
 	ft_free_array.c \
-	ft_strarraylen.c
+	ft_strarraylen.c \
+	ft_iswhitespace.c
 
 OBJS = $(SRCS:%.c=obj/%.o)
 BONUS_OBJS = $(BONUS_SRCS:%.c=obj/%.o)

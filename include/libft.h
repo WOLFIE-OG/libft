@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/06 13:01:56 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/12 13:22:09 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,6 @@ char	*ft_binary(unsigned char c);
 int		ft_max(int *tab, unsigned int len);
 void	ft_free_array(char **array, size_t len);
 size_t	ft_strarraylen(char **array);
+int		ft_iswhitespace(int c);
 
 #endif

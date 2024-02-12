@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 12:43:34 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/18 17:05:43 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/12 13:22:41 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int	ft_atoi(const char *nptr)
 	c = (char *)nptr;
 	operation = 1;
 	value = 0;
-	while ((*c == ' ') || (*c == '\t')
-		|| (*c == '\v') || (*c == '\r') || (*c == '\n') || (*c == '\f'))
+	while (ft_iswhitespace(*c))
 		c++;
 	if (*c == '+' || *c == '-')
 	{
