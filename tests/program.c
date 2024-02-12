@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:25:14 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/08 01:11:13 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/12 16:15:39 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -623,6 +623,11 @@ void	test_strcheck(void)
 	func_str = realloc(func_str, len);
 	assert_int(1, ft_ischeck_str(str, ft_isupper), strcat(func_str, " (ft_isupper)"));
 	free(func_str);
+	func_str = strdup((char *)__func__);
+	len = strlen(func_str) + strlen(" (ft_iswhitespace)") + 1;
+	func_str = realloc(func_str, len);
+	assert_int(1, ft_ischeck_str(str, ft_iswhitespace), strcat(func_str, " (ft_iswhitespace)"));
+	free(func_str);
 }
 
 void	test_standard_format_specifiers(void)
@@ -865,6 +870,24 @@ void	test_gnl_single(char *arg_a)
 	printf("\n|""\n%s\n", EDGES);
 }
 
+void	test_strcmp(void)
+{
+	char			string[] = "This is a test";
+	char			string_2[strlen(string) + 1];
+	strcpy(string_2, string);
+
+	assert_int(strcmp(string, string_2), ft_strcmp(string, string_2), (char *)__func__);
+}
+
+void	test_overflow_check(void)
+{
+	int	n = INT_MIN;
+	int	n_2 = INT_MAX;
+
+	assert_int(1, ft_check_overflow(&n, sizeof(int)),(char *)__func__);
+	assert_int(1, ft_check_overflow(&n_2, sizeof(int)),(char *)__func__);
+}
+
 int	main(void)
 {
 	start_test("Core functions");
@@ -921,6 +944,8 @@ int	main(void)
 	test_swap();
 	assert_ext("ft_putendl", 1);
 	test_strcheck();
+	test_strcmp();
+	test_overflow_check();
 	end_test("Additional functions");
 	start_test("Modules");
 	start_sub_test("ft_printf");
