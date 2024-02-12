@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   ft_check_overflow.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 12:43:34 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/12 16:02:06 by otodd            ###   ########.fr       */
+/*   Created: 2024/02/12 15:41:33 by otodd             #+#    #+#             */
+/*   Updated: 2024/02/12 16:00:55 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-long	ft_atol(const char *nptr)
+int	ft_check_overflow(void *var, size_t type)
 {
-	long	value;
-	int		operation;
-	char	*c;
-
-	c = (char *)nptr;
-	operation = 1;
-	value = 0;
-	while (ft_iswhitespace(*c))
-		c++;
-	if (*c == '+' || *c == '-')
+	if (type == sizeof(int))
 	{
-		if (*c == '-')
-			operation *= -1;
-		c++;
+		if (*((int *)var) > INT_MAX || *((int *)var) < INT_MIN)
+			return (1);
 	}
-	while (ft_isdigit(*c))
+	else if (type == sizeof(long))
 	{
-		value = (value * 10) + (*c - '0');
-		c++;
+		if (*((long *)var) > LONG_MAX || *((long *)var) < LONG_MIN)
+			return (1);
 	}
-	return (value * operation);
+	return (0);
 }

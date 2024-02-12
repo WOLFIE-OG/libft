@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 12:43:34 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/12 16:02:06 by otodd            ###   ########.fr       */
+/*   Created: 2023/10/15 15:20:32 by otodd             #+#    #+#             */
+/*   Updated: 2024/02/12 15:19:45 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
-
-long	ft_atol(const char *nptr)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	long	value;
-	int		operation;
-	char	*c;
+	unsigned char	*p_s1;
+	unsigned char	*p_s2;
 
-	c = (char *)nptr;
-	operation = 1;
-	value = 0;
-	while (ft_iswhitespace(*c))
-		c++;
-	if (*c == '+' || *c == '-')
+	p_s1 = (unsigned char *)s1;
+	p_s2 = (unsigned char *)s2;
+	while (*s1 && *s2 && (*s1 == *s2))
 	{
-		if (*c == '-')
-			operation *= -1;
-		c++;
+		s1++;
+		s2++;
 	}
-	while (ft_isdigit(*c))
-	{
-		value = (value * 10) + (*c - '0');
-		c++;
-	}
-	return (value * operation);
+	return (*p_s1 - *p_s2);
 }

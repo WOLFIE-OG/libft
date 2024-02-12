@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/12 13:22:09 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/12 15:47:43 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,11 +100,13 @@ void	ft_putendl(char *s);
 int		ft_ischeck_str(char *str, int (*f)(int));
 int		ft_islower(int c);
 int		ft_isupper(int c);
-int		ft_atol(const char *nptr);
+long	ft_atol(const char *nptr);
 char	*ft_binary(unsigned char c);
 int		ft_max(int *tab, unsigned int len);
 void	ft_free_array(char **array, size_t len);
 size_t	ft_strarraylen(char **array);
 int		ft_iswhitespace(int c);
+int		ft_strcmp(const char *s1, const char *s2);
+int		ft_check_overflow(void *var, size_t type);
 
 #endif
