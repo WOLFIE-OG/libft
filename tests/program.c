@@ -6,12 +6,11 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:25:14 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/12 16:15:39 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/13 15:07:29 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
-#include "colour_codes.h"
 #include <bsd/string.h>
 #include <string.h>
 #include <strings.h>

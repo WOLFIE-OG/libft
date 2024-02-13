@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/12 15:47:43 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/13 15:07:46 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdint.h>
+# include "colour_codes.h"
 # if __has_include("../src/modules/ft_printf/include/ft_printf.h")
 #  include "../src/modules/ft_printf/include/ft_printf.h"
 # endif
