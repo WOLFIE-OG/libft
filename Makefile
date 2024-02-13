@@ -184,5 +184,5 @@ re: fclean all
 
 test: all
 	@echo "[$(GREEN)LIBFT$(NC)]      Running tests..."
-	@$(CC) tests/program.c -g tests/colour_codes.h -Lbuild -lft -lbsd -o test.bin
+	@$(CC) tests/program.c -Lbuild -lft -lbsd -o test.bin
 	./test.bin
