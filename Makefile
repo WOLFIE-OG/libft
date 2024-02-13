@@ -123,14 +123,14 @@ obj/%.o: src/%.c
 check_modules:
 	@if [ ! -d "$(FT_PRINTF_DIR)" ]; then \
 		echo "[$(YELLOW)LIBFT$(NC)]     Warning: ft_printf module directory does not exist. Skipping its inclusion."; \
-	elif [ -z "$(wildcard $(FT_PRINTF_DIR)/include/*.h)" ]; then \
+	elif [ ! -f "$(FT_PRINTF_DIR)/include/ft_printf.h" ]; then \
 		echo "[$(YELLOW)LIBFT$(NC)]     Warning: ft_printf module directory exists but is empty. Skipping its inclusion."; \
 	else \
 		$(MAKE) -s -C $(FT_PRINTF_DIR) module; \
 	fi
 	@if [ ! -d "$(GNL_DIR)" ]; then \
 		echo "[$(YELLOW)LIBFT$(NC)]     Warning: ft_get_next_line module directory does not exist. Skipping its inclusion."; \
-	elif [ -z "$(wildcard $(GNL_DIR)/include/*.h)" ]; then \
+	elif [ ! -f "$(GNL_DIR)/include/ft_get_next_line.h" ]; then \
 		echo "[$(YELLOW)LIBFT$(NC)]     Warning: ft_get_next_line module directory exists but is empty. Skipping its inclusion."; \
 	else \
 		$(MAKE) -s -C $(GNL_DIR) module; \
@@ -138,11 +138,11 @@ check_modules:
 
 $(NAME): $(OBJS) $(BONUS_OBJS) $(MISC_OBJS) check_modules
 	@echo "[$(GREEN)LIBFT$(NC)]     Creating $(NAME)..."
-	@if [ -d "$(FT_PRINTF_DIR)" ] && [ ! -z "$(wildcard $(FT_PRINTF_DIR)/obj/*.o)" ]; then \
+	@if [ -d "$(FT_PRINTF_DIR)" ]; then \
 		echo "[$(GREEN)LIBFT$(NC)]     Adding ft_printf module to $(NAME)..."; \
 		$(AR_COMMAND) $(FT_PRINTF_OBJS); \
 	fi
-	@if [ -d "$(GNL_DIR)" ] && [ ! -z "$(wildcard $(GNL_DIR)/obj/*.o)" ]; then \
+	@if [ -d "$(GNL_DIR)" ]; then \
 		echo "[$(GREEN)LIBFT$(NC)]     Adding ft_get_next_line module to $(NAME)..."; \
 		$(AR_COMMAND) $(GNL_OBJS); \
 	fi
@@ -151,7 +151,7 @@ $(NAME): $(OBJS) $(BONUS_OBJS) $(MISC_OBJS) check_modules
 
 check_modules_clean:
 	@if [ -d "$(FT_PRINTF_DIR)" ]; then \
-		if [ ! -z "$(wildcard $(FT_PRINTF_DIR)/include/*.h)" ]; then \
+		if [ -f "$(FT_PRINTF_DIR)/include/ft_printf.h" ]; then \
 			echo "[$(BLUE)LIBFT$(NC)]     Cleaning ft_printf module."; \
 			$(MAKE) -s -C $(FT_PRINTF_DIR) clean; \
 		else \
@@ -161,7 +161,7 @@ check_modules_clean:
 		echo "[$(YELLOW)LIBFT$(NC)]     Warning: ft_printf module directory does not exist. Skipping cleaning."; \
 	fi
 	@if [ -d "$(GNL_DIR)" ]; then \
-		if [ ! -z "$(wildcard $(GNL_DIR)/include/*.h)" ]; then \
+		if [ -f "$(GNL_DIR)/include/ft_get_next_line.h" ]; then \
 			echo "[$(BLUE)LIBFT$(NC)]     Cleaning ft_get_next_line module."; \
 			$(MAKE) -s -C $(GNL_DIR) clean; \
 		else \
