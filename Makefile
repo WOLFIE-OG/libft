@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/02/13 17:52:46 by otodd            ###   ########.fr        #
+#    Updated: 2024/02/13 18:41:53 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -197,3 +197,5 @@ test: all
 	@echo "[$(GREEN)LIBFT$(NC)]      Running tests..."
 	@$(CC) tests/program.c -Lbuild -lft -lbsd -o test.bin
 	./test.bin
+
+.PHONY: all clean fclean re
