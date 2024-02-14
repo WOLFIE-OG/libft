@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/02/14 22:04:23 by otodd            ###   ########.fr        #
+#    Updated: 2024/02/14 22:14:11 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,7 +102,8 @@ MEMORY_SRCS		=	$(MEMORY_DIR)/ft_memset.c 									\
 					$(MEMORY_DIR)/ft_memmove.c 									\
 					$(MEMORY_DIR)/ft_memchr.c 									\
 					$(MEMORY_DIR)/ft_memcmp.c 									\
-					$(MEMORY_DIR)/ft_calloc.c 				
+					$(MEMORY_DIR)/ft_calloc.c									\
+					$(MEMORY_DIR)/ft_swap.c
 
 CONVERTER_SRCS	=	$(CONVERTER_DIR)/ft_toupper.c								\
 					$(CONVERTER_DIR)/ft_tolower.c								\
