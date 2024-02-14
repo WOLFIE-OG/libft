@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/02/13 18:41:53 by otodd            ###   ########.fr        #
+#    Updated: 2024/02/14 19:54:51 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,101 +15,174 @@ RED=\033[1;31m
 GREEN=\033[1;32m
 BLUE=\033[0;34m
 NC=\033[0m
+	
+CC				= 	cc
+CFLAGS 			= 	-Wall -Wextra -Werror
+NAME 			= 	libft.a
+MODULES 		= 	src/modules
+OBJ_DIR			= 	obj
+SRC_DIR 		= 	src
+FT_PRINTF_DIR	= 	$(MODULES)/ft_printf
+GNL_DIR 		= 	$(MODULES)/ft_get_next_line
 
-CC				= cc
-CFLAGS 			= -Wall -Wextra -Werror
-NAME 			= libft.a
-MODULES 		= src/modules
-SRCS 			= ft_isalpha.c \
-					ft_isdigit.c \
-					ft_isalnum.c \
-					ft_isascii.c \
-					ft_isprint.c \
-					ft_strlen.c \
-					ft_memset.c \
-					ft_bzero.c \
-					ft_memcpy.c \
-					ft_memmove.c \
-					ft_strlcpy.c \
-					ft_strlcat.c \
-					ft_toupper.c \
-					ft_tolower.c \
-					ft_strchr.c \
-					ft_strrchr.c \
-					ft_strncmp.c \
-					ft_memchr.c \
-					ft_memcmp.c \
-					ft_strnstr.c \
-					ft_atoi.c \
-					ft_calloc.c \
-					ft_strdup.c \
-					ft_substr.c \
-					ft_strjoin.c \
-					ft_strtrim.c \
-					ft_split.c \
-					ft_itoa.c \
-					ft_strmapi.c \
-					ft_striteri.c \
-					ft_putchar_fd.c \
-					ft_putstr_fd.c \
-					ft_putendl_fd.c \
-					ft_putnbr_fd.c
+SRCS 			=	$(SRC_DIR)/checks/ft_isdigit.c				\
+					$(SRC_DIR)/checks/ft_isalpha.c				\
+					$(SRC_DIR)/checks/ft_isalnum.c				\
+					$(SRC_DIR)/checks/ft_isascii.c				\
+					$(SRC_DIR)/checks/ft_isprint.c 				\
+					$(SRC_DIR)/strings/ft_strlen.c 				\
+					$(SRC_DIR)/strings/ft_strlcpy.c 			\
+					$(SRC_DIR)/strings/ft_strlcat.c 			\
+					$(SRC_DIR)/strings/ft_strchr.c 				\
+					$(SRC_DIR)/strings/ft_strrchr.c 			\
+					$(SRC_DIR)/strings/ft_strncmp.c 			\
+					$(SRC_DIR)/strings/ft_strnstr.c 			\
+					$(SRC_DIR)/strings/ft_strdup.c 				\
+					$(SRC_DIR)/strings/ft_substr.c 				\
+					$(SRC_DIR)/strings/ft_strjoin.c 			\
+					$(SRC_DIR)/strings/ft_strtrim.c 			\
+					$(SRC_DIR)/strings/ft_split.c 				\
+					$(SRC_DIR)/strings/ft_strmapi.c 			\
+					$(SRC_DIR)/strings/ft_striteri.c 			\
+					$(SRC_DIR)/io/ft_putchar_fd.c 				\
+					$(SRC_DIR)/io/ft_putstr_fd.c 				\
+					$(SRC_DIR)/io/ft_putendl_fd.c 				\
+					$(SRC_DIR)/io/ft_putnbr_fd.c 				\
+					$(SRC_DIR)/memory/ft_memset.c 				\
+					$(SRC_DIR)/memory/ft_bzero.c 				\
+					$(SRC_DIR)/memory/ft_memcpy.c 				\
+					$(SRC_DIR)/memory/ft_memmove.c 				\
+					$(SRC_DIR)/memory/ft_memchr.c 				\
+					$(SRC_DIR)/memory/ft_memcmp.c 				\
+					$(SRC_DIR)/memory/ft_calloc.c 				\
+					$(SRC_DIR)/converters/ft_toupper.c			\
+					$(SRC_DIR)/converters/ft_tolower.c			\
+					$(SRC_DIR)/converters/ft_atoi.c 			\
+					$(SRC_DIR)/converters/ft_itoa.c 	
 
-BONUS_SRCS		= ft_lstnew.c \
-					ft_lstlast.c \
-					ft_lstadd_back.c \
-					ft_lstadd_front.c \
-					ft_lstclear.c \
-					ft_lstdelone.c \
-					ft_lstiter.c \
-					ft_lstmap.c \
-					ft_lstsize.c
+BONUS_SRCS		= 	$(SRC_DIR)/list/ft_lstnew.c 				\
+					$(SRC_DIR)/list/ft_lstlast.c 				\
+					$(SRC_DIR)/list/ft_lstadd_back.c 			\
+					$(SRC_DIR)/list/ft_lstadd_front.c 			\
+					$(SRC_DIR)/list/ft_lstclear.c				\
+					$(SRC_DIR)/list/ft_lstdelone.c				\
+					$(SRC_DIR)/list/ft_lstiter.c 				\
+					$(SRC_DIR)/list/ft_lstmap.c 				\
+					$(SRC_DIR)/list/ft_lstsize.c
 
-MISC_SRCS 		= ft_abs.c \
-					ft_isnegative.c \
-					ft_numlen.c \
-					ft_strcpy.c \
-					ft_strncpy.c \
-					ft_strcat.c \
-					ft_strncat.c \
-					ft_strstr.c \
-					ft_putchar.c \
-					ft_putstr.c \
-					ft_sqrt.c \
-					ft_isprime.c \
-					ft_range.c \
-					ft_putnbr.c \
-					ft_swap.c \
-					ft_putendl.c \
-					ft_ischeck_str.c \
-					ft_islower.c \
-					ft_isupper.c \
-					ft_atol.c \
-					ft_binary.c \
-					ft_free_array.c \
-					ft_strarraylen.c \
-					ft_iswhitespace.c \
-					ft_strcmp.c \
-					ft_check_overflow.c
+MISC_SRCS 		= 	$(SRC_DIR)/maths/ft_abs.c					\
+					$(SRC_DIR)/maths/ft_sqrt.c 					\
+					$(SRC_DIR)/checks/ft_isnegative.c 			\
+					$(SRC_DIR)/checks/ft_isprime.c 				\
+					$(SRC_DIR)/checks/ft_iswhitespace.c 		\
+					$(SRC_DIR)/checks/ft_ischeck_str.c 			\
+					$(SRC_DIR)/checks/ft_islower.c 				\
+					$(SRC_DIR)/checks/ft_isupper.c 				\
+					$(SRC_DIR)/checks/ft_check_overflow.c		\
+					$(SRC_DIR)/utils/ft_numlen.c				\
+					$(SRC_DIR)/utils/ft_range.c 				\
+					$(SRC_DIR)/utils/ft_max.c 					\
+					$(SRC_DIR)/utils/ft_free_array.c 			\
+					$(SRC_DIR)/utils/ft_strarraylen.c 			\
+					$(SRC_DIR)/strings/ft_strcpy.c 				\
+					$(SRC_DIR)/strings/ft_strncpy.c 			\
+					$(SRC_DIR)/strings/ft_strcat.c 				\
+					$(SRC_DIR)/strings/ft_strncat.c 			\
+					$(SRC_DIR)/strings/ft_strstr.c 				\
+					$(SRC_DIR)/strings/ft_strcmp.c 				\
+					$(SRC_DIR)/io/ft_putchar.c 					\
+					$(SRC_DIR)/io/ft_putstr.c 					\
+					$(SRC_DIR)/io/ft_putendl.c 					\
+					$(SRC_DIR)/io/ft_putnbr.c 					\
+					$(SRC_DIR)/memory/ft_swap.c 				\
+					$(SRC_DIR)/converters/ft_atol.c 			\
+					$(SRC_DIR)/converters/ft_binary.c 
 
-OBJS 			= $(SRCS:%.c=obj/%.o)
-BONUS_OBJS 		= $(BONUS_SRCS:%.c=obj/%.o)
-MISC_OBJS 		= $(MISC_SRCS:%.c=obj/%.o)
-FT_PRINTF_DIR	= $(MODULES)/ft_printf
-GNL_DIR 		= $(MODULES)/ft_get_next_line
+OBJS 			= 	$(OBJ_DIR)/ft_isdigit.o						\
+					$(OBJ_DIR)/ft_isalpha.o 					\
+					$(OBJ_DIR)/ft_isalnum.o 					\
+					$(OBJ_DIR)/ft_isascii.o 					\
+					$(OBJ_DIR)/ft_isprint.o 					\
+					$(OBJ_DIR)/ft_strlen.o 						\
+					$(OBJ_DIR)/ft_strlcpy.o 					\
+					$(OBJ_DIR)/ft_strlcat.o 					\
+					$(OBJ_DIR)/ft_strchr.o 						\
+					$(OBJ_DIR)/ft_strrchr.o 					\
+					$(OBJ_DIR)/ft_strncmp.o 					\
+					$(OBJ_DIR)/ft_strnstr.o 					\
+					$(OBJ_DIR)/ft_strdup.o 						\
+					$(OBJ_DIR)/ft_substr.o 						\
+					$(OBJ_DIR)/ft_strjoin.o 					\
+					$(OBJ_DIR)/ft_strtrim.o 					\
+					$(OBJ_DIR)/ft_split.o 						\
+					$(OBJ_DIR)/ft_strmapi.o 					\
+					$(OBJ_DIR)/ft_striteri.o					\
+					$(OBJ_DIR)/ft_putchar_fd.o 					\
+					$(OBJ_DIR)/ft_putstr_fd.o 					\
+					$(OBJ_DIR)/ft_putendl_fd.o 					\
+					$(OBJ_DIR)/ft_putnbr_fd.o 					\
+					$(OBJ_DIR)/ft_memset.o 						\
+					$(OBJ_DIR)/ft_bzero.o 						\
+					$(OBJ_DIR)/ft_memcpy.o 						\
+					$(OBJ_DIR)/ft_memmove.o 					\
+					$(OBJ_DIR)/ft_memchr.o 						\
+					$(OBJ_DIR)/ft_memcmp.o 						\
+					$(OBJ_DIR)/ft_calloc.o 						\
+					$(OBJ_DIR)/ft_toupper.o 					\
+					$(OBJ_DIR)/ft_tolower.o 					\
+					$(OBJ_DIR)/ft_atoi.o 						\
+					$(OBJ_DIR)/ft_itoa.o 
 
-FT_PRINTF_OBJS 	= $(FT_PRINTF_DIR)/obj/ft_printf.o \
-					$(FT_PRINTF_DIR)/obj/ft_printf_arth_u.o \
-					$(FT_PRINTF_DIR)/obj/ft_printf_arth.o \
-					$(FT_PRINTF_DIR)/obj/ft_printf_char.o \
-					$(FT_PRINTF_DIR)/obj/ft_printf_ptr.o \
-					$(FT_PRINTF_DIR)/obj/ft_printf_str.o \
-					$(FT_PRINTF_DIR)/obj/ft_printf_utils.o \
-					$(FT_PRINTF_DIR)/obj/ft_printf_char_array.o \
-					$(FT_PRINTF_DIR)/obj/ft_printf_nbr_array.o \
+MISC_OBJS 		= 	$(OBJ_DIR)/ft_abs.o 						\
+					$(OBJ_DIR)/ft_sqrt.o 						\
+					$(OBJ_DIR)/ft_isnegative.o 					\
+					$(OBJ_DIR)/ft_isprime.o 					\
+					$(OBJ_DIR)/ft_iswhitespace.o 				\
+					$(OBJ_DIR)/ft_ischeck_str.o 				\
+					$(OBJ_DIR)/ft_islower.o 					\
+					$(OBJ_DIR)/ft_isupper.o 					\
+					$(OBJ_DIR)/ft_check_overflow.o 				\
+					$(OBJ_DIR)/ft_numlen.o 						\
+					$(OBJ_DIR)/ft_range.o 						\
+					$(OBJ_DIR)/ft_max.o 						\
+					$(OBJ_DIR)/ft_free_array.o 					\
+					$(OBJ_DIR)/ft_strarraylen.o					\
+					$(OBJ_DIR)/ft_strcpy.o 						\
+					$(OBJ_DIR)/ft_strncpy.o						\
+					$(OBJ_DIR)/ft_strcat.o 						\
+					$(OBJ_DIR)/ft_strncat.o						\
+					$(OBJ_DIR)/ft_strstr.o 						\
+					$(OBJ_DIR)/ft_strcmp.o 						\
+					$(OBJ_DIR)/ft_putchar.o						\
+					$(OBJ_DIR)/ft_putstr.o 						\
+					$(OBJ_DIR)/ft_putendl.o						\
+					$(OBJ_DIR)/ft_putnbr.o 						\
+					$(OBJ_DIR)/ft_swap.o 						\
+					$(OBJ_DIR)/ft_atol.o 						\
+					$(OBJ_DIR)/ft_binary.o 						\
+
+BONUS_OBJS		= 	$(OBJ_DIR)/ft_lstnew.o 						\
+					$(OBJ_DIR)/ft_lstlast.o 					\
+					$(OBJ_DIR)/ft_lstadd_back.o 				\
+					$(OBJ_DIR)/ft_lstadd_front.o 				\
+					$(OBJ_DIR)/ft_lstclear.o 					\
+					$(OBJ_DIR)/ft_lstdelone.o 					\
+					$(OBJ_DIR)/ft_lstiter.o 					\
+					$(OBJ_DIR)/ft_lstmap.o 						\
+					$(OBJ_DIR)/ft_lstsize.o
+
+FT_PRINTF_OBJS 	= 	$(FT_PRINTF_DIR)/obj/ft_printf.o 			\
+					$(FT_PRINTF_DIR)/obj/ft_printf_arth_u.o 	\
+					$(FT_PRINTF_DIR)/obj/ft_printf_arth.o 		\
+					$(FT_PRINTF_DIR)/obj/ft_printf_char.o 		\
+					$(FT_PRINTF_DIR)/obj/ft_printf_ptr.o 		\
+					$(FT_PRINTF_DIR)/obj/ft_printf_str.o 		\
+					$(FT_PRINTF_DIR)/obj/ft_printf_utils.o 		\
+					$(FT_PRINTF_DIR)/obj/ft_printf_char_array.o	\
+					$(FT_PRINTF_DIR)/obj/ft_printf_nbr_array.o 	\
 					$(FT_PRINTF_DIR)/obj/ft_printf_linked_list.o
 
-GNL_OBJS 		= $(GNL_DIR)/obj/ft_get_next_line.o \
+GNL_OBJS 		= 	$(GNL_DIR)/obj/ft_get_next_line.o 			\
 					$(GNL_DIR)/obj/ft_get_next_line_utils.o
 
 AR_COMMAND		= ar -rcs $(NAME) $(OBJS) $(BONUS_OBJS) $(MISC_OBJS)
@@ -127,9 +200,9 @@ dir:
 		mkdir -p $(BUILD_DIR); \
 	fi
 
-obj/%.o: src/%.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/*/%.c
 	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
-	@$(CC) -o $@ -c $< $(CFLAGS)
+	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
 check_modules:
 	@if [ ! -d "$(FT_PRINTF_DIR)" ]; then \
