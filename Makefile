@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/02/14 19:54:51 by otodd            ###   ########.fr        #
+#    Updated: 2024/02/14 22:04:23 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,188 +19,183 @@ NC=\033[0m
 CC				= 	cc
 CFLAGS 			= 	-Wall -Wextra -Werror
 NAME 			= 	libft.a
-MODULES 		= 	src/modules
 OBJ_DIR			= 	obj
 SRC_DIR 		= 	src
+BUILD_DIR		=	build
+MODULES 		= 	$(SRC_DIR)/modules
+CHECK_DIR		=	$(SRC_DIR)/checks
+STRING_DIR		=	$(SRC_DIR)/strings
+IO_DIR			=	$(SRC_DIR)/io
+MEMORY_DIR		=	$(SRC_DIR)/memory
+CONVERTER_DIR	=	$(SRC_DIR)/converters
+LIST_DIR		=	$(SRC_DIR)/list
+UTIL_DIR		=	$(SRC_DIR)/utils
+MATH_DIR		=	$(SRC_DIR)/maths
+
+CHECK_OBJ		=	$(OBJ_DIR)/checks
+STRING_OBJ		=	$(OBJ_DIR)/strings
+IO_OBJ			=	$(OBJ_DIR)/io
+MEMORY_OBJ		=	$(OBJ_DIR)/memory
+CONVERTER_OBJ	=	$(OBJ_DIR)/converters
+LIST_OBJ		=	$(OBJ_DIR)/list
+UTIL_OBJ		=	$(OBJ_DIR)/utils
+MATH_OBJ		=	$(OBJ_DIR)/maths
+
 FT_PRINTF_DIR	= 	$(MODULES)/ft_printf
 GNL_DIR 		= 	$(MODULES)/ft_get_next_line
+OBJ_DIRS 		= 	$(OBJ_DIR)													\
+					$(CHECK_OBJ)												\
+					$(STRING_OBJ) 												\
+					$(IO_OBJ)													\
+					$(MEMORY_OBJ)												\
+					$(CONVERTER_OBJ)											\
+					$(LIST_OBJ)													\
+					$(UTIL_OBJ)													\
+					$(MATH_OBJ)
+ 
+CHECK_SRCS		=	$(CHECK_DIR)/ft_isdigit.c									\
+					$(CHECK_DIR)/ft_isalpha.c									\
+					$(CHECK_DIR)/ft_isalnum.c									\
+					$(CHECK_DIR)/ft_isascii.c									\
+					$(CHECK_DIR)/ft_isprint.c 									\
+					$(CHECK_DIR)/ft_isnegative.c 								\
+					$(CHECK_DIR)/ft_isprime.c 									\
+					$(CHECK_DIR)/ft_iswhitespace.c 								\
+					$(CHECK_DIR)/ft_ischeck_str.c 								\
+					$(CHECK_DIR)/ft_islower.c 									\
+					$(CHECK_DIR)/ft_isupper.c 									\
+					$(CHECK_DIR)/ft_check_overflow.c
 
-SRCS 			=	$(SRC_DIR)/checks/ft_isdigit.c				\
-					$(SRC_DIR)/checks/ft_isalpha.c				\
-					$(SRC_DIR)/checks/ft_isalnum.c				\
-					$(SRC_DIR)/checks/ft_isascii.c				\
-					$(SRC_DIR)/checks/ft_isprint.c 				\
-					$(SRC_DIR)/strings/ft_strlen.c 				\
-					$(SRC_DIR)/strings/ft_strlcpy.c 			\
-					$(SRC_DIR)/strings/ft_strlcat.c 			\
-					$(SRC_DIR)/strings/ft_strchr.c 				\
-					$(SRC_DIR)/strings/ft_strrchr.c 			\
-					$(SRC_DIR)/strings/ft_strncmp.c 			\
-					$(SRC_DIR)/strings/ft_strnstr.c 			\
-					$(SRC_DIR)/strings/ft_strdup.c 				\
-					$(SRC_DIR)/strings/ft_substr.c 				\
-					$(SRC_DIR)/strings/ft_strjoin.c 			\
-					$(SRC_DIR)/strings/ft_strtrim.c 			\
-					$(SRC_DIR)/strings/ft_split.c 				\
-					$(SRC_DIR)/strings/ft_strmapi.c 			\
-					$(SRC_DIR)/strings/ft_striteri.c 			\
-					$(SRC_DIR)/io/ft_putchar_fd.c 				\
-					$(SRC_DIR)/io/ft_putstr_fd.c 				\
-					$(SRC_DIR)/io/ft_putendl_fd.c 				\
-					$(SRC_DIR)/io/ft_putnbr_fd.c 				\
-					$(SRC_DIR)/memory/ft_memset.c 				\
-					$(SRC_DIR)/memory/ft_bzero.c 				\
-					$(SRC_DIR)/memory/ft_memcpy.c 				\
-					$(SRC_DIR)/memory/ft_memmove.c 				\
-					$(SRC_DIR)/memory/ft_memchr.c 				\
-					$(SRC_DIR)/memory/ft_memcmp.c 				\
-					$(SRC_DIR)/memory/ft_calloc.c 				\
-					$(SRC_DIR)/converters/ft_toupper.c			\
-					$(SRC_DIR)/converters/ft_tolower.c			\
-					$(SRC_DIR)/converters/ft_atoi.c 			\
-					$(SRC_DIR)/converters/ft_itoa.c 	
+STRING_SRCS		= 	$(STRING_DIR)/ft_strlen.c 									\
+					$(STRING_DIR)/ft_strlcpy.c 									\
+					$(STRING_DIR)/ft_strlcat.c 									\
+					$(STRING_DIR)/ft_strchr.c 									\
+					$(STRING_DIR)/ft_strrchr.c 									\
+					$(STRING_DIR)/ft_strncmp.c 									\
+					$(STRING_DIR)/ft_strnstr.c 									\
+					$(STRING_DIR)/ft_strdup.c 									\
+					$(STRING_DIR)/ft_substr.c 									\
+					$(STRING_DIR)/ft_strjoin.c 									\
+					$(STRING_DIR)/ft_strtrim.c 									\
+					$(STRING_DIR)/ft_split.c 									\
+					$(STRING_DIR)/ft_strmapi.c 									\
+					$(STRING_DIR)/ft_striteri.c 								\
+					$(STRING_DIR)/ft_strcpy.c 									\
+					$(STRING_DIR)/ft_strncpy.c 									\
+					$(STRING_DIR)/ft_strcat.c 									\
+					$(STRING_DIR)/ft_strncat.c 									\
+					$(STRING_DIR)/ft_strstr.c 									\
+					$(STRING_DIR)/ft_strcmp.c
 
-BONUS_SRCS		= 	$(SRC_DIR)/list/ft_lstnew.c 				\
-					$(SRC_DIR)/list/ft_lstlast.c 				\
-					$(SRC_DIR)/list/ft_lstadd_back.c 			\
-					$(SRC_DIR)/list/ft_lstadd_front.c 			\
-					$(SRC_DIR)/list/ft_lstclear.c				\
-					$(SRC_DIR)/list/ft_lstdelone.c				\
-					$(SRC_DIR)/list/ft_lstiter.c 				\
-					$(SRC_DIR)/list/ft_lstmap.c 				\
-					$(SRC_DIR)/list/ft_lstsize.c
+IO_SRCS			=	$(IO_DIR)/ft_putchar_fd.c 									\
+					$(IO_DIR)/ft_putstr_fd.c 									\
+					$(IO_DIR)/ft_putendl_fd.c 									\
+					$(IO_DIR)/ft_putnbr_fd.c 									\
+					$(IO_DIR)/ft_putchar.c 										\
+					$(IO_DIR)/ft_putstr.c 										\
+					$(IO_DIR)/ft_putendl.c 										\
+					$(IO_DIR)/ft_putnbr.c
 
-MISC_SRCS 		= 	$(SRC_DIR)/maths/ft_abs.c					\
-					$(SRC_DIR)/maths/ft_sqrt.c 					\
-					$(SRC_DIR)/checks/ft_isnegative.c 			\
-					$(SRC_DIR)/checks/ft_isprime.c 				\
-					$(SRC_DIR)/checks/ft_iswhitespace.c 		\
-					$(SRC_DIR)/checks/ft_ischeck_str.c 			\
-					$(SRC_DIR)/checks/ft_islower.c 				\
-					$(SRC_DIR)/checks/ft_isupper.c 				\
-					$(SRC_DIR)/checks/ft_check_overflow.c		\
-					$(SRC_DIR)/utils/ft_numlen.c				\
-					$(SRC_DIR)/utils/ft_range.c 				\
-					$(SRC_DIR)/utils/ft_max.c 					\
-					$(SRC_DIR)/utils/ft_free_array.c 			\
-					$(SRC_DIR)/utils/ft_strarraylen.c 			\
-					$(SRC_DIR)/strings/ft_strcpy.c 				\
-					$(SRC_DIR)/strings/ft_strncpy.c 			\
-					$(SRC_DIR)/strings/ft_strcat.c 				\
-					$(SRC_DIR)/strings/ft_strncat.c 			\
-					$(SRC_DIR)/strings/ft_strstr.c 				\
-					$(SRC_DIR)/strings/ft_strcmp.c 				\
-					$(SRC_DIR)/io/ft_putchar.c 					\
-					$(SRC_DIR)/io/ft_putstr.c 					\
-					$(SRC_DIR)/io/ft_putendl.c 					\
-					$(SRC_DIR)/io/ft_putnbr.c 					\
-					$(SRC_DIR)/memory/ft_swap.c 				\
-					$(SRC_DIR)/converters/ft_atol.c 			\
-					$(SRC_DIR)/converters/ft_binary.c 
+MEMORY_SRCS		=	$(MEMORY_DIR)/ft_memset.c 									\
+					$(MEMORY_DIR)/ft_bzero.c 									\
+					$(MEMORY_DIR)/ft_memcpy.c 									\
+					$(MEMORY_DIR)/ft_memmove.c 									\
+					$(MEMORY_DIR)/ft_memchr.c 									\
+					$(MEMORY_DIR)/ft_memcmp.c 									\
+					$(MEMORY_DIR)/ft_calloc.c 				
 
-OBJS 			= 	$(OBJ_DIR)/ft_isdigit.o						\
-					$(OBJ_DIR)/ft_isalpha.o 					\
-					$(OBJ_DIR)/ft_isalnum.o 					\
-					$(OBJ_DIR)/ft_isascii.o 					\
-					$(OBJ_DIR)/ft_isprint.o 					\
-					$(OBJ_DIR)/ft_strlen.o 						\
-					$(OBJ_DIR)/ft_strlcpy.o 					\
-					$(OBJ_DIR)/ft_strlcat.o 					\
-					$(OBJ_DIR)/ft_strchr.o 						\
-					$(OBJ_DIR)/ft_strrchr.o 					\
-					$(OBJ_DIR)/ft_strncmp.o 					\
-					$(OBJ_DIR)/ft_strnstr.o 					\
-					$(OBJ_DIR)/ft_strdup.o 						\
-					$(OBJ_DIR)/ft_substr.o 						\
-					$(OBJ_DIR)/ft_strjoin.o 					\
-					$(OBJ_DIR)/ft_strtrim.o 					\
-					$(OBJ_DIR)/ft_split.o 						\
-					$(OBJ_DIR)/ft_strmapi.o 					\
-					$(OBJ_DIR)/ft_striteri.o					\
-					$(OBJ_DIR)/ft_putchar_fd.o 					\
-					$(OBJ_DIR)/ft_putstr_fd.o 					\
-					$(OBJ_DIR)/ft_putendl_fd.o 					\
-					$(OBJ_DIR)/ft_putnbr_fd.o 					\
-					$(OBJ_DIR)/ft_memset.o 						\
-					$(OBJ_DIR)/ft_bzero.o 						\
-					$(OBJ_DIR)/ft_memcpy.o 						\
-					$(OBJ_DIR)/ft_memmove.o 					\
-					$(OBJ_DIR)/ft_memchr.o 						\
-					$(OBJ_DIR)/ft_memcmp.o 						\
-					$(OBJ_DIR)/ft_calloc.o 						\
-					$(OBJ_DIR)/ft_toupper.o 					\
-					$(OBJ_DIR)/ft_tolower.o 					\
-					$(OBJ_DIR)/ft_atoi.o 						\
-					$(OBJ_DIR)/ft_itoa.o 
+CONVERTER_SRCS	=	$(CONVERTER_DIR)/ft_toupper.c								\
+					$(CONVERTER_DIR)/ft_tolower.c								\
+					$(CONVERTER_DIR)/ft_atoi.c 									\
+					$(CONVERTER_DIR)/ft_itoa.c									\
+					$(CONVERTER_DIR)/ft_atol.c 									\
+					$(CONVERTER_DIR)/ft_binary.c
 
-MISC_OBJS 		= 	$(OBJ_DIR)/ft_abs.o 						\
-					$(OBJ_DIR)/ft_sqrt.o 						\
-					$(OBJ_DIR)/ft_isnegative.o 					\
-					$(OBJ_DIR)/ft_isprime.o 					\
-					$(OBJ_DIR)/ft_iswhitespace.o 				\
-					$(OBJ_DIR)/ft_ischeck_str.o 				\
-					$(OBJ_DIR)/ft_islower.o 					\
-					$(OBJ_DIR)/ft_isupper.o 					\
-					$(OBJ_DIR)/ft_check_overflow.o 				\
-					$(OBJ_DIR)/ft_numlen.o 						\
-					$(OBJ_DIR)/ft_range.o 						\
-					$(OBJ_DIR)/ft_max.o 						\
-					$(OBJ_DIR)/ft_free_array.o 					\
-					$(OBJ_DIR)/ft_strarraylen.o					\
-					$(OBJ_DIR)/ft_strcpy.o 						\
-					$(OBJ_DIR)/ft_strncpy.o						\
-					$(OBJ_DIR)/ft_strcat.o 						\
-					$(OBJ_DIR)/ft_strncat.o						\
-					$(OBJ_DIR)/ft_strstr.o 						\
-					$(OBJ_DIR)/ft_strcmp.o 						\
-					$(OBJ_DIR)/ft_putchar.o						\
-					$(OBJ_DIR)/ft_putstr.o 						\
-					$(OBJ_DIR)/ft_putendl.o						\
-					$(OBJ_DIR)/ft_putnbr.o 						\
-					$(OBJ_DIR)/ft_swap.o 						\
-					$(OBJ_DIR)/ft_atol.o 						\
-					$(OBJ_DIR)/ft_binary.o 						\
+LIST_SRCS		= 	$(LIST_DIR)/ft_lstnew.c 									\
+					$(LIST_DIR)/ft_lstlast.c 									\
+					$(LIST_DIR)/ft_lstadd_back.c 								\
+					$(LIST_DIR)/ft_lstadd_front.c 								\
+					$(LIST_DIR)/ft_lstclear.c									\
+					$(LIST_DIR)/ft_lstdelone.c									\
+					$(LIST_DIR)/ft_lstiter.c 									\
+					$(LIST_DIR)/ft_lstmap.c 									\
+					$(LIST_DIR)/ft_lstsize.c
 
-BONUS_OBJS		= 	$(OBJ_DIR)/ft_lstnew.o 						\
-					$(OBJ_DIR)/ft_lstlast.o 					\
-					$(OBJ_DIR)/ft_lstadd_back.o 				\
-					$(OBJ_DIR)/ft_lstadd_front.o 				\
-					$(OBJ_DIR)/ft_lstclear.o 					\
-					$(OBJ_DIR)/ft_lstdelone.o 					\
-					$(OBJ_DIR)/ft_lstiter.o 					\
-					$(OBJ_DIR)/ft_lstmap.o 						\
-					$(OBJ_DIR)/ft_lstsize.o
+UTIL_SRCS		=	$(UTIL_DIR)/ft_numlen.c										\
+					$(UTIL_DIR)/ft_range.c 										\
+					$(UTIL_DIR)/ft_max.c 										\
+					$(UTIL_DIR)/ft_free_array.c 								\
+					$(UTIL_DIR)/ft_strarraylen.c
 
-FT_PRINTF_OBJS 	= 	$(FT_PRINTF_DIR)/obj/ft_printf.o 			\
-					$(FT_PRINTF_DIR)/obj/ft_printf_arth_u.o 	\
-					$(FT_PRINTF_DIR)/obj/ft_printf_arth.o 		\
-					$(FT_PRINTF_DIR)/obj/ft_printf_char.o 		\
-					$(FT_PRINTF_DIR)/obj/ft_printf_ptr.o 		\
-					$(FT_PRINTF_DIR)/obj/ft_printf_str.o 		\
-					$(FT_PRINTF_DIR)/obj/ft_printf_utils.o 		\
-					$(FT_PRINTF_DIR)/obj/ft_printf_char_array.o	\
-					$(FT_PRINTF_DIR)/obj/ft_printf_nbr_array.o 	\
+MATH_SRCS		=	$(MATH_DIR)/ft_abs.c										\
+					$(MATH_DIR)/ft_sqrt.c
+
+FT_PRINTF_OBJS 	= 	$(FT_PRINTF_DIR)/obj/ft_printf.o 							\
+					$(FT_PRINTF_DIR)/obj/ft_printf_arth_u.o 					\
+					$(FT_PRINTF_DIR)/obj/ft_printf_arth.o 						\
+					$(FT_PRINTF_DIR)/obj/ft_printf_char.o 						\
+					$(FT_PRINTF_DIR)/obj/ft_printf_ptr.o 						\
+					$(FT_PRINTF_DIR)/obj/ft_printf_str.o 						\
+					$(FT_PRINTF_DIR)/obj/ft_printf_utils.o 						\
+					$(FT_PRINTF_DIR)/obj/ft_printf_char_array.o					\
+					$(FT_PRINTF_DIR)/obj/ft_printf_nbr_array.o 					\
 					$(FT_PRINTF_DIR)/obj/ft_printf_linked_list.o
 
-GNL_OBJS 		= 	$(GNL_DIR)/obj/ft_get_next_line.o 			\
+
+GNL_OBJS 		= 	$(GNL_DIR)/obj/ft_get_next_line.o 							\
 					$(GNL_DIR)/obj/ft_get_next_line_utils.o
 
-AR_COMMAND		= ar -rcs $(NAME) $(OBJS) $(BONUS_OBJS) $(MISC_OBJS)
-BUILD_DIR 		= build
+OBJS 			= 	$(CHECK_SRCS:$(CHECK_DIR)/%.c=$(CHECK_OBJ)/%.o) 			\
+					$(STRING_SRCS:$(STRING_DIR)/%.c=$(STRING_OBJ)/%.o) 			\
+					$(IO_SRCS:$(IO_DIR)/%.c=$(IO_OBJ)/%.o) 						\
+					$(MEMORY_SRCS:$(MEMORY_DIR)/%.c=$(MEMORY_OBJ)/%.o) 			\
+					$(CONVERTER_SRCS:$(CONVERTER_DIR)/%.c=$(CONVERTER_OBJ)/%.o)	\
+					$(LIST_SRCS:$(LIST_DIR)/%.c=$(LIST_OBJ)/%.o) 				\
+					$(UTIL_SRCS:$(UTIL_DIR)/%.c=$(UTIL_OBJ)/%.o) 				\
+					$(MATH_SRCS:$(MATH_DIR)/%.c=$(MATH_OBJ)/%.o) 
+
+AR_COMMAND		=	ar -rcs $(NAME) $(OBJS)
+BUILD_DIR 		=	build
 
 all: dir $(NAME)
 
 dir:
-	@if [ ! -d "obj" ]; then \
-		echo "[$(GREEN)LIBFT$(NC)]     Creating obj directory..."; \
-		mkdir -p obj; \
-	fi
-	@if [ ! -d "$(BUILD_DIR)" ]; then \
-		echo "[$(GREEN)LIBFT$(NC)]     Creating build directory..."; \
-		mkdir -p $(BUILD_DIR); \
-	fi
+	@for dir in $(OBJ_DIRS) $(BUILD_DIR); do \
+		if [ ! -d "$$dir" ]; then \
+			echo "[$(GREEN)LIBFT$(NC)]     Creating directory: $$dir"; \
+			mkdir -p $$dir; \
+		fi; \
+	done
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/*/%.c
+$(CHECK_OBJ)/%.o: $(CHECK_DIR)/%.c
+	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
+	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
+
+$(STRING_OBJ)/%.o: $(STRING_DIR)/%.c
+	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
+	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
+
+$(IO_OBJ)/%.o: $(IO_DIR)/%.c
+	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
+	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
+
+$(MEMORY_OBJ)/%.o: $(MEMORY_DIR)/%.c
+	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
+	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
+
+$(CONVERTER_OBJ)/%.o: $(CONVERTER_DIR)/%.c
+	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
+	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
+
+$(LIST_OBJ)/%.o: $(LIST_DIR)/%.c
+	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
+	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
+
+$(UTIL_OBJ)/%.o: $(UTIL_DIR)/%.c
+	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
+	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
+
+$(MATH_OBJ)/%.o: $(MATH_DIR)/%.c
 	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
@@ -220,7 +215,7 @@ check_modules:
 		$(MAKE) -s -C $(GNL_DIR) module; \
 	fi
 
-$(NAME): $(OBJS) $(BONUS_OBJS) $(MISC_OBJS) check_modules
+$(NAME): $(OBJS) check_modules
 	@echo "[$(GREEN)LIBFT$(NC)]     Creating $(NAME)..."
 	@if [ -d "$(FT_PRINTF_DIR)" ]; then \
 		echo "[$(GREEN)LIBFT$(NC)]     Adding ft_printf module to $(NAME)..."; \
@@ -257,8 +252,8 @@ check_modules_clean:
 
 clean: check_modules_clean
 	@echo "[$(YELLOW)LIBFT$(NC)]     Cleaning object files..."
-	@rm -rf $(OBJS) $(BONUS_OBJS) $(MISC_OBJS)
-	@rm -rf obj
+	@rm -rf $(OBJS)
+	@rm -rf $(OBJ_DIRS)
 
 fclean: clean
 	@echo "[$(RED)LIBFT$(NC)]     Cleaning build directory..."
