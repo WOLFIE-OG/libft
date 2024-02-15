@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/02/14 22:14:11 by otodd            ###   ########.fr        #
+#    Updated: 2024/02/15 14:11:15 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,8 @@ CHECK_SRCS		=	$(CHECK_DIR)/ft_isdigit.c									\
 					$(CHECK_DIR)/ft_ischeck_str.c 								\
 					$(CHECK_DIR)/ft_islower.c 									\
 					$(CHECK_DIR)/ft_isupper.c 									\
-					$(CHECK_DIR)/ft_check_overflow.c
+					$(CHECK_DIR)/ft_check_overflow.c							\
+					$(CHECK_DIR)/ft_ismath.c
 
 STRING_SRCS		= 	$(STRING_DIR)/ft_strlen.c 									\
 					$(STRING_DIR)/ft_strlcpy.c 									\
@@ -140,7 +141,8 @@ FT_PRINTF_OBJS 	= 	$(FT_PRINTF_DIR)/obj/ft_printf.o 							\
 					$(FT_PRINTF_DIR)/obj/ft_printf_utils.o 						\
 					$(FT_PRINTF_DIR)/obj/ft_printf_char_array.o					\
 					$(FT_PRINTF_DIR)/obj/ft_printf_nbr_array.o 					\
-					$(FT_PRINTF_DIR)/obj/ft_printf_linked_list.o
+					$(FT_PRINTF_DIR)/obj/ft_printf_linked_list.o				\
+					$(FT_PRINTF_DIR)/obj/ft_printf_arth_l.o
 
 
 GNL_OBJS 		= 	$(GNL_DIR)/obj/ft_get_next_line.o 							\
