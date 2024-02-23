@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   colour_codes.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: otodd <otodd@student.42.fr>                +#+  +:+       +#+        */
+/*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:22:04 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/12 15:32:58 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/23 18:28:37 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,5 @@
 # define BHWHT "\e[1;97m"
 
 # define RESET "\e[0m"
-# define CRESET "\e[0m"
-# define COLOR_RESET "\e[0m"
+# define CLEAR "\e[H"
 #endif
