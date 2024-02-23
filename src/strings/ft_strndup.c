@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 11:07:32 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/23 16:29:34 by otodd            ###   ########.fr       */
+/*   Created: 2023/10/22 10:37:59 by otodd             #+#    #+#             */
+/*   Updated: 2024/02/23 16:39:19 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+
+char	*ft_strndup(const char *s, size_t n)
 {
-	size_t	i;
+	char			*res;
+	unsigned int	i;
 
 	i = 0;
-	while (i < n && src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
+	res = malloc(sizeof(char) * (n + 1));
+	if (!res)
+		return (NULL);
 	while (i < n)
 	{
-		dest[i] = '\0';
+		res[i] = s[i];
 		i++;
 	}
-	return (dest);
+	res[i] = '\0';
+	return (res);
 }

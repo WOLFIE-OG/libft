@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/02/21 17:42:00 by otodd            ###   ########.fr        #
+#    Updated: 2024/02/23 15:52:32 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,6 +76,7 @@ STRING_SRCS		= 	$(STRING_DIR)/ft_strlen.c 									\
 					$(STRING_DIR)/ft_strncmp.c 									\
 					$(STRING_DIR)/ft_strnstr.c 									\
 					$(STRING_DIR)/ft_strdup.c 									\
+					$(STRING_DIR)/ft_strndup.c 									\
 					$(STRING_DIR)/ft_substr.c 									\
 					$(STRING_DIR)/ft_strjoin.c 									\
 					$(STRING_DIR)/ft_strtrim.c 									\
