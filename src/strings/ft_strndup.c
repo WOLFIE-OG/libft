@@ -6,12 +6,11 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 10:37:59 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/23 16:39:19 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/24 22:54:06 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
-
 
 char	*ft_strndup(const char *s, size_t n)
 {
