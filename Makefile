@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/02/23 15:52:32 by otodd            ###   ########.fr        #
+#    Updated: 2024/02/27 16:39:09 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -162,7 +162,7 @@ OBJS 			= 	$(CHECK_SRCS:$(CHECK_DIR)/%.c=$(CHECK_OBJ)/%.o) 			\
 AR_COMMAND		=	ar -rcs $(NAME) $(OBJS)
 BUILD_DIR 		=	build
 
-all: dir $(NAME)
+all: $(NAME)
 
 dir:
 	@for dir in $(OBJ_DIRS) $(BUILD_DIR); do \
@@ -172,35 +172,35 @@ dir:
 		fi; \
 	done
 
-$(CHECK_OBJ)/%.o: $(CHECK_DIR)/%.c
+$(CHECK_OBJ)/%.o: $(CHECK_DIR)/%.c | dir
 	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
-$(STRING_OBJ)/%.o: $(STRING_DIR)/%.c
+$(STRING_OBJ)/%.o: $(STRING_DIR)/%.c | dir
 	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
-$(IO_OBJ)/%.o: $(IO_DIR)/%.c
+$(IO_OBJ)/%.o: $(IO_DIR)/%.c | dir
 	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
-$(MEMORY_OBJ)/%.o: $(MEMORY_DIR)/%.c
+$(MEMORY_OBJ)/%.o: $(MEMORY_DIR)/%.c | dir
 	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
-$(CONVERTER_OBJ)/%.o: $(CONVERTER_DIR)/%.c
+$(CONVERTER_OBJ)/%.o: $(CONVERTER_DIR)/%.c | dir
 	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
-$(LIST_OBJ)/%.o: $(LIST_DIR)/%.c
+$(LIST_OBJ)/%.o: $(LIST_DIR)/%.c | dir
 	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
-$(UTIL_OBJ)/%.o: $(UTIL_DIR)/%.c
+$(UTIL_OBJ)/%.o: $(UTIL_DIR)/%.c | dir
 	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
-$(MATH_OBJ)/%.o: $(MATH_DIR)/%.c
+$(MATH_OBJ)/%.o: $(MATH_DIR)/%.c | dir
 	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
