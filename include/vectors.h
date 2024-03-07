@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   vectors.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 13:21:21 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/07 18:00:11 by otodd            ###   ########.fr       */
+/*   Created: 2024/03/07 18:33:40 by otodd             #+#    #+#             */
+/*   Updated: 2024/03/07 18:34:15 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#ifndef VECTORS_H
+# define VECTORS_H
 
-t_list	*ft_lstlast(t_list *lst)
+typedef struct s_vector2
 {
-	if (lst == NULL)
-		return (NULL);
-	while (lst)
-	{
-		if (lst->next == NULL)
-			return (lst);
-		lst = lst->next;
-	}
-	return (lst);
-}
+	int	x;
+	int	y;
+}	t_vector2;
+#endif
