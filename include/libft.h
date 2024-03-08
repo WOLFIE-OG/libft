@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/07 19:55:07 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/08 18:13:36 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,5 +151,6 @@ int		*ft_range(int min, int max);
 int		ft_max(int *tab, unsigned int len);
 void	ft_free_array(char **array, size_t len);
 size_t	ft_strarraylen(char **array);
+char	*ft_file_extension(char *str);
 
 #endif

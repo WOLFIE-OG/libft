@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 09:40:46 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/14 18:55:58 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/08 18:07:50 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ char	*ft_strstr(char *str, char *to_find)
 			to_find++;
 		str++;
 	}
-	return (0);
+	return (NULL);
 }

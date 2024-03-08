@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_file_extension.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/15 15:20:32 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/08 18:56:49 by otodd            ###   ########.fr       */
+/*   Created: 2024/03/08 18:10:31 by otodd             #+#    #+#             */
+/*   Updated: 2024/03/08 18:43:21 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_file_extension(char *str)
 {
-	if (n == 0)
-		return (0);
-
-	while ((n - 1) != 0 && *s1 && *s2 && *s1 == *s2)
-	{
-		s1++;
-		s2++;
-		n--;
-	}
-	return (unsigned char)(*s1) - (unsigned char)(*s2);
+	char	**split;
+	char	*ext;
+	
+	split = ft_split(str, '.');
+	if (!split)
+		return (NULL);
+	ext = ft_strjoin(".", split[ft_strarraylen(split) - 1]);
+	if (!ext)
+		return (NULL);
+	ft_free_array(split, ft_strarraylen(split));
+	free(split);
+	return (ext);
 }
-
