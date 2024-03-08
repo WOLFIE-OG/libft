@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/07 18:34:37 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/07 19:55:07 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,36 @@
 # include <limits.h>
 # include <stdint.h>
 # include "colour_codes.h"
-# include "vectors.h"
 # if __has_include("../src/modules/ft_printf/include/ft_printf.h")
 #  include "../src/modules/ft_printf/include/ft_printf.h"
 # endif
 # if __has_include("../src/modules/ft_get_next_line/include/ft_get_next_line.h")
 #  include "../src/modules/ft_get_next_line/include/ft_get_next_line.h"
 # endif
+
+
+// Maths
+
+typedef struct s_vector2
+{
+	int	x;
+	int	y;
+}	t_vector2;
+
+typedef struct s_vector3
+{
+	int	x;
+	int	y;
+	int	z;
+}	t_vector3;
+
+typedef struct s_vector4
+{
+	int	x;
+	int	y;
+	int	z;
+	int	w;
+}	t_vector4;
 
 // Bonus
 
@@ -79,8 +102,11 @@ int		ft_lstsize(t_list *lst);
 
 // Math Functions
 
-int		ft_abs(int n);
-int		ft_sqrt(int nb);
+int			ft_abs(int n);
+int			ft_sqrt(int nb);
+t_vector2	*vector2(int x, int y);
+t_vector3	*vector3(int x, int y, int z);
+t_vector4	*vector4(int x, int y, int z, int w);
 
 // Memory Functions
 
