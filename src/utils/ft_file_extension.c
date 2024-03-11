@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 18:10:31 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/08 18:43:21 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/11 16:38:31 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_file_extension(char *str)
 {
 	char	**split;
 	char	*ext;
-	
+
 	split = ft_split(str, '.');
 	if (!split)
 		return (NULL);

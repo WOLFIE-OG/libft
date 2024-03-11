@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:22:04 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/23 18:28:37 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/11 15:16:46 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,7 @@
 
 # define RESET "\e[0m"
 # define CLEAR "\e[H"
+# define CLEAR_BELOW "\e[0J"
+# define CLEAR_ABOVE "\e[1J"
+# define CLEAR_ALL "\e[2J"
 #endif
