@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/03/08 18:13:59 by otodd            ###   ########.fr        #
+#    Updated: 2024/03/12 12:58:37 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ GREEN=\033[1;32m
 BLUE=\033[0;34m
 NC=\033[0m
 	
-CC				= 	cc
+CC				= 	clang
 CFLAGS 			= 	-Wall -Wextra -Werror
 NAME 			= 	libft.a
 OBJ_DIR			= 	obj
