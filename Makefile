@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/03/12 13:04:41 by otodd            ###   ########.fr        #
+#    Updated: 2024/03/12 13:24:33 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -161,8 +161,9 @@ OBJS 			= 	$(CHECK_SRCS:$(CHECK_DIR)/%.c=$(CHECK_OBJ)/%.o) 			\
 					$(UTIL_SRCS:$(UTIL_DIR)/%.c=$(UTIL_OBJ)/%.o) 				\
 					$(MATH_SRCS:$(MATH_DIR)/%.c=$(MATH_OBJ)/%.o) 
 
-AR_COMMAND		=	ar -rcs $(NAME) $(OBJS)
 BUILD_DIR 		=	build
+AR_COMMAND		=	ar -rcs $(BUILD_DIR)/$(NAME) $(OBJS)
+
 
 all: $(NAME)
 
@@ -223,17 +224,18 @@ check_modules:
 	fi
 
 $(NAME): $(OBJS) check_modules
-	@echo "[$(GREEN)LIBFT$(NC)]     Creating $(NAME)..."
-	@if [ -d "$(FT_PRINTF_DIR)" ]; then \
-		echo "[$(GREEN)LIBFT$(NC)]     Adding ft_printf module to $(NAME)..."; \
-		$(AR_COMMAND) $(FT_PRINTF_OBJS); \
+	@if [ ! -f "$(BUILD_DIR)/$(NAME)" ]; then \
+		echo "[$(GREEN)LIBFT$(NC)]     Creating $(NAME)..."; \
+		if [ -f "$(FT_PRINTF_DIR)/include/ft_printf.h" ]; then \
+			echo "[$(GREEN)LIBFT$(NC)]     Adding ft_printf module to $(NAME)..."; \
+			$(AR_COMMAND) $(FT_PRINTF_OBJS); \
+		fi; \
+		if [ -f "$(GNL_DIR)/include/ft_get_next_line.h" ]; then \
+			echo "[$(GREEN)LIBFT$(NC)]     Adding ft_get_next_line module to $(NAME)..."; \
+			$(AR_COMMAND) $(GNL_OBJS); \
+		fi; \
+		$(AR_COMMAND); \
 	fi
-	@if [ -d "$(GNL_DIR)" ]; then \
-		echo "[$(GREEN)LIBFT$(NC)]     Adding ft_get_next_line module to $(NAME)..."; \
-		$(AR_COMMAND) $(GNL_OBJS); \
-	fi
-	@$(AR_COMMAND)
-	@mv $(NAME) $(BUILD_DIR)/
 
 check_modules_clean:
 	@if [ -d "$(FT_PRINTF_DIR)" ]; then \
@@ -270,7 +272,7 @@ re: fclean all
 
 test: all
 	@echo "[$(GREEN)LIBFT$(NC)]      Running tests..."
-	@$(CC) tests/program.c -Lbuild -lft -lbsd -lm -o test.bin
+	@$(CC) tests/program.c -Lbuild -lft -lbsd -o test.bin
 	./test.bin
 
 .PHONY: all clean fclean re
