@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/03/13 14:30:00 by otodd            ###   ########.fr        #
+#    Updated: 2024/03/13 15:14:38 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,9 @@ CHECK_SRCS		=	$(CHECK_DIR)/ft_isdigit.c									\
 					$(CHECK_DIR)/ft_islower.c 									\
 					$(CHECK_DIR)/ft_isupper.c 									\
 					$(CHECK_DIR)/ft_check_overflow.c							\
-					$(CHECK_DIR)/ft_ismath.c
+					$(CHECK_DIR)/ft_ismath.c									\
+					$(CHECK_DIR)/ft_isoperator.c								\
+					$(CHECK_DIR)/ft_isvalid_numstr.c
 
 STRING_SRCS		= 	$(STRING_DIR)/ft_strlen.c 									\
 					$(STRING_DIR)/ft_strlen_n.c									\

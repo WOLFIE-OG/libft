@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/11 16:37:47 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/13 15:14:00 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ int			ft_isupper(int c);
 int			ft_check_overflow(void *var, size_t type);
 int			ft_iswhitespace(int c);
 int			ft_isprime(int nb);
+int			ft_isoperator(int c);
+int			ft_isvalid_numstr(char *str);
 
 // Converter Functions
 
