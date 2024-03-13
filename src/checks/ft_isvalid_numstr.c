@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:07:54 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/13 15:17:51 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/13 15:24:08 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isvalid_numstr(char *str)
 {
-	if (*str == '-')
+	if (*str == '-' && *(str + 1))
 		str++;
 	while (*str)
 		if (!ft_isdigit(*str++))
