@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/13 15:14:00 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/15 13:34:01 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdint.h>
+# include <stdbool.h>
+# include <fcntl.h>
 # include "colour_codes.h"
 # if __has_include("../src/modules/ft_printf/include/ft_printf.h")
 #  include "../src/modules/ft_printf/include/ft_printf.h"
@@ -68,6 +70,7 @@ int			ft_iswhitespace(int c);
 int			ft_isprime(int nb);
 int			ft_isoperator(int c);
 int			ft_isvalid_numstr(char *str);
+bool		ft_isvalid_file_path(char *path);
 
 // Converter Functions
 
