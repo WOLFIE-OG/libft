@@ -6,14 +6,15 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/03/15 13:27:24 by otodd            ###   ########.fr        #
+#    Updated: 2024/03/19 12:12:34 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 YELLOW=\033[1;33m
 RED=\033[1;31m
 GREEN=\033[1;32m
-BLUE=\033[0;34m
+BLUE=\033[1;34m
+CYAN=\033[1;36m
 NC=\033[0m
 	
 CC				= 	cc
@@ -179,35 +180,35 @@ dir:
 	done
 
 $(CHECK_OBJ)/%.o: $(CHECK_DIR)/%.c | dir
-	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
+	@echo "[$(CYAN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
 $(STRING_OBJ)/%.o: $(STRING_DIR)/%.c | dir
-	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
+	@echo "[$(CYAN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
 $(IO_OBJ)/%.o: $(IO_DIR)/%.c | dir
-	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
+	@echo "[$(CYAN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
 $(MEMORY_OBJ)/%.o: $(MEMORY_DIR)/%.c | dir
-	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
+	@echo "[$(CYAN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
 $(CONVERTER_OBJ)/%.o: $(CONVERTER_DIR)/%.c | dir
-	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
+	@echo "[$(CYAN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
 $(LIST_OBJ)/%.o: $(LIST_DIR)/%.c | dir
-	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
+	@echo "[$(CYAN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
 $(UTIL_OBJ)/%.o: $(UTIL_DIR)/%.c | dir
-	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
+	@echo "[$(CYAN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
 $(MATH_OBJ)/%.o: $(MATH_DIR)/%.c | dir
-	@echo "[$(GREEN)LIBFT$(NC)]     Compiling $< --> $@"
+	@echo "[$(CYAN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
 check_modules:
