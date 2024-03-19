@@ -6,14 +6,15 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/03/19 12:12:34 by otodd            ###   ########.fr        #
+#    Updated: 2024/03/19 12:19:37 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-YELLOW=\033[1;33m
 RED=\033[1;31m
 GREEN=\033[1;32m
+YELLOW=\033[1;33m
 BLUE=\033[1;34m
+MAGENTA=\033[1;35m
 CYAN=\033[1;36m
 NC=\033[0m
 	
@@ -231,11 +232,11 @@ $(NAME): $(OBJS) check_modules
 	@if [ ! -f "$(BUILD_DIR)/$(NAME)" ]; then \
 		echo "[$(GREEN)LIBFT$(NC)]     Creating $(NAME)..."; \
 		if [ -f "$(FT_PRINTF_DIR)/include/ft_printf.h" ]; then \
-			echo "[$(GREEN)LIBFT$(NC)]     Adding ft_printf module to $(NAME)..."; \
+			echo "[$(MAGENTA)LIBFT$(NC)]     Adding ft_printf module to $(NAME)..."; \
 			$(AR_COMMAND) $(FT_PRINTF_OBJS); \
 		fi; \
 		if [ -f "$(GNL_DIR)/include/ft_get_next_line.h" ]; then \
-			echo "[$(GREEN)LIBFT$(NC)]     Adding ft_get_next_line module to $(NAME)..."; \
+			echo "[$(MAGENTA)LIBFT$(NC)]     Adding ft_get_next_line module to $(NAME)..."; \
 			$(AR_COMMAND) $(GNL_OBJS); \
 		fi; \
 		$(AR_COMMAND); \
