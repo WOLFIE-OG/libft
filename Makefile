@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/03/19 17:24:21 by otodd            ###   ########.fr        #
+#    Updated: 2024/03/20 14:27:22 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,26 +34,26 @@ LIST_DIR		=	$(SRC_DIR)/list
 UTIL_DIR		=	$(SRC_DIR)/utils
 MATH_DIR		=	$(SRC_DIR)/maths
 
-CHECK_OBJ		=	$(OBJ_DIR)/checks
-STRING_OBJ		=	$(OBJ_DIR)/strings
-IO_OBJ			=	$(OBJ_DIR)/io
-MEMORY_OBJ		=	$(OBJ_DIR)/memory
-CONVERTER_OBJ	=	$(OBJ_DIR)/converters
-LIST_OBJ		=	$(OBJ_DIR)/list
-UTIL_OBJ		=	$(OBJ_DIR)/utils
-MATH_OBJ		=	$(OBJ_DIR)/maths
+CHECK_OBJS		=	$(OBJ_DIR)/checks
+STRING_OBJS		=	$(OBJ_DIR)/strings
+IO_OBJS			=	$(OBJ_DIR)/io
+MEMORY_OBJS		=	$(OBJ_DIR)/memory
+CONVERTER_OBJS	=	$(OBJ_DIR)/converters
+LIST_OBJS		=	$(OBJ_DIR)/list
+UTIL_OBJS		=	$(OBJ_DIR)/utils
+MATH_OBJS		=	$(OBJ_DIR)/maths
 
 FT_PRINTF_DIR	= 	$(MODULES)/ft_printf
 GNL_DIR 		= 	$(MODULES)/ft_get_next_line
 OBJ_DIRS 		= 	$(OBJ_DIR)													\
-					$(CHECK_OBJ)												\
-					$(STRING_OBJ) 												\
-					$(IO_OBJ)													\
-					$(MEMORY_OBJ)												\
-					$(CONVERTER_OBJ)											\
-					$(LIST_OBJ)													\
-					$(UTIL_OBJ)													\
-					$(MATH_OBJ)
+					$(CHECK_OBJS)												\
+					$(STRING_OBJS) 												\
+					$(IO_OBJS)													\
+					$(MEMORY_OBJS)												\
+					$(CONVERTER_OBJS)											\
+					$(LIST_OBJS)												\
+					$(UTIL_OBJS)												\
+					$(MATH_OBJS)
  
 CHECK_SRCS		=	$(CHECK_DIR)/ft_isdigit.c									\
 					$(CHECK_DIR)/ft_isalpha.c									\
@@ -157,14 +157,14 @@ FT_PRINTF_OBJS 	= 	$(FT_PRINTF_DIR)/obj/ft_printf.o 							\
 GNL_OBJS 		= 	$(GNL_DIR)/obj/ft_get_next_line.o 							\
 					$(GNL_DIR)/obj/ft_get_next_line_utils.o
 
-OBJS 			= 	$(CHECK_SRCS:$(CHECK_DIR)/%.c=$(CHECK_OBJ)/%.o) 			\
-					$(STRING_SRCS:$(STRING_DIR)/%.c=$(STRING_OBJ)/%.o) 			\
-					$(IO_SRCS:$(IO_DIR)/%.c=$(IO_OBJ)/%.o) 						\
-					$(MEMORY_SRCS:$(MEMORY_DIR)/%.c=$(MEMORY_OBJ)/%.o) 			\
-					$(CONVERTER_SRCS:$(CONVERTER_DIR)/%.c=$(CONVERTER_OBJ)/%.o)	\
-					$(LIST_SRCS:$(LIST_DIR)/%.c=$(LIST_OBJ)/%.o) 				\
-					$(UTIL_SRCS:$(UTIL_DIR)/%.c=$(UTIL_OBJ)/%.o) 				\
-					$(MATH_SRCS:$(MATH_DIR)/%.c=$(MATH_OBJ)/%.o) 
+OBJS 			= 	$(CHECK_SRCS:$(CHECK_DIR)/%.c=$(CHECK_OBJS)/%.o) 			\
+					$(STRING_SRCS:$(STRING_DIR)/%.c=$(STRING_OBJS)/%.o) 		\
+					$(IO_SRCS:$(IO_DIR)/%.c=$(IO_OBJS)/%.o) 					\
+					$(MEMORY_SRCS:$(MEMORY_DIR)/%.c=$(MEMORY_OBJS)/%.o) 		\
+					$(CONVERTER_SRCS:$(CONVERTER_DIR)/%.c=$(CONVERTER_OBJS)/%.o)\
+					$(LIST_SRCS:$(LIST_DIR)/%.c=$(LIST_OBJS)/%.o) 				\
+					$(UTIL_SRCS:$(UTIL_DIR)/%.c=$(UTIL_OBJS)/%.o) 				\
+					$(MATH_SRCS:$(MATH_DIR)/%.c=$(MATH_OBJS)/%.o)
 
 AR_COMMAND		=	ar -rcs $(BUILD_DIR)/$(NAME) $(OBJS)
 
@@ -172,42 +172,42 @@ AR_COMMAND		=	ar -rcs $(BUILD_DIR)/$(NAME) $(OBJS)
 all: $(NAME)
 
 dir:
-	@for dir in $(OBJ_DIRS) $(BUILD_DIR); do \
-		if [ ! -d "$$dir" ]; then \
-			echo "[$(GREEN)LIBFT$(NC)]     Creating directory: $$dir"; \
-			mkdir -p $$dir; \
-		fi; \
+	@for dir in $(OBJ_DIRS) $(BUILD_DIR); do 									\
+		if [ ! -d "$$dir" ]; then 												\
+			echo "[$(GREEN)LIBFT$(NC)]     Creating directory: $$dir"; 			\
+			mkdir -p $$dir; 													\
+		fi; 																	\
 	done
 
-$(CHECK_OBJ)/%.o: $(CHECK_DIR)/%.c | dir
+$(CHECK_OBJS)/%.o: $(CHECK_DIR)/%.c | dir
 	@echo "[$(CYAN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
-$(STRING_OBJ)/%.o: $(STRING_DIR)/%.c | dir
+$(STRING_OBJS)/%.o: $(STRING_DIR)/%.c | dir
 	@echo "[$(CYAN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
-$(IO_OBJ)/%.o: $(IO_DIR)/%.c | dir
+$(IO_OBJS)/%.o: $(IO_DIR)/%.c | dir
 	@echo "[$(CYAN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
-$(MEMORY_OBJ)/%.o: $(MEMORY_DIR)/%.c | dir
+$(MEMORY_OBJS)/%.o: $(MEMORY_DIR)/%.c | dir
 	@echo "[$(CYAN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
-$(CONVERTER_OBJ)/%.o: $(CONVERTER_DIR)/%.c | dir
+$(CONVERTER_OBJS)/%.o: $(CONVERTER_DIR)/%.c | dir
 	@echo "[$(CYAN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
-$(LIST_OBJ)/%.o: $(LIST_DIR)/%.c | dir
+$(LIST_OBJS)/%.o: $(LIST_DIR)/%.c | dir
 	@echo "[$(CYAN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
-$(UTIL_OBJ)/%.o: $(UTIL_DIR)/%.c | dir
+$(UTIL_OBJS)/%.o: $(UTIL_DIR)/%.c | dir
 	@echo "[$(CYAN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
-$(MATH_OBJ)/%.o: $(MATH_DIR)/%.c | dir
+$(MATH_OBJS)/%.o: $(MATH_DIR)/%.c | dir
 	@echo "[$(CYAN)LIBFT$(NC)]     Compiling $< --> $@"
 	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
