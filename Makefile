@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/03/19 12:19:37 by otodd            ###   ########.fr        #
+#    Updated: 2024/03/19 17:24:21 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -166,7 +166,6 @@ OBJS 			= 	$(CHECK_SRCS:$(CHECK_DIR)/%.c=$(CHECK_OBJ)/%.o) 			\
 					$(UTIL_SRCS:$(UTIL_DIR)/%.c=$(UTIL_OBJ)/%.o) 				\
 					$(MATH_SRCS:$(MATH_DIR)/%.c=$(MATH_OBJ)/%.o) 
 
-BUILD_DIR 		=	build
 AR_COMMAND		=	ar -rcs $(BUILD_DIR)/$(NAME) $(OBJS)
 
 
