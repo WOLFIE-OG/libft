@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/03/20 14:27:22 by otodd            ###   ########.fr        #
+#    Updated: 2024/03/22 19:59:14 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -142,6 +142,7 @@ MATH_SRCS		=	$(MATH_DIR)/ft_abs.c										\
 					$(MATH_DIR)/ft_vector.c
 
 FT_PRINTF_OBJS 	= 	$(FT_PRINTF_DIR)/obj/ft_printf.o 							\
+					$(FT_PRINTF_DIR)/obj/ft_printf_ingest.o 					\
 					$(FT_PRINTF_DIR)/obj/ft_printf_arth_u.o 					\
 					$(FT_PRINTF_DIR)/obj/ft_printf_arth.o 						\
 					$(FT_PRINTF_DIR)/obj/ft_printf_char.o 						\
