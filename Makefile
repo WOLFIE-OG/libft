@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/03/22 19:59:14 by otodd            ###   ########.fr        #
+#    Updated: 2024/03/28 13:01:54 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -149,7 +149,7 @@ FT_PRINTF_OBJS 	= 	$(FT_PRINTF_DIR)/obj/ft_printf.o 							\
 					$(FT_PRINTF_DIR)/obj/ft_printf_ptr.o 						\
 					$(FT_PRINTF_DIR)/obj/ft_printf_str.o 						\
 					$(FT_PRINTF_DIR)/obj/ft_printf_utils.o 						\
-					$(FT_PRINTF_DIR)/obj/ft_printf_char_array.o					\
+					$(FT_PRINTF_DIR)/obj/ft_printf_str_array.o					\
 					$(FT_PRINTF_DIR)/obj/ft_printf_nbr_array.o 					\
 					$(FT_PRINTF_DIR)/obj/ft_printf_linked_list.o				\
 					$(FT_PRINTF_DIR)/obj/ft_printf_arth_l.o
