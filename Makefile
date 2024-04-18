@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/03/28 13:01:54 by otodd            ###   ########.fr        #
+#    Updated: 2024/04/18 13:13:21 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ BLUE=\033[1;34m
 MAGENTA=\033[1;35m
 CYAN=\033[1;36m
 NC=\033[0m
-	
+
 CC				= 	cc
 CFLAGS 			= 	-Wall -Wextra -Werror
 NAME 			= 	libft.a
@@ -54,7 +54,7 @@ OBJ_DIRS 		= 	$(OBJ_DIR)													\
 					$(LIST_OBJS)												\
 					$(UTIL_OBJS)												\
 					$(MATH_OBJS)
- 
+
 CHECK_SRCS		=	$(CHECK_DIR)/ft_isdigit.c									\
 					$(CHECK_DIR)/ft_isalpha.c									\
 					$(CHECK_DIR)/ft_isalnum.c									\
