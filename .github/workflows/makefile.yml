@@ -14,11 +14,23 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Get Lib
-      run: sudo apt-get install libbsd-dev
-      
     - name: Get submodules
       run: git submodule update --init --recursive
+
+    - name: Update apt
+      run: sudo apt-get update --fix-missing
+    
+    - name: Install valgrind, libbsd & tree
+      run: sudo apt-get install valgrind libbsd-dev tree
+
+    - name: Install norminette
+      run: pip install norminette
+
+    - name: Tree
+      run: tree
+
+    - name: Run norminette
+      run: norminette src include
 
     - name: Make program
       run: make
