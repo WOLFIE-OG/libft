@@ -6,16 +6,16 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:34:46 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/14 19:10:35 by otodd            ###   ########.fr       */
+/*   Updated: 2024/05/16 16:39:57 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-int	ft_ischeck_str(char *str, int (*f)(int))
+int	ft_ischeck_str(char *s, int (*f)(int))
 {
-	while (*str)
-		if (!f(*str++))
+	while (*s)
+		if (!f(*s++))
 			return (0);
 	return (1);
 }

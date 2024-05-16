@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/15 13:34:01 by otodd            ###   ########.fr       */
+/*   Updated: 2024/05/16 17:02:32 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,8 +127,8 @@ void		*ft_calloc(size_t nmemb, size_t size);
 
 size_t		ft_strlen(const char *s);
 size_t		ft_strlen_n(const char *s);
-size_t		ft_strlcpy(char *dst, const char *src, size_t size);
-size_t		ft_strlcat(char *dst, const char *src, size_t size);
+size_t		ft_strlcpy(char *dest, const char *src, size_t size);
+size_t		ft_strlcat(char *dest, const char *src, size_t size);
 char		*ft_strchr(const char *s, int c);
 char		*ft_strrchr(const char *s, int c);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -155,6 +155,12 @@ int			*ft_range(int min, int max);
 int			ft_max(int *tab, unsigned int len);
 void		ft_free_array(char **array, size_t len);
 size_t		ft_strarraylen(char **array);
+char		**ft_strarraycat(char **dest, char **src);
+char		**ft_strarraystrcat(char **a, char *s);
+char		**ft_strarraycpy(char **dest, char **src);
+char		**ft_strarrayjoin(char **a1, char **a2);
+char		**ft_strarraydup(char **a);
+char		**ft_strarrayappend(char **a, char *s);
 char		*ft_file_extension(char *str);
 
 #endif

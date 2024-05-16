@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 17:35:59 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/14 18:55:41 by otodd            ###   ########.fr       */
+/*   Updated: 2024/05/16 16:46:12 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	length;
+	size_t	l;
 
-	length = 0;
+	l = 0;
 	while (*s++)
-		length++;
-	return (length);
+		l++;
+	return (l);
 }

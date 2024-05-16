@@ -6,22 +6,22 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 16:50:06 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/24 12:18:08 by otodd            ###   ########.fr       */
+/*   Updated: 2024/05/16 16:39:48 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprime(int nb)
+int	ft_isprime(int n)
 {
-	int	index;
+	int	i;
 
-	index = 2;
-	if (nb <= 1)
+	i = 2;
+	if (n <= 1)
 		return (0);
-	while (index <= (nb / 2))
+	while (i <= (n / 2))
 	{
-		if (nb % index == 0)
+		if (n % i == 0)
 			return (0);
-		index++;
+		i++;
 	}
 	return (1);
 }

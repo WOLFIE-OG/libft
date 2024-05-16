@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strarraydup.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/15 17:40:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/05/16 16:39:17 by otodd            ###   ########.fr       */
+/*   Created: 2023/10/22 10:37:59 by otodd             #+#    #+#             */
+/*   Updated: 2024/05/16 16:34:29 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-void	ft_putstr(char *s)
+char	**ft_strarraydup(char **a)
 {
-	while (*s)
-	{
-		ft_putchar(*s);
-		s++;
-	}
+	char	**mem;
+
+	mem = malloc(sizeof(char *) * (ft_strarraylen(a) + 1));
+	if (!mem)
+		return (NULL);
+	return (ft_strarraycpy(mem, a));
 }

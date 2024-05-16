@@ -6,13 +6,13 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 11:07:32 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/14 18:55:39 by otodd            ###   ########.fr       */
+/*   Updated: 2024/05/16 16:49:52 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t			index;
 	size_t			s_len;
@@ -21,15 +21,15 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	index = 0;
 	proxy_s = (unsigned char *)src;
 	s_len = ft_strlen((char *)proxy_s);
-	if (!dst)
+	if (!dest)
 		return (0);
 	if (!size)
 		return (s_len);
 	while (proxy_s[index] && index < size - 1)
 	{
-		dst[index] = proxy_s[index];
+		dest[index] = proxy_s[index];
 		index++;
 	}
-	dst[index] = '\0';
+	dest[index] = '\0';
 	return (s_len);
 }

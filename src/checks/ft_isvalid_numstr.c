@@ -6,18 +6,18 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:07:54 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/13 15:24:08 by otodd            ###   ########.fr       */
+/*   Updated: 2024/05/16 16:40:14 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-int	ft_isvalid_numstr(char *str)
+int	ft_isvalid_numstr(char *s)
 {
-	if (*str == '-' && *(str + 1))
-		str++;
-	while (*str)
-		if (!ft_isdigit(*str++))
+	if (*s == '-' && *(s + 1))
+		s++;
+	while (*s)
+		if (!ft_isdigit(*s++))
 			return (0);
 	return (1);
 }

@@ -6,18 +6,18 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 16:45:08 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/24 16:57:12 by otodd            ###   ########.fr       */
+/*   Updated: 2024/05/16 16:41:03 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
+int	ft_sqrt(int n)
 {
 	long	num;
 
 	num = 1;
-	while (num * num <= nb)
+	while (num * num <= n)
 	{
-		if (num * num == nb)
+		if (num * num == n)
 			return (num);
 		num++;
 	}

@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strarraystrcat.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/15 17:40:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/05/16 16:39:17 by otodd            ###   ########.fr       */
+/*   Created: 2023/10/15 17:20:33 by otodd             #+#    #+#             */
+/*   Updated: 2024/05/16 17:00:38 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
-
-void	ft_putstr(char *s)
+char	**ft_strarraystrcat(char **a, char *s)
 {
-	while (*s)
-	{
-		ft_putchar(*s);
-		s++;
-	}
+	char **const	cat_array = a;
+
+	while (*a)
+		a++;
+	*a++ = s;
+	*a = '\0';
+	return (cat_array);
 }
