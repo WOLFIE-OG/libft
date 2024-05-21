@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strrep.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 09:40:46 by otodd             #+#    #+#             */
-/*   Updated: 2024/05/21 15:16:19 by otodd            ###   ########.fr       */
+/*   Created: 2023/10/30 18:17:45 by otodd             #+#    #+#             */
+/*   Updated: 2024/05/21 15:10:45 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-char	*ft_strstr(char *str, char *to_find)
+size_t	ft_strrep(char const *str, int chr)
 {
-	char	*sub_string;
+	size_t	count;
+	bool	found;
 
-	sub_string = to_find;
+	count = 0;
+	found = false;
 	while (*str)
 	{
-		if (*to_find == '\0')
-			return (str - ft_strlen(sub_string));
-		while (*str == *to_find)
-			to_find++;
+		if (*str == chr && !found)
+			found = true;
+		if (found)
+		{
+			if (*str == chr)
+				count++;
+			else
+				return (count);
+		}
 		str++;
 	}
-	return (NULL);
+	return (count);
 }

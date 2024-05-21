@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strarraychr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 09:40:46 by otodd             #+#    #+#             */
-/*   Updated: 2024/05/21 15:16:19 by otodd            ###   ########.fr       */
+/*   Created: 2023/10/30 18:17:45 by otodd             #+#    #+#             */
+/*   Updated: 2024/05/21 15:13:09 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-char	*ft_strstr(char *str, char *to_find)
+char	*ft_strarraychr(char **a, char **c)
 {
-	char	*sub_string;
+	int	index;
+	int	subindex;
 
-	sub_string = to_find;
-	while (*str)
+	index = 0;
+	while (a[index] != NULL)
 	{
-		if (*to_find == '\0')
-			return (str - ft_strlen(sub_string));
-		while (*str == *to_find)
-			to_find++;
-		str++;
+		subindex = 0;
+		while (c[subindex] != NULL)
+		{
+			if (ft_strcmp(a[index], c[subindex]) == 0)
+				return (a[index]);
+			subindex++;
+		}
+		index++;
 	}
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/05/16 17:05:16 by otodd            ###   ########.fr        #
+#    Updated: 2024/05/21 15:11:59 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,7 +93,8 @@ STRING_SRCS		= 	$(STRING_DIR)/ft_strlen.c 									\
 					$(STRING_DIR)/ft_strcat.c 									\
 					$(STRING_DIR)/ft_strncat.c 									\
 					$(STRING_DIR)/ft_strstr.c 									\
-					$(STRING_DIR)/ft_strcmp.c
+					$(STRING_DIR)/ft_strcmp.c									\
+					$(STRING_DIR)/ft_strrep.c
 
 IO_SRCS			=	$(IO_DIR)/ft_putchar_fd.c 									\
 					$(IO_DIR)/ft_putstr_fd.c 									\
@@ -141,6 +142,7 @@ UTIL_SRCS		=	$(UTIL_DIR)/ft_numlen.c										\
 					$(UTIL_DIR)/ft_strarrayjoin.c								\
 					$(UTIL_DIR)/ft_strarraylen.c								\
 					$(UTIL_DIR)/ft_strarraystrcat.c								\
+					$(UTIL_DIR)/ft_strarraychr.c 								\
 					$(UTIL_DIR)/ft_file_extension.c								
 
 MATH_SRCS		=	$(MATH_DIR)/ft_abs.c										\

@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/05/16 17:02:32 by otodd            ###   ########.fr       */
+/*   Updated: 2024/05/21 15:12:15 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,7 @@ char		*ft_strcat(char *dest, char *src);
 char		*ft_strncat(char *dest, char *src, unsigned int nb);
 char		*ft_strstr(char *str, char *to_find);
 int			ft_strcmp(const char *s1, const char *s2);
+size_t		ft_strrep(char const *str, int chr);
 
 // Util functions
 
@@ -161,6 +162,7 @@ char		**ft_strarraycpy(char **dest, char **src);
 char		**ft_strarrayjoin(char **a1, char **a2);
 char		**ft_strarraydup(char **a);
 char		**ft_strarrayappend(char **a, char *s);
+char		*ft_strarraychr(char **a, char **c);
 char		*ft_file_extension(char *str);
 
 #endif
