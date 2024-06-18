@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/05/21 15:11:59 by otodd            ###   ########.fr        #
+#    Updated: 2024/06/18 17:46:14 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -143,7 +143,8 @@ UTIL_SRCS		=	$(UTIL_DIR)/ft_numlen.c										\
 					$(UTIL_DIR)/ft_strarraylen.c								\
 					$(UTIL_DIR)/ft_strarraystrcat.c								\
 					$(UTIL_DIR)/ft_strarraychr.c 								\
-					$(UTIL_DIR)/ft_file_extension.c								
+					$(UTIL_DIR)/ft_file_extension.c								\
+					$(UTIL_DIR)/ft_key_value.c					
 
 MATH_SRCS		=	$(MATH_DIR)/ft_abs.c										\
 					$(MATH_DIR)/ft_sqrt.c										\
