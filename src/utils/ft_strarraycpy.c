@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 11:07:32 by otodd             #+#    #+#             */
-/*   Updated: 2024/05/16 16:33:07 by otodd            ###   ########.fr       */
+/*   Updated: 2024/06/20 14:51:04 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ char	**ft_strarraycpy(char **dest, char **src)
 		dest[index] = src[index];
 		index++;
 	}
-	dest[index] = '\0';
+	dest[index] = NULL;
 	return (dest);
 }
