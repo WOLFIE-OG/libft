@@ -6,9 +6,11 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 17:20:33 by otodd             #+#    #+#             */
-/*   Updated: 2024/05/16 16:33:29 by otodd            ###   ########.fr       */
+/*   Updated: 2024/06/20 14:46:33 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../../include/libft.h"
 
 char	**ft_strarraycat(char **dest, char **src)
 {
@@ -18,6 +20,6 @@ char	**ft_strarraycat(char **dest, char **src)
 		dest++;
 	while (*src)
 		*dest++ = *src++;
-	*dest = '\0';
+	*dest = NULL;
 	return (cat_array);
 }
