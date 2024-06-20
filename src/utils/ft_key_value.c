@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:57:09 by otodd             #+#    #+#             */
-/*   Updated: 2024/06/18 15:41:58 by otodd            ###   ########.fr       */
+/*   Updated: 2024/06/20 14:53:33 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static char	**create_key_value(char *key, char *value)
 	final = malloc(sizeof(char *) * 3);
 	final[0] = key;
 	final[1] = value;
-	final[2] = '\0';
+	final[2] = NULL;
 	return (final);
 }
 
