@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 17:00:22 by otodd             #+#    #+#             */
-/*   Updated: 2024/06/24 17:13:37 by otodd            ###   ########.fr       */
+/*   Updated: 2024/06/25 00:09:06 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ char	*ft_strarraytostr(char **arr)
 
 	t = 0;
 	i = 0;
-
 	while (arr[i])
 		t += ft_strlen(arr[i++]);
-
 	r = malloc(sizeof(char) * t + 1);
 	if (!r)
 		return (NULL);
