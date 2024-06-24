@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/06/24 17:14:20 by otodd            ###   ########.fr        #
+#    Updated: 2024/06/24 18:05:36 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -136,6 +136,7 @@ UTIL_SRCS		=	$(UTIL_DIR)/ft_numlen.c										\
 					$(UTIL_DIR)/ft_max.c 										\
 					$(UTIL_DIR)/ft_free_array.c 								\
 					$(UTIL_DIR)/ft_strarrayappend.c								\
+					$(UTIL_DIR)/ft_strarrayappend2.c 						\
 					$(UTIL_DIR)/ft_strarraycat.c								\
 					$(UTIL_DIR)/ft_strarraycpy.c								\
 					$(UTIL_DIR)/ft_strarraydup.c								\

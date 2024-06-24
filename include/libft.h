@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/06/24 17:13:59 by otodd            ###   ########.fr       */
+/*   Updated: 2024/06/24 18:05:41 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,6 +162,7 @@ char		**ft_strarraycpy(char **dest, char **src);
 char		**ft_strarrayjoin(char **a1, char **a2);
 char		**ft_strarraydup(char **a);
 char		**ft_strarrayappend(char **a, char *s);
+char		**ft_strarrayappend2(char **a, char *s);
 char		*ft_strarraychr(char **a, char **c);
 char		*ft_strarraytostr(char **arr);
 char		*ft_file_extension(char *str);
