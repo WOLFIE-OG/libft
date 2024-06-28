@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 15:06:25 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/14 18:46:33 by otodd            ###   ########.fr       */
+/*   Updated: 2024/06/28 13:48:20 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ t_list	*ft_lstnew(void *content)
 		return (NULL);
 	new_list->content = content;
 	new_list->next = NULL;
+	new_list->previous = NULL;
 	return (new_list);
 }

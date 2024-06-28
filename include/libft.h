@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/06/24 18:05:41 by otodd            ###   ########.fr       */
+/*   Updated: 2024/06/28 14:12:06 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,9 @@ void		ft_lstdelone(t_list *lst, void (*del)(void *));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int			ft_lstsize(t_list *lst);
+void		ft_lstiter_rev(t_list *lst, void (*f)(void *));
+t_list		*ft_lstfirst(t_list *lst);
+void		ft_lstclear_rev(t_list **lst, void (*del)(void *));
 
 // Math Functions
 

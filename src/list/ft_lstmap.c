@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:21:21 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/14 18:46:30 by otodd            ###   ########.fr       */
+/*   Updated: 2024/06/28 14:05:58 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			ft_lstclear(&result, del);
 			return (NULL);
 		}
+		new_list->next->previous = new_list;
 		new_list = new_list->next;
 		lst = lst->next;
 	}
