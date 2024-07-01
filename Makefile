@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/07/01 15:38:35 by otodd            ###   ########.fr        #
+#    Updated: 2024/07/01 17:37:34 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ OBJ_DIR			= 	obj
 SRC_DIR 		= 	src
 BUILD_DIR		=	build
 MODULES 		= 	$(SRC_DIR)/modules
+ARRAY_DIR		=	$(SRC_DIR)/arrays
 CHECK_DIR		=	$(SRC_DIR)/checks
 STRING_DIR		=	$(SRC_DIR)/strings
 IO_DIR			=	$(SRC_DIR)/io
@@ -34,6 +35,7 @@ LIST_DIR		=	$(SRC_DIR)/list
 UTIL_DIR		=	$(SRC_DIR)/utils
 MATH_DIR		=	$(SRC_DIR)/maths
 
+ARRAY_OBJS		=	$(OBJ_DIR)/arrays
 CHECK_OBJS		=	$(OBJ_DIR)/checks
 STRING_OBJS		=	$(OBJ_DIR)/strings
 IO_OBJS			=	$(OBJ_DIR)/io
@@ -46,6 +48,7 @@ MATH_OBJS		=	$(OBJ_DIR)/maths
 FT_PRINTF_DIR	= 	$(MODULES)/ft_printf
 GNL_DIR 		= 	$(MODULES)/ft_get_next_line
 OBJ_DIRS 		= 	$(OBJ_DIR)													\
+					$(ARRAY_OBJS)												\
 					$(CHECK_OBJS)												\
 					$(STRING_OBJS) 												\
 					$(IO_OBJS)													\
@@ -54,6 +57,18 @@ OBJ_DIRS 		= 	$(OBJ_DIR)													\
 					$(LIST_OBJS)												\
 					$(UTIL_OBJS)												\
 					$(MATH_OBJS)
+
+ARRAY_SRCS		=	$(ARRAY_DIR)/ft_free_array.c 								\
+					$(ARRAY_DIR)/ft_strarrayappend.c							\
+					$(ARRAY_DIR)/ft_strarrayappend2.c 							\
+					$(ARRAY_DIR)/ft_strarraycat.c								\
+					$(ARRAY_DIR)/ft_strarraycpy.c								\
+					$(ARRAY_DIR)/ft_strarraydup.c								\
+					$(ARRAY_DIR)/ft_strarrayjoin.c								\
+					$(ARRAY_DIR)/ft_strarraylen.c								\
+					$(ARRAY_DIR)/ft_strarraystrcat.c							\
+					$(ARRAY_DIR)/ft_strarraychr.c 								\
+					$(ARRAY_DIR)/ft_strarraytostr.c 							\
 
 CHECK_SRCS		=	$(CHECK_DIR)/ft_isdigit.c									\
 					$(CHECK_DIR)/ft_isalpha.c									\
@@ -70,7 +85,8 @@ CHECK_SRCS		=	$(CHECK_DIR)/ft_isdigit.c									\
 					$(CHECK_DIR)/ft_ismath.c									\
 					$(CHECK_DIR)/ft_isoperator.c								\
 					$(CHECK_DIR)/ft_isvalid_numstr.c 							\
-					$(CHECK_DIR)/ft_isvalid_file_path.c
+					$(CHECK_DIR)/ft_isvalid_file_path.c							\
+					$(CHECK_DIR)/ft_is_in_strarray.c 							\
 
 STRING_SRCS		= 	$(STRING_DIR)/ft_strlen.c 									\
 					$(STRING_DIR)/ft_strlen_n.c									\
@@ -138,17 +154,6 @@ LIST_SRCS		= 	$(LIST_DIR)/ft_lstnew.c 									\
 UTIL_SRCS		=	$(UTIL_DIR)/ft_numlen.c										\
 					$(UTIL_DIR)/ft_range.c 										\
 					$(UTIL_DIR)/ft_max.c 										\
-					$(UTIL_DIR)/ft_free_array.c 								\
-					$(UTIL_DIR)/ft_strarrayappend.c								\
-					$(UTIL_DIR)/ft_strarrayappend2.c 						\
-					$(UTIL_DIR)/ft_strarraycat.c								\
-					$(UTIL_DIR)/ft_strarraycpy.c								\
-					$(UTIL_DIR)/ft_strarraydup.c								\
-					$(UTIL_DIR)/ft_strarrayjoin.c								\
-					$(UTIL_DIR)/ft_strarraylen.c								\
-					$(UTIL_DIR)/ft_strarraystrcat.c								\
-					$(UTIL_DIR)/ft_strarraychr.c 								\
-					$(UTIL_DIR)/ft_strarraytostr.c 								\
 					$(UTIL_DIR)/ft_file_extension.c								\
 					$(UTIL_DIR)/ft_key_value.c					
 
@@ -174,7 +179,8 @@ FT_PRINTF_OBJS 	= 	$(FT_PRINTF_DIR)/obj/ft_printf.o 							\
 GNL_OBJS 		= 	$(GNL_DIR)/obj/ft_get_next_line.o 							\
 					$(GNL_DIR)/obj/ft_get_next_line_utils.o
 
-OBJS 			= 	$(CHECK_SRCS:$(CHECK_DIR)/%.c=$(CHECK_OBJS)/%.o) 			\
+OBJS 			= 	$(ARRAY_SRCS:$(ARRAY_DIR)/%.c=$(ARRAY_OBJS)/%.o) 			\
+					$(CHECK_SRCS:$(CHECK_DIR)/%.c=$(CHECK_OBJS)/%.o) 			\
 					$(STRING_SRCS:$(STRING_DIR)/%.c=$(STRING_OBJS)/%.o) 		\
 					$(IO_SRCS:$(IO_DIR)/%.c=$(IO_OBJS)/%.o) 					\
 					$(MEMORY_SRCS:$(MEMORY_DIR)/%.c=$(MEMORY_OBJS)/%.o) 		\
@@ -195,6 +201,10 @@ dir:
 			mkdir -p $$dir; 													\
 		fi; 																	\
 	done
+
+$(ARRAY_OBJS)/%.o: $(ARRAY_DIR)/%.c | dir
+	@echo "[$(CYAN)LIBFT$(NC)]     Compiling $< --> $@"
+	@$(CC) -o $@ -c $< $(CFLAGS) -I../include/libft.h
 
 $(CHECK_OBJS)/%.o: $(CHECK_DIR)/%.c | dir
 	@echo "[$(CYAN)LIBFT$(NC)]     Compiling $< --> $@"

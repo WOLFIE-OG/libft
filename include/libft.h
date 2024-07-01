@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/07/01 15:44:28 by otodd            ###   ########.fr       */
+/*   Updated: 2024/07/01 17:37:08 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,20 @@ typedef struct s_vector4
 	int	w;
 }	t_vector4;
 
+// Array Functions
+
+void		ft_free_array(char **array, size_t len);
+size_t		ft_strarraylen(char **array);
+char		**ft_strarraycat(char **dest, char **src);
+char		**ft_strarraystrcat(char **a, char *s);
+char		**ft_strarraycpy(char **dest, char **src);
+char		**ft_strarrayjoin(char **a1, char **a2);
+char		**ft_strarraydup(char **a);
+char		**ft_strarrayappend(char **a, char *s);
+char		**ft_strarrayappend2(char **a, char *s);
+char		*ft_strarraychr(char **a, char **c);
+char		*ft_strarraytostr(char **arr);
+
 // Check Functions
 
 int			ft_isalpha(int c);
@@ -71,6 +85,7 @@ int			ft_isprime(int nb);
 int			ft_isoperator(int c);
 int			ft_isvalid_numstr(char *str);
 bool		ft_isvalid_file_path(char *path);
+size_t		ft_is_in_strarray(char **a, char *s);
 
 // Converter Functions
 
@@ -158,17 +173,6 @@ size_t		ft_strrep(char const *str, int chr);
 int			ft_numlen(int n);
 int			*ft_range(int min, int max);
 int			ft_max(int *tab, unsigned int len);
-void		ft_free_array(char **array, size_t len);
-size_t		ft_strarraylen(char **array);
-char		**ft_strarraycat(char **dest, char **src);
-char		**ft_strarraystrcat(char **a, char *s);
-char		**ft_strarraycpy(char **dest, char **src);
-char		**ft_strarrayjoin(char **a1, char **a2);
-char		**ft_strarraydup(char **a);
-char		**ft_strarrayappend(char **a, char *s);
-char		**ft_strarrayappend2(char **a, char *s);
-char		*ft_strarraychr(char **a, char **c);
-char		*ft_strarraytostr(char **arr);
 char		*ft_file_extension(char *str);
 char		**ft_key_value(char const *s, char c);
 
