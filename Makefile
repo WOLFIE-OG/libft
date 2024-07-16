@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/07/01 17:37:34 by otodd            ###   ########.fr        #
+#    Updated: 2024/07/16 15:58:23 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ MAGENTA			=	\033[1;35m
 CYAN			=	\033[1;36m
 NC				=	\033[0m
 
-CC				= 	cc
-CFLAGS 			= 	-Wall -Wextra -Werror
+CC				= 	gcc
+CFLAGS 			= 	-Wall -Wextra -Werror -fPIC
 NAME 			= 	libft.a
 OBJ_DIR			= 	obj
 SRC_DIR 		= 	src
