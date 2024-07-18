@@ -6,13 +6,13 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:57:09 by otodd             #+#    #+#             */
-/*   Updated: 2024/06/20 14:53:33 by otodd            ###   ########.fr       */
+/*   Updated: 2024/07/18 17:12:39 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-static char	**create_key_value(char *key, char *value)
+static char	**ft_create_key_value(char *key, char *value)
 {
 	char		**final;
 
@@ -49,5 +49,5 @@ char	**ft_key_value(char const *s, char c)
 			return (NULL);
 		value = NULL;
 	}
-	return (create_key_value(key, value));
+	return (ft_create_key_value(key, value));
 }

@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/07/16 15:58:23 by otodd            ###   ########.fr        #
+#    Updated: 2024/07/18 15:27:52 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CYAN			=	\033[1;36m
 NC				=	\033[0m
 
 CC				= 	gcc
-CFLAGS 			= 	-Wall -Wextra -Werror -fPIC
+CFLAGS 			= 	-Wall -Wextra -Werror -fPIC -g
 NAME 			= 	libft.a
 OBJ_DIR			= 	obj
 SRC_DIR 		= 	src
