@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/07/01 17:37:08 by otodd            ###   ########.fr       */
+/*   Updated: 2024/08/15 15:36:13 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int			ft_lstsize(t_list *lst);
 void		ft_lstiter_rev(t_list *lst, void (*f)(void *));
 t_list		*ft_lstfirst(t_list *lst);
+void		ft_lstinsert(t_list *node, t_list *target_node);
 void		ft_lstclear_rev(t_list **lst, void (*del)(void *));
 t_list		*ft_lstpop(t_list *node);
 

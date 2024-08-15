@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/07/18 15:27:52 by otodd            ###   ########.fr        #
+#    Updated: 2024/08/15 15:36:33 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -148,6 +148,7 @@ LIST_SRCS		= 	$(LIST_DIR)/ft_lstnew.c 									\
 					$(LIST_DIR)/ft_lstsize.c									\
 					$(LIST_DIR)/ft_lstclear_rev.c 								\
 					$(LIST_DIR)/ft_lstfirst.c 									\
+					$(LIST_DIR)/ft_lstinsert.c 									\
 					$(LIST_DIR)/ft_lstiter_rev.c 								\
 					$(LIST_DIR)/ft_lstpop.c 									\
 
