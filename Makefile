@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:49:05 by otodd             #+#    #+#              #
-#    Updated: 2024/08/15 15:36:33 by otodd            ###   ########.fr        #
+#    Updated: 2024/09/12 13:05:31 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,6 +89,7 @@ CHECK_SRCS		=	$(CHECK_DIR)/ft_isdigit.c									\
 					$(CHECK_DIR)/ft_is_in_strarray.c 							\
 
 STRING_SRCS		= 	$(STRING_DIR)/ft_strlen.c 									\
+					$(STRING_DIR)/ft_strappend.c								\
 					$(STRING_DIR)/ft_strlen_n.c									\
 					$(STRING_DIR)/ft_strlcpy.c 									\
 					$(STRING_DIR)/ft_strlcat.c 									\
