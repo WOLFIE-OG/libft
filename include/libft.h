@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:36:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/09/12 13:09:14 by otodd            ###   ########.fr       */
+/*   Updated: 2024/11/07 22:57:20 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,7 +168,7 @@ char		*ft_strcat(char *dest, char *src);
 char		*ft_strncat(char *dest, char *src, unsigned int nb);
 char		*ft_strstr(char *str, char *to_find);
 int			ft_strcmp(const char *s1, const char *s2);
-size_t		ft_strrep(char const *str, int chr);
+size_t		ft_strrep(char const *str, int chr, bool strict);
 
 // Util functions
 

@@ -6,13 +6,13 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:17:45 by otodd             #+#    #+#             */
-/*   Updated: 2024/05/21 15:10:45 by otodd            ###   ########.fr       */
+/*   Updated: 2024/11/07 22:56:57 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-size_t	ft_strrep(char const *str, int chr)
+size_t	ft_strrep(char const *str, int chr, bool strict)
 {
 	size_t	count;
 	bool	found;
@@ -21,6 +21,8 @@ size_t	ft_strrep(char const *str, int chr)
 	found = false;
 	while (*str)
 	{
+		if (strict && *str != chr)
+			return (-1);
 		if (*str == chr && !found)
 			found = true;
 		if (found)
