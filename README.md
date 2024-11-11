@@ -15,5 +15,12 @@ To install and build
   cd libft
   git submodule update --init --recursive
   make
+```
+
+## Testing
+
+To run the tester
+
+```bash
   make test
 ```
