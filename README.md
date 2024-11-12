@@ -4,7 +4,7 @@ This project is your very first project as a student at 42. You will need to rec
 
 ## State
 
-[![Libft Build](https://img.shields.io/github/actions/workflow/status/WOLFIE-OG/libft/makefile.yml?style=for-the-badge)](https://github.com/WOLFIE-OG/libft/actions/workflows/makefile.yml) ![Libft Score](https://img.shields.io/badge/Score-100%2F125-brightgreen?style=for-the-badge)
+[![Libft Build](https://img.shields.io/github/actions/workflow/status/WOLFIE-OG/libft/makefile.yml?style=for-the-badge)](https://github.com/WOLFIE-OG/libft/actions/workflows/makefile.yml) ![Libft Score](https://img.shields.io/badge/Score-100%2F100-brightgreen?style=for-the-badge)
 
 ## Installation & Building
 
